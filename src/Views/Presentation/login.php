@@ -9,17 +9,21 @@
     <title>Polito's</title>
 </head>
 <body>
+<a href="showIndex.php"><img src="../public_html/img/pp_logo_font.png"></a>
 <div>
-    <h3>Log in:</h3>
-    <form action="loginCheck.php" method="POST">
-        Username: <input type="text" name="user" required="required"><br/><br/>
+    <h3>Ik heb een account:</h3>
+    <?php if(!empty($error) && $error == true) print("
+    <p>e-mail en/of wachtwoord zijn niet correct, gelieve opnieuw te proberen</p>
+    ") ?>
+    <form action="loginCheck.php?src=<?php print($src);?>" method="POST">
+        Email: <input type="text" name="email" value="<?php print($custEmail);?>" required="required"><br/><br/>
         Password: <input type="password" name="pwd" required="required"><br/><br/>
         <input type="submit" value="Login">
     </form>
 </div>
 <div>
-    <h3>Registreer:</h3>
-    <form action="register.php">
+    <h3>Ik heb geen account:</h3>
+    <form action="registerScreen.php" method="post">
         <input type="submit" value="Registreer">
     </form>
 </div>

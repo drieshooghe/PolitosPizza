@@ -9,6 +9,7 @@
     <title>Polito's</title>
 </head>
 <body>
+<a href="showIndex.php"><img src="../public_html/img/pp_logo_font.png"></a>
 <h1>Gerechten</h1>
 <table>
     <?php foreach ($list as $item){ ?>

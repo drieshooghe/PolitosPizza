@@ -33,6 +33,8 @@ class Food{
 
     public function getName(){ return $this->name; }
 
+    public function getSize(){ return $this->size; }
+
     public function getPrice(){ return $this->price; }
 
     public function getCategory(){ return $this->category; }

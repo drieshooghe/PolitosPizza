@@ -18,11 +18,9 @@ if(isset($_GET["login"]) && $_GET["login"] == "off"){
 if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true){
     $loginStatus = "Afmelden";
     $loginLink = "showIndex.php?login=off";
-    $orderLink = "orderScreen.php";
 } else {
     $loginStatus = "Aanmelden";
-    $loginLink = "showLoginScreen.php";
-    $orderLink = "showLoginScreen.php";
+    $loginLink = "showLoginScreen.php?src=index";
 }
 
 

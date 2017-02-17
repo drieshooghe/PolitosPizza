@@ -12,9 +12,9 @@ require_once __DIR__.'/../../../vendor/autoload.php';
 
 class LoginSvc{
 
-    public function checkPwd($user, $pwd){
+    public function checkPwd($email, $pwd){
         $login = new LoginDAO();
-        if ($login->getPwdByUser($user) == $pwd){
+        if ($login->getPwdByEmail($email) == $pwd){
             return true;
         } else {
             return false;
@@ -23,7 +23,7 @@ class LoginSvc{
 
     public function getId($user){
         $login = new LoginDAO();
-        $id = $login->getIdByUser($user);
+        $id = $login->getIdByEmail($user);
         return $id;
     }
 }
