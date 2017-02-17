@@ -1,0 +1,22 @@
+{
+    "name": "dries/polito",
+    "description": "ontwerpen van een pizza shop met online bestelmogelijkheden",
+    "require": {
+        "twig/twig": "~2.0"
+    },
+    "authors": [
+        {
+            "name": "dries",
+            "email": "dries.hooghe@outlook.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Controllers\\": "src/Controllers/",
+            "Models\\": "src/Models/",
+            "Templates\\": "src/Templates/",
+            "Views\\": "src/Views/",
+            "Html\\": "src/public_html/"
+        }
+    }
+}
