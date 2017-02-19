@@ -6,10 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Views\\' => array($baseDir . '/src/Views'),
-    'Templates\\' => array($baseDir . '/src/Templates'),
     'Symfony\\Polyfill\\Mbstring\\' => array($vendorDir . '/symfony/polyfill-mbstring'),
-    'Models\\' => array($baseDir . '/src/Models'),
-    'Html\\' => array($baseDir . '/src/public_html'),
-    'Controllers\\' => array($baseDir . '/src/Controllers'),
+    'PolitosPizza\\' => array($baseDir . '/src'),
 );

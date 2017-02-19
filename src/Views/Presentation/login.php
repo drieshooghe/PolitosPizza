@@ -9,14 +9,15 @@
     <title>Polito's</title>
 </head>
 <body>
-<a href="showIndex.php"><img src="../public_html/img/pp_logo_font.png"></a>
+<a href="showIndex.php"><img src="<?php print(getPublicPath("/img/pp_logo_font.png"));?>"></a>
 <div>
+    <h1><?php print($assigns['shitface']);?></h1>
     <h3>Ik heb een account:</h3>
     <?php if(!empty($error) && $error == true) print("
     <p>e-mail en/of wachtwoord zijn niet correct, gelieve opnieuw te proberen</p>
     ") ?>
-    <form action="loginCheck.php?src=<?php print($src);?>" method="POST">
-        Email: <input type="text" name="email" value="<?php print($custEmail);?>" required="required"><br/><br/>
+    <form action="login" method="POST">
+        Email: <input type="text" name="email" value="<?php print($assigns['custEmail']);?>" required="required"><br/><br/>
         Password: <input type="password" name="pwd" required="required"><br/><br/>
         <input type="submit" value="Login">
     </form>

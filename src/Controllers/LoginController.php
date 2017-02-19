@@ -1,8 +1,27 @@
 <?php
 //src/Controllers/login.php
 
-namespace Controllers;
+namespace PolitosPizza\Controllers;
 
+class LoginController extends BaseController {
+
+    public function login(){
+
+        $this->assign('shitface', 'this is value');
+        $this->assign('custEmail', 'blabla@example.com');
+
+        return $this->render('login');
+
+    }
+
+    public function loginCheck() {
+        // TODO: log in the user
+        // TODO: check the session for HTTP_REFERER and refirect to it. If not exists, go to ...
+    }
+
+}
+
+/*
 session_start();
 
 require_once __DIR__.'/../../vendor/autoload.php';
@@ -29,3 +48,4 @@ if (isset($_COOKIE["custEmail"])){
 }
 
 include ("../Views/Presentation/login.php");
+*/

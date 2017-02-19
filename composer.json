@@ -12,11 +12,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Controllers\\": "src/Controllers/",
-            "Models\\": "src/Models/",
-            "Templates\\": "src/Templates/",
-            "Views\\": "src/Views/",
-            "Html\\": "src/public_html/"
+            "PolitosPizza\\": "src/"
         }
     }
 }

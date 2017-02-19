@@ -13,7 +13,7 @@ class CategoryDAO{
 
     public function getCategories(){
         $sql = "SELECT id, category
-                FROM politospizza.FoodCat
+                FROM politospizza.foodcat
                 ORDER BY id";
         $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PWD);
 
