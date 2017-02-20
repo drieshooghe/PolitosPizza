@@ -9,7 +9,7 @@
     <title>Polito's</title>
 </head>
 <body>
-<a href="showIndex.php"><img src="<?php print(getPublicPath("/img/pp_logo_font.png"));?>"></a>
+<a href="<?php print($assigns['home']);?>"><img src="<?php print(getPublicPath("/img/pp_logo_font.png"));?>"></a>
 <div>
     <h1><?php print($assigns['shitface']);?></h1>
     <h3>Ik heb een account:</h3>

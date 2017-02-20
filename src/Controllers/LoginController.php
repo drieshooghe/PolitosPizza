@@ -6,9 +6,9 @@ namespace PolitosPizza\Controllers;
 class LoginController extends BaseController {
 
     public function login(){
-
+        $this->assign('home', getPublicPath(""));
         $this->assign('shitface', 'this is value');
-        $this->assign('custEmail', 'blabla@example.com');
+        $this->assign('custEmail', 'user@example.com');
 
         return $this->render('login');
 
@@ -16,7 +16,7 @@ class LoginController extends BaseController {
 
     public function loginCheck() {
         // TODO: log in the user
-        // TODO: check the session for HTTP_REFERER and refirect to it. If not exists, go to ...
+        // TODO: check the session for HTTP_REFERRER and redirect to it. If not exists, go to ...
     }
 
 }

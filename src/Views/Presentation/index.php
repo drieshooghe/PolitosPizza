@@ -10,16 +10,16 @@
 </head>
 <body>
 <header>
-    <a href="showIndex.php"><img src="../public_html/img/pp_logo_font.png"></a>
-    <a href=<?php print($loginLink);?>><?php print($loginStatus);?></a>
+    <a href="<?php print($assigns['home']);?>"><img src="<?php print(getPublicPath("/img/pp_logo_font.png"));?>"></a>
+    <a href="<?php print($assigns['login']);?>">Aanmelden</a>
 </header>
 <h1>Welkom</h1>
 <div>
     <h2> Momenteel zijn wij: </h2>
-    <img src="../public_html/img/<?php print($status);?>.svg"
+    <img src="<?php print(getPublicPath("/img/").$status.".png");?>.svg"
 </div>
 <div>
-    <h1><a href="orderScreen.php">BESTELLEN</a></h1>
+    <h1><a href="LoginController.php">BESTELLEN</a></h1>
 </div>
 </body>
 </html>
