@@ -7,8 +7,11 @@ class LoginController extends BaseController {
 
     public function login(){
         $this->assign('home', getPublicPath(""));
-        $this->assign('shitface', 'this is value');
-        $this->assign('custEmail', 'user@example.com');
+        if (isset($_COOKIE["custEmail"])){
+            $this->assign('custEmail', $_COOKIE['cutEmail']);
+        } else {
+            $this->assign('custEmail', "Vul hier uw emailadres in");
+        }
 
         return $this->render('login');
 

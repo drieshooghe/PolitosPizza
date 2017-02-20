@@ -52,11 +52,18 @@ class BaseController
     protected function render($template) { // This renders the given template and provides the given assigns
         $assigns = $this->renderAssigns;
 
-        return include("../src/Views/Presentation/" . $template . ".php");
+        ob_start();
+        include("../src/Views/Presentation/" . $template . ".php");
+        $renderedTemplate = ob_get_contents();
+        ob_end_clean();
+        return $renderedTemplate;
     }
 
     protected function redirect($path) { // Redirects to the given path and exits the code
         header("location: " . $GLOBALS['path_subdomain'] . $path);
         exit(0);
     }
+
+
+
 }

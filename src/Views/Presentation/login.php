@@ -11,7 +11,6 @@
 <body>
 <a href="<?php print($assigns['home']);?>"><img src="<?php print(getPublicPath("/img/pp_logo_font.png"));?>"></a>
 <div>
-    <h1><?php print($assigns['shitface']);?></h1>
     <h3>Ik heb een account:</h3>
     <?php if(!empty($error) && $error == true) print("
     <p>e-mail en/of wachtwoord zijn niet correct, gelieve opnieuw te proberen</p>

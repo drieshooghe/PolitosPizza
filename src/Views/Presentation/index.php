@@ -16,7 +16,7 @@
 <h1>Welkom</h1>
 <div>
     <h2> Momenteel zijn wij: </h2>
-    <img src="<?php print(getPublicPath("/img/").$status.".png");?>.svg"
+    <img src="<?php print(getPublicPath("/img/").$assigns['status'].".svg");?>"
 </div>
 <div>
     <h1><a href="LoginController.php">BESTELLEN</a></h1>
