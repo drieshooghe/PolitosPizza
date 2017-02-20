@@ -1,6 +1,6 @@
 <?php
 //src/Controllers/ShowMenu.php
-namespace Controllers;
+namespace PolitosPizza\Controllers;
 
 use Models\Business\CategoryListSvc;
 require '../../vendor/autoload.php';

@@ -1,8 +1,8 @@
 <?php
 //src/Models/Business/CategoryListSvc.php
 
-namespace PolitosPizza\Models\Business;
-use PolitosPizza\Models\Data\CategoryDAO;
+namespace Models\Business;
+use Models\Data\CategoryDAO;
 require_once __DIR__.'/../../../vendor/autoload.php';
 
 

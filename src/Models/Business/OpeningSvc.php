@@ -1,8 +1,8 @@
 <?php
 //src/Models/Business/OpeningSvc.php
-namespace Models\Business;
-use Models\Data\OpeningDAO;
+namespace PolitosPizza\Models\Business;
 
+use PolitosPizza\Models\Data\OpeningDAO;
 
 class OpeningSvc{
 

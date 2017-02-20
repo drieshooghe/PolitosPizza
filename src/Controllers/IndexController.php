@@ -3,7 +3,7 @@
 
 namespace PolitosPizza\Controllers;
 
-use \Models\Business;
+use PolitosPizza\Models\Business\OpeningSvc;
 
 class IndexController extends BaseController {
 
@@ -18,3 +18,7 @@ class IndexController extends BaseController {
 
 
 }
+
+$test = new OpeningSvc();
+$tset = $test->getStatus();
+var_dump($tset);

@@ -2,10 +2,6 @@
 //src/Models/Data/LoginDAO.php
 namespace Models\Data;
 
-require_once __DIR__.'/../../../vendor/autoload.php';
-
-
-
 class LoginDAO{
 
     public function getPwdByEmail($gEmail){
@@ -36,7 +32,3 @@ class LoginDAO{
         return $id;
     }
 }
-
-$test = new LoginDAO();
-$tset = $test->getIdByEmail("dries.hooghe@outlook.com");
-var_dump($tset);

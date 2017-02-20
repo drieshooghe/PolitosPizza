@@ -1,13 +1,7 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: dries
- * Date: 16/02/17
- * Time: 14:05
- */
+//src/Models/Data/OpeningDAO.php
 
-namespace Models\Data;
-
+namespace PolitosPizza\Models\Data;
 
 class OpeningDAO{
 
@@ -29,3 +23,6 @@ class OpeningDAO{
         }
     }
 }
+
+
+
