@@ -2,14 +2,22 @@
 //src/Models/Business/OpeningSvc.php
 namespace PolitosPizza\Models\Business;
 
+use PolitosPizza\Models\Entities\OpeningHours;
 use PolitosPizza\Models\Data\OpeningDAO;
 
 class OpeningSvc{
 
     public function getStatus()
     {
-        $openingDAO = new OpeningDAO();
-        $status = $openingDAO->getOpeningStatus();
-        return $status;
+        $allHours = new OpeningHours();
+        $hours = $allHours->getHoursByDay(date('N'));
+        $now = date('H:i:s');
+        if($now > $hours["starthour"] && $now < $hours["endhour"]){
+            return "open";
+        } else {
+            return "closed";
+        }
+
+        return $hours;
     }
 }

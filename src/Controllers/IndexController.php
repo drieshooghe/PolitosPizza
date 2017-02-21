@@ -4,11 +4,11 @@
 namespace PolitosPizza\Controllers;
 
 use PolitosPizza\Models\Business\OpeningSvc;
+use PolitosPizza\Models\Entities\OpeningHours;
 
 class IndexController extends BaseController {
 
     public function index(){
-        //phpinfo();
 
         $hours = new OpeningSvc();
         $status = $hours->getStatus();
