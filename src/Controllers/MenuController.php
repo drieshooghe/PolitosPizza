@@ -3,7 +3,7 @@
 
 namespace PolitosPizza\Controllers;
 
-use Models\Business\FoodListSvc;
+use PolitosPizza\Models\Business\FoodListSvc;
 use PolitosPizza\Models\Business\CategoryListSvc;
 
 class MenuController extends BaseController {
@@ -12,15 +12,18 @@ class MenuController extends BaseController {
 
         $this->assign('home', getPublicPath(""));
 
+        $FoodDAO = new FoodListSvc();
+        $entrees = $FoodDAO->getFoodByCatId(1);
+        $pizza = $FoodDAO->getFoodByCatId(2);
+        $pasta = $FoodDAO->getFoodByCatId(3);
+        $dessert = $FoodDAO->getFoodByCatId(4);
+        $drinks = $FoodDAO->getFoodByCatId(5);
 
-        $catInst = new CategoryListSvc();
-        $categories = $catInst->getCategoryOverview();
-        $this->assign('category', $categories);
-        $foodInst = new FoodListSvc();
-        $food = $foodInst->getFoodOverview();
-        var_dump($food);
-        $food2 = $foodInst->getFoodByCatId(2);
-        var_dump($food2);
+        $this->assign('entrees', $entrees);
+        $this->assign('pizza', $pizza);
+        $this->assign('pasta', $pasta);
+        $this->assign('dessert', $dessert);
+        $this->assign('drinks', $drinks);
 
         return $this->render('menu');
 

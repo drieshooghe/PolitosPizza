@@ -1,6 +1,6 @@
 <?php
 //src/Models/Entities/Food.php;
-namespace Models\Entities;
+namespace PolitosPizza\Models\Entities;
 
 
 class Food{

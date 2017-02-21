@@ -6,7 +6,7 @@
  * Time: 15:35
  */
 
-namespace Models\Entities;
+namespace PolitosPizza\Models\Entities;
 
 
 class Customer

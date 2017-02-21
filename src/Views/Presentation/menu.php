@@ -27,8 +27,8 @@
     </header>
     <section class="menu">
         <h1>CATEGORIEËN</h1>
-        <?php foreach ($assigns["category"] as $item) {
-            print("<h3>".strtoupper($item->getCategory())."</h3>");
+        <?php foreach ($assigns["entrees"] as $item) {
+            print("<h3>".strtoupper($item->getName()->getName())."</h3>");
 
         } ?>
 

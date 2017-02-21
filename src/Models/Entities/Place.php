@@ -6,7 +6,7 @@
  * Time: 15:48
  */
 
-namespace Models\Entities;
+namespace PolitosPizza\Models\Entities;
 
 
 class Place
