@@ -6,8 +6,8 @@
  * Time: 15:09
  */
 
-namespace Models\Business;
-use Models\Data\LoginDAO;
+namespace PolitosPizza\Models\Business;
+use PolitosPizza\Models\Data\LoginDAO;
 require_once __DIR__.'/../../../vendor/autoload.php';
 
 class LoginSvc{

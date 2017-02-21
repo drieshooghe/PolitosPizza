@@ -1,6 +1,6 @@
 <?php
 //src/Models/Entities/Category.php;
-namespace Models\Entities;
+namespace PolitosPizza\Models\Entities;
 
 
 class Category{

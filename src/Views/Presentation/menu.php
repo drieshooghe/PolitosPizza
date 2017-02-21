@@ -7,18 +7,35 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Polito's</title>
+    <style>
+        html{
+            font-family: Arial;
+        }
+        section.menu{
+            width: 60%;
+            float: left;
+        }
+        section.cart{
+            width: 30%;
+            float: right;
+        }
+    </style>
 </head>
 <body>
-<a href="showIndex.php"><img src="../public_html/img/pp_logo_font.png"></a>
-    <h1>Categorieën</h1>
-    <table>
-        <?php foreach ($list as $item){ ?>
-        <tr>
-            <td>
-                <a href="ShowDishes.php?dish=<?php print($item->getId())?>"> <?php print($item->getCategory()); ?></a>
-            </td>
-        </tr>
-        <?php } ?>
-    </table>
+    <header>
+        <a href="<?php print($assigns['home']);?>"><img src="<?php print(getPublicPath("/img/pp_logo_font.png"));?>"></a>
+    </header>
+    <section class="menu">
+        <h1>CATEGORIEËN</h1>
+        <?php foreach ($assigns["category"] as $item) {
+            print("<h3>".strtoupper($item->getCategory())."</h3>");
+
+        } ?>
+
+
+    </section>
+    <section class="cart">
+        <h2>UW BESTELLING</h2>
+    </section>
 </body>
 </html>

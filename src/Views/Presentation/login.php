@@ -11,11 +11,12 @@
 <body>
 <a href="<?php print($assigns['home']);?>"><img src="<?php print(getPublicPath("/img/pp_logo_font.png"));?>"></a>
 <div>
+    <?php if(!empty($assigns['wrongPwd']) && $assigns['wrongPwd'] == true){ print("<p>U gaf een verkeerde gebruikersnaam of wachtwoord, probeer opnieuw</p>");}?>
     <h3>Ik heb een account:</h3>
     <?php if(!empty($error) && $error == true) print("
     <p>e-mail en/of wachtwoord zijn niet correct, gelieve opnieuw te proberen</p>
     ") ?>
-    <form action="login" method="POST">
+    <form action="<?php print($assigns['login']);?>" method="POST">
         Email: <input type="text" name="email" value="<?php print($assigns['custEmail']);?>" required="required"><br/><br/>
         Password: <input type="password" name="pwd" required="required"><br/><br/>
         <input type="submit" value="Login">

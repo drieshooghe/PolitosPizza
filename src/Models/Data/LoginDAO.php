@@ -1,6 +1,6 @@
 <?php
 //src/Models/Data/LoginDAO.php
-namespace Models\Data;
+namespace PolitosPizza\Models\Data;
 
 class LoginDAO{
 

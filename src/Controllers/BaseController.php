@@ -52,6 +52,10 @@ class BaseController
     protected function render($template) { // This renders the given template and provides the given assigns
         $assigns = $this->renderAssigns;
 
+        /**
+         * ob_start() [start listening] turns on output buffering, it catches everything from here to ob_end_clean()
+         * the output itself is stored in ob_get_contents()
+         */
         ob_start();
         include("../src/Views/Presentation/" . $template . ".php");
         $renderedTemplate = ob_get_contents();

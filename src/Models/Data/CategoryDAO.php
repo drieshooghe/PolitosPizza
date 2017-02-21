@@ -1,13 +1,9 @@
 <?php
 //src/Models/Data/CategoryDAO.php
-namespace Models\Data;
+namespace PolitosPizza\Models\Data;
 
 use PDO;
-use Models\Entities\Category;
-
-require_once ("DBConfig.php");
-require_once __DIR__.'/../../../vendor/autoload.php';
-
+use PolitosPizza\Models\Entities\Category;
 
 class CategoryDAO{
 

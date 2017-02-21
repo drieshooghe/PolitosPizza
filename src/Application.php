@@ -11,6 +11,7 @@ namespace PolitosPizza;
 use PolitosPizza\Controllers\ErrorController;
 use PolitosPizza\Controllers\IndexController;
 use PolitosPizza\Controllers\LoginController;
+use PolitosPizza\Controllers\MenuController;
 
 class Application{
 
@@ -119,8 +120,8 @@ class Application{
                 return array(IndexController::class, "index");
             } elseif ($path === "/login"){
                 return array(LoginController::class, "login");
-            } elseif ($path === "/showMenu"){
-                echo("Menu");
+            } elseif ($path === "/menu"){
+                return array(MenuController::class, "menu");
             }
         }
 

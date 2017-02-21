@@ -9,6 +9,11 @@ use PolitosPizza\Models\Entities\OpeningHours;
 class IndexController extends BaseController {
 
     public function index(){
+        if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true){
+                $this->assign('loginValue', 'Afmelden');
+            } else {
+                $this->assign('loginValue', 'Aanmelden');
+            }
 
         $hours = new OpeningSvc();
         $status = $hours->getStatus();
@@ -16,8 +21,10 @@ class IndexController extends BaseController {
         $this->assign('home', getPublicPath(""));
         $this->assign('login', getPublicPath("/login"));
         $this->assign('status', $status);
+        $this->assign('menu', getPublicPath("/menu"));
 
         return $this->render('index');
+
     }
 
 }

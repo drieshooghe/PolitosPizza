@@ -11,7 +11,7 @@
 <body>
 <header>
     <a href="<?php print($assigns['home']);?>"><img src="<?php print(getPublicPath("/img/pp_logo_font.png"));?>"></a>
-    <a href="<?php print($assigns['login']);?>">Aanmelden</a>
+    <a href="<?php print($assigns['login']);?>"><?php print($assigns['loginValue']);?></a>
 </header>
 <h1>Welkom</h1>
 <div>
@@ -19,7 +19,7 @@
     <img src="<?php print(getPublicPath("/img/").$assigns['status'].".svg");?>"
 </div>
 <div>
-    <h1><a href="LoginController.php">BESTELLEN</a></h1>
+    <h1><a href="<?php print($assigns["menu"]);?>">BESTELLEN</a></h1>
 </div>
 </body>
 </html>

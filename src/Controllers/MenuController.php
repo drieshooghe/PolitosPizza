@@ -1,12 +1,29 @@
 <?php
-//src/Controllers/ShowMenu.php
+//src/Controllers/MenuController.php
+
 namespace PolitosPizza\Controllers;
 
-use Models\Business\CategoryListSvc;
-require '../../vendor/autoload.php';
+use Models\Business\FoodListSvc;
+use PolitosPizza\Models\Business\CategoryListSvc;
 
-session_start();
+class MenuController extends BaseController {
 
-$cat = new CategoryListSvc();
-$list = $cat->getCategoryOverview();
-include("../Views/Presentation/menu.php");
+    public function menu(){
+
+        $this->assign('home', getPublicPath(""));
+
+
+        $catInst = new CategoryListSvc();
+        $categories = $catInst->getCategoryOverview();
+        $this->assign('category', $categories);
+        $foodInst = new FoodListSvc();
+        $food = $foodInst->getFoodOverview();
+        var_dump($food);
+        $food2 = $foodInst->getFoodByCatId(2);
+        var_dump($food2);
+
+        return $this->render('menu');
+
+    }
+
+}
