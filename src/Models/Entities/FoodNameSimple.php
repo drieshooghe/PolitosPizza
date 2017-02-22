@@ -9,23 +9,25 @@
 namespace PolitosPizza\Models\Entities;
 
 
-class FoodName{
+class FoodNameSimple{
 
     private static $idMap = array();
 
     private $id;
     private $name;
     private $desc;
+    private $cat;
 
-    private function __construct($gId, $gName, $gDesc){
+    private function __construct($gId, $gName, $gDesc, $gCat){
         $this->id = $gId;
         $this->name = $gName;
         $this->desc = $gDesc;
+        $this->cat = $gCat;
     }
 
-    public static function create($gId, $gName, $gDesc){
+    public static function create($gId, $gName, $gDesc, $gCat){
         if (!isset(self::$idMap[$gId])){
-            self::$idMap[$gId] = new FoodName($gId, $gName, $gDesc);
+            self::$idMap[$gId] = new FoodNameSimple($gId, $gName, $gDesc, $gCat);
         }
         return self::$idMap[$gId];
     }
@@ -35,5 +37,7 @@ class FoodName{
     public function getName(){ return $this->name; }
 
     public function getDesc(){ return $this->desc; }
-    
+
+    public function getCat(){ return $this->cat; }
+
 }

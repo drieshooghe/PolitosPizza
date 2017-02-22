@@ -18,6 +18,12 @@ class FoodListSvc{
         return $list;
     }
 
+    public function getFoodNameByCatId($cat){
+        $foodDAO = new FoodDAO();
+        $list = $foodDAO->getFoodNameByCatId($cat);
+        return $list;
+    }
+
     /*public function getFoodNameOverview(){
         $foodDAO = new FoodDAO();
         $list = $foodDAO->getFood();
