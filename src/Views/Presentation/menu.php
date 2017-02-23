@@ -104,6 +104,20 @@
 
     <section class="cart">
         <h2>UW BESTELLING</h2>
+        <table>
+            <tr>
+                <th>Naam</th>
+                <th>Maat</th>
+                <th>Hoeveelheid</th>
+            </tr>
+            <?php foreach ($assigns['orderlines'] as $item){ ?>
+                <tr>
+                    <td><?php print($item->getName());?></td>
+                    <td><?php if($item->getSize() != "N"){print($item->getSize());}?></td>
+                    <td><?php print($item->getQuantity());?></td>
+                </tr>
+            <?php } ?>
+        </table>
         <form action="<?php print($assigns['menu']);?>" method="GET">
             <input type="hidden" name="process" value="reset">
             <input type="submit" value="Reset">

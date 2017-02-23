@@ -45,12 +45,24 @@ class MenuController extends BaseController {
                 if(isset($_GET["sizeId"])){ $sizeId = $_GET["sizeId"]; } else { $sizeId = "1";}
                 foreach ($_SESSION["foodOverview"] as $item){
                     if($item->getName()->getId() == $nameId && $item->getSize()->getId() == $sizeId){
-                    $foodId = $item->getId();
+                    $id = $item->getId();
+                    $name = $item->getName()->getName();
+                    $size = $item->getSize()->getSize();
                     }
                 }
-               $line = Orderline::create($foodId, $qty);
-               array_push($_SESSION['orderlines'], $line);
+                $line = Orderline::create($id, $qty, $name, $size);
+                array_push($_SESSION['orderlines'], $line);
             }
+
+            /**
+             * Showing orderline name, size and quantity
+             */
+            if(isset($_SESSION['orderlines'])){
+                $this->assign('orderlines', $_SESSION['orderlines']);
+            } else {
+                $this->assign('orderlines', NULL);
+            }
+
 
             $this->assign('home', getPublicPath(""));
             $this->assign('menu', getPublicPath("/menu"));

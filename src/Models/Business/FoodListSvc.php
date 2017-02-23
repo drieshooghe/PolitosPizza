@@ -24,6 +24,7 @@ class FoodListSvc{
         return $list;
     }
 
+
     /*public function getFoodNameOverview(){
         $foodDAO = new FoodDAO();
         $list = $foodDAO->getFood();
