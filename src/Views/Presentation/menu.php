@@ -128,7 +128,7 @@
             <?php } ?>
             <tr>
                 <td colspan="3">Totaal: </td>
-                <td><?php print($assigns['totPrice']);?></td>
+                <td><?php print("€".$assigns['totPrice']);?></td>
             </tr>
         </table>
         <form action="<?php print($assigns['menu']);?>" method="GET">

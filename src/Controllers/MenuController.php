@@ -4,29 +4,32 @@
 namespace PolitosPizza\Controllers;
 
 use PolitosPizza\Models\Business\FoodListSvc;
-use PolitosPizza\Models\Business\CategoryListSvc;
 use PolitosPizza\Models\Business\OrderlineSvc;
-use PolitosPizza\Models\Business\SearchArraySvc;
 use PolitosPizza\Models\Data\FoodDAO;
-use PolitosPizza\Models\Entities\FoodName;
 use PolitosPizza\Models\Entities\Orderline;
 
 class MenuController extends BaseController {
 
         public function menu(){
+
             /**
              * Loading the entire food database once, so no extra requests are required
-             * starting a $_SESSION['orderlines']
              */
             if(!isset($_SESSION["foodOverview"])){
-                $FoodDAO = new FoodDAO();
-                $_SESSION["foodOverview"] = $FoodDAO->getFood();
+                $OLS = new OrderlineSvc();
+                $OLS->startFoodListSession();
             }
+
+            /** Start OLSession if not started */
             if(!isset($_SESSION['orderlines'])){
-                $_SESSION['orderlines'] = array();
+                $OLS = new OrderlineSvc();
+                $OLS->startOLSession();
             }
+
+            /** Delete orderline */
             if(isset($_GET["action"]) && $_GET["action"] == "del"){
-                unset($_SESSION["orderlines"][$_GET["item"]]);
+                $OLS = new OrderlineSvc();
+                $OLS->delOL($_GET["item"]);
             }
 
             /**
@@ -35,8 +38,8 @@ class MenuController extends BaseController {
              */
             if(isset($_GET["process"])){
                 if($_GET["process"] == "reset"){
-                    unset($_SESSION["orderlines"]);
-                    $_SESSION["orderlines"] = array();
+                    $OLS = new OrderlineSvc();
+                    $OLS->resetOLSession();
                 }
             }
 
@@ -48,19 +51,9 @@ class MenuController extends BaseController {
              * when checking out, this session is sent to the database
              */
             if(isset($_GET["id"]) && isset($_GET["quantity"])){
-                $nameId = $_GET["id"];
-                $qty = $_GET["quantity"];
                 if(isset($_GET["sizeId"])){ $sizeId = $_GET["sizeId"]; } else { $sizeId = "1";}
-                foreach ($_SESSION["foodOverview"] as $item){
-                    if($item->getName()->getId() == $nameId && $item->getSize()->getId() == $sizeId){
-                        $id = $item->getId();
-                        $name = $item->getName()->getName();
-                        $size = $item->getSize()->getSize();
-                        $price = $item->getPrice();
-                    }
-                }
-                $orderline = Orderline::create($id, $qty, $name, $size, $price);
-                array_push($_SESSION['orderlines'], $orderline);
+                $OLS = new OrderlineSvc();
+                $OLS->addOL($_GET["id"], $sizeId, $_GET["quantity"]);
             }
 
 
@@ -77,10 +70,9 @@ class MenuController extends BaseController {
             /**
              * Calculate total price
              */
-            $totPrice = 0;
-            foreach ($_SESSION['orderlines'] as $item){
-                $totPrice += $item->getPrice();
-            }
+            $OLS = new OrderlineSvc();
+            $totPrice = $OLS->calcTotal();
+
 
 
             $this->assign('home', getPublicPath(""));
