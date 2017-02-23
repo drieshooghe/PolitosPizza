@@ -16,10 +16,14 @@ class MenuController extends BaseController {
         public function menu(){
             /**
              * Loading the entire food database once, so no extra requests are required
+             * starting a $_SESSION['orderlines']
              */
             if(!isset($_SESSION["foodOverview"])){
                 $FoodDAO = new FoodDAO();
                 $_SESSION["foodOverview"] = $FoodDAO->getFood();
+            }
+            if(!isset($_SESSION['orderlines'])){
+                $_SESSION['orderlines'] = array();
             }
 
             /**
@@ -33,6 +37,7 @@ class MenuController extends BaseController {
                 }
             }
 
+
             /**
              * If the request method is set for a foodNameId, (sizeId) and quantity
              * We look for the corresponding foodId in $_SESSION["foodOverview"]
@@ -45,23 +50,26 @@ class MenuController extends BaseController {
                 if(isset($_GET["sizeId"])){ $sizeId = $_GET["sizeId"]; } else { $sizeId = "1";}
                 foreach ($_SESSION["foodOverview"] as $item){
                     if($item->getName()->getId() == $nameId && $item->getSize()->getId() == $sizeId){
-                    $id = $item->getId();
-                    $name = $item->getName()->getName();
-                    $size = $item->getSize()->getSize();
+                        $id = $item->getId();
+                        $name = $item->getName()->getName();
+                        $size = $item->getSize()->getSize();
                     }
                 }
-                $line = Orderline::create($id, $qty, $name, $size);
-                array_push($_SESSION['orderlines'], $line);
+                $orderline = Orderline::create($id, $qty, $name, $size);
+                array_push($_SESSION['orderlines'], $orderline);
             }
 
+
             /**
-             * Showing orderline name, size and quantity
+             * If a $_SESSION['orderlines'] is set, assign it
              */
             if(isset($_SESSION['orderlines'])){
                 $this->assign('orderlines', $_SESSION['orderlines']);
             } else {
                 $this->assign('orderlines', NULL);
             }
+
+
 
 
             $this->assign('home', getPublicPath(""));
