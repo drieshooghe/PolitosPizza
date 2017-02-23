@@ -28,6 +28,7 @@ class BaseController
      */
     public function __construct() {
         $this->renderAssigns = [];
+        $this->twigEnvironment = null;
     }
 
     /**
@@ -44,23 +45,18 @@ class BaseController
     protected function assign($key, $value) { // Assign a value to a specific key for usage in the templates
         $this->renderAssigns[$key] = $value;
     }
+
     /**
      * render($template)
      *
      * Renders the given template name
      */
     protected function render($template) { // This renders the given template and provides the given assigns
-        $assigns = $this->renderAssigns;
+        $twig = $this->getTwigEnvironment();
 
-        /**
-         * ob_start() [start listening] turns on output buffering, it catches everything from here to ob_end_clean()
-         * the output itself is stored in ob_get_contents()
-         */
-        ob_start();
-        include("../src/Views/Presentation/" . $template . ".php");
-        $renderedTemplate = ob_get_contents();
-        ob_end_clean();
-        return $renderedTemplate;
+        // Render and return output
+        $html = $twig->render($template . '.twig', $this->renderAssigns);
+        return $html;
     }
 
     protected function redirect($path) { // Redirects to the given path and exits the code
@@ -68,6 +64,20 @@ class BaseController
         exit(0);
     }
 
+    protected function getTwigEnvironment() {
+        // Make loader and environment when not already created
+        if (is_null($this->twigEnvironment)) {
+            $loader = new \Twig_Loader_Filesystem('../resources/views');
+            $twig = new \Twig_Environment($loader);
+
+            $function = new \Twig_SimpleFunction('path', 'getPublicPath');
+            $twig->addFunction($function);
+
+            $this->twigEnvironment = $twig;
+        }
+
+        return $this->twigEnvironment;
+    }
 
 
 }

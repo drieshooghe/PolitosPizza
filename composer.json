@@ -2,7 +2,7 @@
     "name": "dries/polito",
     "description": "ontwerpen van een pizza shop met online bestelmogelijkheden",
     "require": {
-        "twig/twig": "~2.0"
+        "twig/twig": "~1.0"
     },
     "authors": [
         {
