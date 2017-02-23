@@ -15,18 +15,19 @@ class Orderline{
 
     private $line = array();
 
-    private function __construct($gFoodId, $gQuantity, $gFoodName, $gFoodSize){
+    private function __construct($gFoodId, $gQuantity, $gFoodName, $gFoodSize, $gPrice){
         $this->line = array(
             'foodId' => $gFoodId,
             'quantity' => $gQuantity,
             'foodName' => $gFoodName,
-            'foodSize' => $gFoodSize
+            'foodSize' => $gFoodSize,
+            'price' => ($gQuantity*$gPrice)
         );
     }
 
-    public static function create($gFoodId, $gQuantity, $gFoodName, $gFoodSize){
+    public static function create($gFoodId, $gQuantity, $gFoodName, $gFoodSize, $gPrice){
         if (!isset(self::$idMap[$gFoodId])){
-            self::$idMap[$gFoodId] = new Orderline($gFoodId, $gQuantity, $gFoodName, $gFoodSize);
+            self::$idMap[$gFoodId] = new Orderline($gFoodId, $gQuantity, $gFoodName, $gFoodSize, $gPrice);
         }
         return self::$idMap[$gFoodId];
     }
@@ -38,5 +39,7 @@ class Orderline{
     public function getName(){ return $this->line["foodName"]; }
 
     public function getSize(){ return $this->line["foodSize"]; }
+
+    public function getPrice(){ return $this->line["price"]; }
 
 }

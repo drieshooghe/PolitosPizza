@@ -115,17 +115,20 @@
                 <th>Maat</th>
                 <th>Hoeveelheid</th>
                 <th>Prijs</th>
+                <th></th>
             </tr>
-            <?php foreach ($assigns['orderlines'] as $item){ ?>
+            <?php foreach ($assigns['orderlines'] as $key=>$item){ ?>
                 <tr>
                     <td><?php print($item->getName());?></td>
                     <td><?php if($item->getSize() != "N"){print($item->getSize());}else{print("/");}?></td>
                     <td><?php print($item->getQuantity());?></td>
+                    <td><?php print($item->getPrice());?></td>
+                    <td><a href="<?php print($assigns['menu']."?action=del&item=".$key);?>">DELETE</a> </td>
                 </tr>
             <?php } ?>
             <tr>
                 <td colspan="3">Totaal: </td>
-                <td>Prijs</td>
+                <td><?php print($assigns['totPrice']);?></td>
             </tr>
         </table>
         <form action="<?php print($assigns['menu']);?>" method="GET">

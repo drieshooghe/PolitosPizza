@@ -25,6 +25,9 @@ class MenuController extends BaseController {
             if(!isset($_SESSION['orderlines'])){
                 $_SESSION['orderlines'] = array();
             }
+            if(isset($_GET["action"]) && $_GET["action"] == "del"){
+                unset($_SESSION["orderlines"][$_GET["item"]]);
+            }
 
             /**
              * If the request method asks to reset, the current session is unset
@@ -53,9 +56,10 @@ class MenuController extends BaseController {
                         $id = $item->getId();
                         $name = $item->getName()->getName();
                         $size = $item->getSize()->getSize();
+                        $price = $item->getPrice();
                     }
                 }
-                $orderline = Orderline::create($id, $qty, $name, $size);
+                $orderline = Orderline::create($id, $qty, $name, $size, $price);
                 array_push($_SESSION['orderlines'], $orderline);
             }
 
@@ -70,6 +74,13 @@ class MenuController extends BaseController {
             }
 
 
+            /**
+             * Calculate total price
+             */
+            $totPrice = 0;
+            foreach ($_SESSION['orderlines'] as $item){
+                $totPrice += $item->getPrice();
+            }
 
 
             $this->assign('home', getPublicPath(""));
@@ -87,6 +98,8 @@ class MenuController extends BaseController {
             $this->assign('pasta', $pasta);
             $this->assign('dessert', $dessert);
             $this->assign('drinks', $drinks);
+            $this->assign('totPrice', $totPrice);
+
 
             return $this->render('menu');
 
