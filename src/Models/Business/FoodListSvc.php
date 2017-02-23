@@ -25,15 +25,4 @@ class FoodListSvc{
     }
 
 
-    /*public function getFoodNameOverview(){
-        $foodDAO = new FoodDAO();
-        $list = $foodDAO->getFood();
-        $names = array();
-        foreach ($list as $item){
-            $row = $item->getName()->getName();
-            array_push($names, $row);
-        }
-        return $names;
-    }*/
-
 }

@@ -76,11 +76,11 @@ class MenuController extends BaseController {
             $this->assign('menu', getPublicPath("/menu"));
 
             $FoodDAO = new FoodListSvc();
-            $entrees = $FoodDAO->getFoodNameByCatId(1);
-            $pizza = $FoodDAO->getFoodNameByCatId(2);
-            $pasta = $FoodDAO->getFoodNameByCatId(3);
-            $dessert = $FoodDAO->getFoodNameByCatId(4);
-            $drinks = $FoodDAO->getFoodNameByCatId(5);
+            $entrees = $FoodDAO->getFoodByCatId(1);
+            $pizza = $FoodDAO->getFoodByCatId(2);
+            $pasta = $FoodDAO->getFoodByCatId(3);
+            $dessert = $FoodDAO->getFoodByCatId(4);
+            $drinks = $FoodDAO->getFoodByCatId(5);
 
             $this->assign('entrees', $entrees);
             $this->assign('pizza', $pizza);

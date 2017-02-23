@@ -16,18 +16,18 @@ class FoodNameSimple{
     private $id;
     private $name;
     private $desc;
-    private $cat;
+    private $price;
 
-    private function __construct($gId, $gName, $gDesc, $gCat){
+    private function __construct($gId, $gName, $gDesc, $gPrice){
         $this->id = $gId;
         $this->name = $gName;
         $this->desc = $gDesc;
-        $this->cat = $gCat;
+        $this->price = $gPrice;
     }
 
-    public static function create($gId, $gName, $gDesc, $gCat){
+    public static function create($gId, $gName, $gDesc, $gPrice){
         if (!isset(self::$idMap[$gId])){
-            self::$idMap[$gId] = new FoodNameSimple($gId, $gName, $gDesc, $gCat);
+            self::$idMap[$gId] = new FoodNameSimple($gId, $gName, $gDesc, $gPrice);
         }
         return self::$idMap[$gId];
     }
@@ -38,6 +38,6 @@ class FoodNameSimple{
 
     public function getDesc(){ return $this->desc; }
 
-    public function getCat(){ return $this->cat; }
+    public function getPrice(){ return $this->price; }
 
 }

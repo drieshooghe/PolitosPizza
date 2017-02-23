@@ -44,6 +44,7 @@
         <?php foreach ($assigns["entrees"] as $item) {?>
             <h5><?php print(strtoupper($item->getName()));?></h5>
             <p><?php print($item->getDesc());?></p>
+            <p>Prijs: €<?php print($item->getPrice()); ?></p>
             <form action="<?php print($assigns['menu']);?>" method="GET">
                 <input type="hidden" name="id" value="<?php print($item->getId());?>">
                 Aantal: <input type="number" name="quantity" value="Aantal" min=0>
@@ -55,6 +56,7 @@
         <?php foreach ($assigns["pizza"] as $item) {?>
             <h5><?php print(strtoupper($item->getName()));?></h5>
             <p><?php print($item->getDesc());?></p>
+            <p>Prijs: €<?php print($item->getPrice()); ?></p>
             <form action="<?php print($assigns['menu']);?>" method="GET">
                 <input type="hidden" name="id" value="<?php print($item->getId());?>">
                 <select name="sizeId">
@@ -71,6 +73,7 @@
         <?php foreach ($assigns["pasta"] as $item) {?>
             <h5><?php print(strtoupper($item->getName()));?></h5>
             <p><?php print($item->getDesc());?></p>
+            <p>Prijs: €<?php print($item->getPrice()); ?></p>
             <form action="<?php print($assigns['menu']);?>" method="GET">
                 <input type="hidden" name="id" value="<?php print($item->getId());?>">
                 Aantal: <input type="number" name="quantity" value="Aantal" min=0>
@@ -82,6 +85,7 @@
         <?php foreach ($assigns["dessert"] as $item) {?>
             <h5><?php print(strtoupper($item->getName()));?></h5>
             <p><?php print($item->getDesc());?></p>
+            <p>Prijs: €<?php print($item->getPrice()); ?></p>
             <form action="<?php print($assigns['menu']);?>" method="GET">
                 <input type="hidden" name="id" value="<?php print($item->getId());?>">
                 Aantal: <input type="number" name="quantity" value="Aantal" min=0>
@@ -93,6 +97,7 @@
         <?php foreach ($assigns["drinks"] as $item) {?>
             <h5><?php print(strtoupper($item->getName()));?></h5>
             <p><?php print($item->getDesc());?></p>
+            <p>Prijs: €<?php print($item->getPrice()); ?></p>
             <form action="<?php print($assigns['menu']);?>" method="GET">
                 <input type="hidden" name="id" value="<?php print($item->getId());?>">
                 Aantal: <input type="number" name="quantity" value="Aantal" min=0>
@@ -109,14 +114,19 @@
                 <th>Naam</th>
                 <th>Maat</th>
                 <th>Hoeveelheid</th>
+                <th>Prijs</th>
             </tr>
             <?php foreach ($assigns['orderlines'] as $item){ ?>
                 <tr>
                     <td><?php print($item->getName());?></td>
-                    <td><?php if($item->getSize() != "N"){print($item->getSize());}?></td>
+                    <td><?php if($item->getSize() != "N"){print($item->getSize());}else{print("/");}?></td>
                     <td><?php print($item->getQuantity());?></td>
                 </tr>
             <?php } ?>
+            <tr>
+                <td colspan="3">Totaal: </td>
+                <td>Prijs</td>
+            </tr>
         </table>
         <form action="<?php print($assigns['menu']);?>" method="GET">
             <input type="hidden" name="process" value="reset">
