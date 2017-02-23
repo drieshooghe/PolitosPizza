@@ -8,17 +8,15 @@
 
 namespace PolitosPizza\Models\Business;
 use PolitosPizza\Models\Data\LoginDAO;
-require_once __DIR__.'/../../../vendor/autoload.php';
 
 class LoginSvc{
 
     public function checkPwd($email, $pwd){
-        $login = new LoginDAO();
-        if ($login->getPwdByEmail($email) == $pwd){
-            return true;
-        } else {
-            return false;
-        }
+        $loginDAO = new LoginDAO();
+        $check = $loginDAO->getPwdByEmail($email);
+        $hash = $pwd;
+        $answer = $loginDAO->verifyPwd($hash, $check);
+        return $answer;
     }
 
     public function getId($user){
@@ -26,4 +24,6 @@ class LoginSvc{
         $id = $login->getIdByEmail($user);
         return $id;
     }
+
+
 }

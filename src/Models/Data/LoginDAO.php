@@ -31,4 +31,55 @@ class LoginDAO{
         $id = $resultSet["id"];
         return $id;
     }
+
+    public function getPlaceId($gPostCode, $gTown){
+        $sql = "SELECT placeId
+                FROM places
+                WHERE places.postCode = :code AND places.town = :town";
+        $dbh = new \PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PWD);
+
+        $stmt = $dbh->prepare($sql);
+        $stmt->execute(array(':code' => $gPostCode, ':town' => strtoupper ($gTown)));
+        $result = $stmt->fetch();
+        return $result["placeId"];
+    }
+
+    public function setHash($gPwd){
+        $hash = password_hash($gPwd, PASSWORD_DEFAULT);
+        return $hash;
+    }
+
+    public function verifyPwd($pwd, $hash){
+        return(password_verify($pwd, $hash));
+    }
+
+
+
+    public function addUser($gFirstName, $gFamName, $gAdres, $gPostCode, $gTown, $gPhone, $gMobile, $gEmail, $gPwd){
+
+        $loginDAO = new LoginDAO();
+        $placeId = $loginDAO->getPlaceId($gPostCode, $gTown);
+        $hashword = $loginDAO->setHash($gPwd);
+
+        $sql = "INSERT INTO logindata (pwd) VALUES(:pwd)";
+        $dbh = new \PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PWD);
+        $stmt = $dbh->prepare($sql);
+        $stmt->execute(array(':pwd' => $hashword));
+        $loginId = $dbh->lastInsertId();
+
+        $sql = "INSERT INTO customers (firstName, famName, adres, placeId, phoneNr, mobileNr, email, loginId)
+                VALUES (:firstN, :famName, :adres, :placeId, :phone, :mobile, :email, :login)";
+
+        $stmt = $dbh->prepare($sql);
+        $stmt->execute(array(   ':firstN' => $gFirstName,
+                                ':famName' => $gFamName,
+                                ':adres' => $gAdres,
+                                ':placeId' => $placeId,
+                                ':phone' => $gPhone,
+                                ':mobile' => $gMobile,
+                                ':email' => $gEmail,
+                                ':login' => $loginId));
+        $dbh = null;
+    }
+
 }

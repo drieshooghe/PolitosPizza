@@ -37,7 +37,7 @@ class LoginController extends BaseController {
     }
 
     public function loginCheck() { //When request method POST is detected
-        // TODO: log in the user
+        // TODO: encrypt Pwd
 
         $this->assign('home', getPublicPath(""));
 
@@ -48,10 +48,9 @@ class LoginController extends BaseController {
             $_SESSION["loggedIn"] = true;
             setcookie("custEmail", $_POST['email'], time()+2678400);
 
-            $path = parse_url($_SERVER["HTTP_REFERER"], PHP_URL_PATH);
-            $path = substr($path, 0, strlen($path) -1);
-            if($path == "/menu"){
-                return $this->redirect('/checkout'); //If the user came from order && pwd == true, take him to checkout
+            if(isset($_SESSION["loginSrc"]) && $_SESSION["loginSrc"] == "orderMenu"){
+                unset($_SESSION["loginSrc"]);
+                return $this->redirect('/checkout');//If the user came from order && pwd == true, take him to checkout
             } else {
                 return $this->redirect(''); //If the user came from anywhere but order && pwd == true, take him to index
             }
@@ -61,37 +60,5 @@ class LoginController extends BaseController {
             return $this->redirect('/login'); //Render the login page
 
         }
-
-        // TODO: check the session for HTTP_REFERRER and redirect to it. If not exists, go to ...
     }
-
 }
-
-/*
-session_start();
-
-require_once __DIR__.'/../../vendor/autoload.php';
-
-if(!empty($_GET["src"])){
-    $src = $_GET["src"];
-} else {
-    $src = "";
-}
-
-if(!empty($_GET["error"]) && $_GET["error"] == "wrongpwd"){
-    $error = true;
-}
-
-if(isset($_SESSION["loggedIn"]) AND $_SESSION["loggedIn"] == true){
-    header("location: showSummary.php");
-    exit(0);
-}
-
-if (isset($_COOKIE["custEmail"])){
-    $custEmail = $_COOKIE["custEmail"];
-} else {
-    $custEmail = "";
-}
-
-include ("../Views/Presentation/login.php");
-*/

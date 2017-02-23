@@ -26,23 +26,28 @@ class MenuController extends BaseController {
                 $OLS->startOLSession();
             }
 
-            /** Delete orderline */
-            if(isset($_GET["action"]) && $_GET["action"] == "del"){
-                $OLS = new OrderlineSvc();
-                $OLS->delOL($_GET["item"]);
-            }
-
             /**
              * If the request method asks to reset, the current session is unset
              * and a new session 'orderlines' is started
              */
-            if(isset($_GET["process"])){
-                if($_GET["process"] == "reset"){
+            if(isset($_GET["action"])){
+                if($_GET["action"] == "del"){
+                    $OLS = new OrderlineSvc();
+                    $OLS->delOL($_GET["item"]);
+                }
+                if($_GET["action"] == "RESET"){
                     $OLS = new OrderlineSvc();
                     $OLS->resetOLSession();
                 }
+                if($_GET["action"] == "BESTELLEN"){
+                    if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true){
+                        $this->redirect('/checkout');
+                    } else {
+                        $_SESSION["loginSrc"] = "orderMenu";
+                        $this->redirect('/login');
+                    }
+                }
             }
-
 
             /**
              * If the request method is set for a foodNameId, (sizeId) and quantity

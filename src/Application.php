@@ -8,6 +8,7 @@ namespace PolitosPizza;
  * index.php calls the function run() of that instance
  */
 
+use PolitosPizza\Controllers\CheckoutController;
 use PolitosPizza\Controllers\ErrorController;
 use PolitosPizza\Controllers\IndexController;
 use PolitosPizza\Controllers\LoginController;
@@ -122,6 +123,8 @@ class Application{
                 return array(LoginController::class, "login");
             } elseif ($path === "/menu"){
                 return array(MenuController::class, "menu");
+            } elseif ($path === "/checkout"){
+                return array(CheckoutController::class, "checkout");
             }
         }
 

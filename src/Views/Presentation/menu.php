@@ -132,9 +132,10 @@
             </tr>
         </table>
         <form action="<?php print($assigns['menu']);?>" method="GET">
-            <input type="hidden" name="process" value="reset">
-            <input type="submit" value="Reset">
+            <input type="submit" name="action" value="RESET">
+            <input type="submit" name="action" value="BESTELLEN">
         </form>
+        <form></form>
 
     </section>
 </body>

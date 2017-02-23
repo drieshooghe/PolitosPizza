@@ -3,11 +3,9 @@
 
 namespace PolitosPizza\Controllers;
 
-use PolitosPizza\Models\Business\FoodListSvc;
-use PolitosPizza\Models\Data\FoodDAO;
 use PolitosPizza\Models\Business\OpeningSvc;
-use PolitosPizza\Models\Entities\Food;
-use PolitosPizza\Models\Entities\OpeningHours;
+use PolitosPizza\Models\Data\FoodDAO;
+use PolitosPizza\Models\Data\LoginDAO;
 
 class IndexController extends BaseController {
 
