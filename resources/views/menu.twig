@@ -1,0 +1,146 @@
+<!doctype html>
+<!--resources/views/menu.twig-->
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Polito's</title>
+    <style>
+        html{
+            font-family: Arial;
+        }
+        section.menu{
+            width: 60%;
+            float: left;
+        }
+        section.cart{
+            width: 30%;
+            float: right;
+        }
+        h5{
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+        p{
+            font-style: italic;
+            font-size: 0.8em;
+        }
+        form{
+            font-size:0.8em;
+        }
+        input[type="number"]{
+            width: 3em;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <a href="{{ home }}"><img src="{{ path("/img/pp_logo_font.png") }}"></a>
+</header>
+<section class="menu">
+    <h1>VOORGERECHTEN</h1>
+    {% for item in entrees %}
+        <h5>{{ item.Name }}</h5>
+            <p>{{ item.Desc }}</p>
+            <p>Prijs: €{{ item.Price }}</p>
+        <form action="{{ menu }}" method="GET">
+            <input type="hidden" name="id" value="{{ item.Id }}">
+            Aantal: <input type="number" name="quantity" value="Aantal" min=0>
+            <input type="submit" value="Toevoegen">
+        </form>
+    {%  endfor %}
+
+    <h1>PIZZA'S</h1>
+    {% for item in pizza %}
+        <h5>{{ item.Name }}</h5>
+            <p>{{ item.Desc }}</p>
+            <p>Prijs: €{{ item.Price }}</p>
+        <form action="{{ menu }}" method="GET">
+            <input type="hidden" name="id" value="{{ item.Id }}">
+            <select name="sizeId">
+                <option value="2">Small</option>
+                <option value="3">Medium</option>
+                <option value="4">Large</option>
+            </select>
+            Aantal: <input type="number" name="quantity" value="Aantal" min=0>
+            <input type="submit" value="Toevoegen">
+        </form>
+    {% endfor %}
+
+    <h1>PASTA'S</h1>
+    {% for item in pasta %}
+        <h5>{{ item.Name }}</h5>
+            <p>{{ item.Desc }}</p>
+            <p>Prijs: €{{ item.Price }}</p>
+        <form action="{{ menu }}" method="GET">
+            <input type="hidden" name="id" value="{{ item.Id }}">
+            Aantal: <input type="number" name="quantity" value="Aantal" min=0>
+            <input type="submit" value="Toevoegen">
+        </form>
+    {% endfor %}
+
+    <h1>DESSERTS</h1>
+    {% for item in dessert %}
+        <h5>{{ item.Name }}</h5>
+        <p>{{ item.Desc }}</p>
+        <p>Prijs: €{{ item.Price }}</p>
+        <form action="{{ menu }}" method="GET">
+            <input type="hidden" name="id" value="{{ item.Id }}">
+        Aantal: <input type="number" name="quantity" value="Aantal" min=0>
+        <input type="submit" value="Toevoegen">
+    </form>
+    {% endfor %}
+
+    <h1>DRANKEN</h1>
+    {% for item in drinks %}
+        <h5>{{ item.Name }}</h5>
+        <p>{{ item.Desc }}</p>
+        <p>Prijs: €{{ item.Price }}</p>
+        <form action="{{ menu }}" method="GET">
+            <input type="hidden" name="id" value="{{ item.Id }}">
+        Aantal: <input type="number" name="quantity" value="Aantal" min=0>
+        <input type="submit" value="Toevoegen">
+    </form>
+    {% endfor %}
+
+</section>
+
+<section class="cart">
+    <h2>UW BESTELLING</h2>
+    <table>
+        <tr>
+            <th>Naam</th>
+            <th>Maat</th>
+            <th>Hoeveelheid</th>
+            <th>Prijs</th>
+            <th></th>
+        </tr>
+        {%  for key, item in orderlines %}
+        <tr>
+            <td>{{ item.Name }}</td>
+            <td>
+                {% if item.Size != "N" %}
+                    {{ item.size }}
+                {% else %} /
+                {% endif %}</td>
+            <td>{{ item.Quantity }}</td>
+            <td>{{ item.Price }}</td>
+            <td><a href="{{ menu }}?action=del&item={{ key }}">DELETE</a></td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td colspan="3">Totaal: </td>
+            <td>€{{ totPrice }}</td>
+        </tr>
+    </table>
+    <form action="{{ menu }}" method="GET">
+        <input type="submit" name="action" value="RESET">
+        <input type="submit" name="action" value="BESTELLEN">
+    </form>
+    <form></form>
+
+</section>
+</body>
+</html>

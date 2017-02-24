@@ -1,0 +1,47 @@
+<!doctype html>
+<!--resources/views/cart.twig-->
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Polito's</title>
+
+</head>
+<body>
+<header>
+    <a href="{{ home }}"><img src="{{ path("/img/pp_logo_font.png") }}"></a>
+</header>
+<section>
+    <h2>UW BESTELLING</h2>
+    <table>
+        <tr>
+            <th>Naam</th>
+            <th>Maat</th>
+            <th>Hoeveelheid</th>
+            <th>Prijs</th>
+        </tr>
+        {%  for key, item in orderlines %}
+            <tr>
+                <td>{{ item.Name }}</td>
+                <td>
+                    {% if item.Size != 'N' %}
+                        {{ item.size }}
+                    {% else %} /
+                    {% endif %}</td>
+                <td>{{ item.Quantity }}</td>
+                <td>{{ item.Price }}</td>
+            </tr>
+        {% endfor %}
+        <tr>
+            <td colspan="3">Totaal: </td>
+            <td>€{{ totPrice }}</td>
+        </tr>
+    </table>
+
+
+</section>
+
+</body>
+</html>
