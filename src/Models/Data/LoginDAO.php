@@ -2,6 +2,8 @@
 //src/Models/Data/LoginDAO.php
 namespace PolitosPizza\Models\Data;
 
+use PolitosPizza\Models\Business\PwdSvc;
+
 class LoginDAO{
 
     public function getPwdByEmail($gEmail){
@@ -44,22 +46,12 @@ class LoginDAO{
         return $result["placeId"];
     }
 
-    public function setHash($gPwd){
-        $hash = password_hash($gPwd, PASSWORD_DEFAULT);
-        return $hash;
-    }
-
-    public function verifyPwd($pwd, $hash){
-        return(password_verify($pwd, $hash));
-    }
-
-
-
     public function addUser($gFirstName, $gFamName, $gAdres, $gPostCode, $gTown, $gPhone, $gMobile, $gEmail, $gPwd){
 
         $loginDAO = new LoginDAO();
+        $pwdSvc = new PwdSvc();
         $placeId = $loginDAO->getPlaceId($gPostCode, $gTown);
-        $hashword = $loginDAO->setHash($gPwd);
+        $hashword = $pwdSvc->setHash($gPwd);
 
         $sql = "INSERT INTO logindata (pwd) VALUES(:pwd)";
         $dbh = new \PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PWD);
@@ -80,6 +72,7 @@ class LoginDAO{
                                 ':email' => $gEmail,
                                 ':login' => $loginId));
         $dbh = null;
+        return $succes = true;
     }
 
 }

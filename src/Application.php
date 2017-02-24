@@ -13,6 +13,7 @@ use PolitosPizza\Controllers\ErrorController;
 use PolitosPizza\Controllers\IndexController;
 use PolitosPizza\Controllers\LoginController;
 use PolitosPizza\Controllers\MenuController;
+use PolitosPizza\Controllers\RegisterController;
 
 class Application{
 
@@ -125,12 +126,16 @@ class Application{
                 return array(MenuController::class, "menu");
             } elseif ($path === "/checkout"){
                 return array(CheckoutController::class, "checkout");
+            } elseif ($path === "/register"){
+                return array(RegisterController::class, "register");
             }
         }
 
         elseif ($requestMethod === 'POST') {
             if ($path === "/login"){
                 return array(LoginController::class, "loginCheck");
+            } elseif ($path === "/register"){
+                return array(RegisterController::class, "registerCheck");
             }
         }
 

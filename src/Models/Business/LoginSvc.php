@@ -1,10 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: dries
- * Date: 16/02/17
- * Time: 15:09
- */
+//src/Models/Business/LoginSvc.php
+
 
 namespace PolitosPizza\Models\Business;
 use PolitosPizza\Models\Data\LoginDAO;
@@ -13,9 +9,10 @@ class LoginSvc{
 
     public function checkPwd($email, $pwd){
         $loginDAO = new LoginDAO();
+        $pwdSvc = new PwdSvc();
         $check = $loginDAO->getPwdByEmail($email);
         $hash = $pwd;
-        $answer = $loginDAO->verifyPwd($hash, $check);
+        $answer = $pwdSvc->verifyPwd($hash, $check);
         return $answer;
     }
 

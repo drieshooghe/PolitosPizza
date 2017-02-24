@@ -1,0 +1,41 @@
+<!doctype html>
+<!--resources/views/register.twig-->
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Polito's</title>
+</head>
+<body>
+<header>
+    <a href="{{ home }}"><img src="{{ path("/img/pp_logo_font.png") }}"></a>
+</header>
+<div>
+    <h1>Bestellen</h1>
+    {% for value in RegError %}
+        <p>{{ value }}</p>
+    {% endfor %}
+    <form action="{{ register }}" method="POST">
+        Voornaam: <input type="text" name="firstName" value="{{ firstName }}" required="required"><br/>{{ ErrFirstNameNotAlfa }}
+        Familienaam: <input type="text" name="famName" value="{{ famName }}"><br/>{{ ErrFamNameNotAlfa }}
+        Straat: <input type="text" name="street" value="{{ street }}" required="required"> Huisnummer: <input type="text" name="number" value="{{ number }}" required="required"><br/>
+        Postcode: <input type="text" name="postCode" value="{{ postCode }}" required="required"><br/>
+        Gemeente: <input type="text" name="town" value="{{ town }}" required="required"><br/>
+        Telefoonnummer: <input type="text" name="phoneNr" value="{{ phoneNr }}"><br/>
+        GSM Nummer: <input type="text" name="mobileNr" value="{{ mobileNr }}"><br/>
+        <br/>
+        {% for value in LoginErr %}
+            <p>{{ value }}</p>
+        {% endfor %}
+        E-mail: <input type="text" name="email"><br/>
+        Wachtwoord: <input type="password" name="pwd"><br/>
+        Herhaal wachtwoord: <input type="password" name="pwd2"><br/>
+        <input type="submit" value="Bevestigen">
+    </form>
+
+
+</div>
+</body>
+</html>

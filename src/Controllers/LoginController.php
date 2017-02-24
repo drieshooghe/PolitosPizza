@@ -9,6 +9,8 @@ class LoginController extends BaseController {
 
     public function login(){ //When request method GET is detected
 
+        $_SESSION["RegSrc"] = 'index';
+
         $this->assign('home', getPublicPath("")); //Path to home
         $this->assign('login', getPublicPath("/login"));
         $this->assign('register', getPublicPath("/register"));
