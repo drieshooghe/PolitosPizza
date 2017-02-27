@@ -8,10 +8,17 @@ use PolitosPizza\Models\Business\DiscountSvc;
 use PolitosPizza\Models\Business\LoginSvc;
 use PolitosPizza\Models\Business\OrderlineSvc;
 use PolitosPizza\Models\Data\LoginDAO;
+use PolitosPizza\Models\Data\OrderDAO;
+use PolitosPizza\Models\Data\OrderlineDAO;
 
 class CheckoutController extends BaseController {
 
     public function checkout(){
+
+        if($_SESSION['orderlines'] == null){
+            $this->redirect('/menu');
+        }
+
         /**
         * Calculate total price
         */
@@ -23,8 +30,10 @@ class CheckoutController extends BaseController {
          */
             $discountSvc = new DiscountSvc();
             $discount = $discountSvc->getDiscounts();
+            $_SESSION['discount'] = round($totPrice*(1-$discount),2);
 
-        /**
+
+            /**
          * Get delivery info
         */
         $client = new DeliveryInfoSvc();
@@ -42,7 +51,6 @@ class CheckoutController extends BaseController {
         $orderlines = $_SESSION["orderlines"];
         $discountPerc = (1-$discount)*100;
         $totPrice =round(($totPrice*$discount)+$deliveryPrice, 2);
-
 
         $this->assign('home', getPublicPath(""));
         $this->assign('menu', getPublicPath("/menu"));
@@ -62,11 +70,24 @@ class CheckoutController extends BaseController {
         $this->assign('town', $town);
 
 
-        $this->assign('back', getPublicPath("order"));
-        $this->assign('confirm', getPublicPath("confirm"));
+        $this->assign('back', getPublicPath("/order"));
+        $this->assign('confirm', getPublicPath("/confirmation"));
 
         return $this->render('checkout');
 
+
+    }
+
+    public function confirm(){
+
+        if(!empty($_SESSION['orderlines']) && isset($_SESSION['custId'])){
+            print('Bedankt voor uw bestelling!');
+            $order = new OrderDAO();
+            $order->addOrder($_SESSION['discount'], $_SESSION['custId'], $_SESSION['orderlines']);
+            unset($_SESSION['discount']);
+            unset($_SESSION['orderlines']);
+            return $this->redirect('');
+        }
 
     }
 

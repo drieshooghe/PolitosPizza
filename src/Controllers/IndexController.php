@@ -6,6 +6,7 @@ namespace PolitosPizza\Controllers;
 use PolitosPizza\Models\Business\OpeningSvc;
 use PolitosPizza\Models\Data\FoodDAO;
 use PolitosPizza\Models\Data\LoginDAO;
+use PolitosPizza\Models\Data\OrderDAO;
 use PolitosPizza\Models\Entities\DeliveryLine;
 
 class IndexController extends BaseController {

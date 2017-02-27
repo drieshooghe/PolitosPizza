@@ -15,7 +15,7 @@ class DiscountSvc
     public function getDiscounts(){
          switch (date('N')){
 
-             case 1:    return "0.90";
+             case 1:    return "1";
                         break;
              case 2:    return "0.85";
                         break;
