@@ -7,12 +7,14 @@
  */
 
 namespace PolitosPizza\Models\Data;
+use PolitosPizza\Models\Entities\Order;
+use PolitosPizza\Models\Entities\Orderline;
+
 date_default_timezone_set("Europe/Brussels");
 
 
 class OrderDAO
 {
-
     public function addOrder($gDiscount, $gCustomerId, $orderlineArray){
         $sql = "INSERT INTO orders (time, discount, customerId)
                 VALUES(:tijd, :discount, :customerId)";

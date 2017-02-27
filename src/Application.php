@@ -10,6 +10,7 @@ namespace PolitosPizza;
 
 use PolitosPizza\Controllers\CheckoutController;
 use PolitosPizza\Controllers\ConfirmationController;
+use PolitosPizza\Controllers\EmployeePageController;
 use PolitosPizza\Controllers\ErrorController;
 use PolitosPizza\Controllers\IndexController;
 use PolitosPizza\Controllers\LoginController;
@@ -132,6 +133,8 @@ class Application{
                 return array(CheckoutController::class, "checkout");
             } elseif ($path === "/register"){
                 return array(RegisterController::class, "register");
+            } elseif ($path === "/employeepage"){
+                return array(EmployeePageController::class, "showOrders");
             }
         }
 

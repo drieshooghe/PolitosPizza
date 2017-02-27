@@ -1,5 +1,5 @@
 <!doctype html>
-<!--resources/views/index.twig-->
+<!--resources/views/employeepage.twig-->
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
@@ -12,23 +12,20 @@
 <body>
 <header>
     <a href="{{ home }}"><img id="header_logo" src="{{ path("/img/pp_logo_font.svg") }}"></a>
-    <a href="{{ login }}">{{ loginValue }}</a>
-    <div>
-        <h2> Momenteel zijn wij: </h2>
-        <img src="{{ path("/img/" ~ status ~ ".svg") }}" />
-    </div>
 </header>
-<h1>Welkom</h1>
-{% if placedorder %}
-<div><h3>{{ placedorder }}</h3></div>
-{%  endif %}
-<div>
-    <h1><a href="{{ menu }}">BESTELLEN</a></h1>
-</div>
+    <h1>Overzicht bestellingen</h1>
+    {% for order in orders %}
+        <h3>{{ order.Id }}:</h3>
+        <h5>{{ order.time }}</h5>
 
-    <footer>
-        <a href="{{ employeepage }}">Medewerkers</a>
-    </footer>
+
+
+
+
+
+
+    {% endfor %}
+
 </body>
 </html>
 

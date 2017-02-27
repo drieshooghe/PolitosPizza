@@ -3,6 +3,7 @@
 
 namespace PolitosPizza\Controllers;
 
+use PolitosPizza\Models\Business\LoginSvc;
 use PolitosPizza\Models\Business\RegisterSvc;
 use PolitosPizza\Models\Data\LoginDAO;
 
@@ -51,7 +52,9 @@ class RegisterController extends BaseController {
             $loginDAO = new LoginDAO();
             $succes = $loginDAO->addUser($_POST["firstName"], $_POST["famName"], $adres, $_POST["postCode"], $_POST["town"], $_POST["phoneNr"], $_POST["mobileNr"], $_POST["email"], $_POST["pwd"]);
             if($succes == true){
-                $_SESSION["loggedIn"] == true;
+                $login = new LoginSvc();
+                $_SESSION["custId"] = $login->getId($_POST["email"]);
+                $_SESSION["loggedIn"] = true;
                 $registerSvc->stopLoginFormSession();
             }
             $_SESSION["loggedIn"] = true;
