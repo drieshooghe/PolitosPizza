@@ -58,13 +58,13 @@ class RegisterController extends BaseController {
             $_SESSION["loggedIn"] = true;
             if(isset($_SESSION["RegSrc"]) && $_SESSION["RegSrc"] == "index") {
                 unset($_SESSION["RegSrc"]);
-                return $this->redirect('');
+                $this->redirect('');
             } elseif($_SESSION["RegSrc"] == "order") {
                 unset($_SESSION["RegSrc"]);
-                return $this->redirect('/checkout');
+                $this->redirect('/checkout');
             }
         } else {
-            return $this->render("register");
+            $this->render("register");
         }
 
     }

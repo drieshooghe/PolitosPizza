@@ -20,6 +20,13 @@ class IndexController extends BaseController {
                 $this->assign('loginValue', 'Aanmelden');
             }
 
+        if(isset($_SESSION['placedorder'])){
+            $this->assign('placedorder', 'Bedankt voor uw bestelling!');
+            unset($_SESSION['placedorder']);
+        } else {
+            $this->assign('placedorder', '');
+        }
+
         $hours = new OpeningSvc();
         $status = $hours->getStatus();
 

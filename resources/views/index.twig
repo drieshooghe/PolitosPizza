@@ -19,6 +19,9 @@
     </div>
 </header>
 <h1>Welkom</h1>
+{% if placedorder %}
+<div><h3>{{ placedorder }}</h3></div>
+{%  endif %}
 <div>
     <h1><a href="{{ menu }}">BESTELLEN</a></h1>
 </div>

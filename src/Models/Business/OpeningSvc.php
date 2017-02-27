@@ -17,7 +17,5 @@ class OpeningSvc{
         } else {
             return "closed";
         }
-
-        return $hours;
     }
 }

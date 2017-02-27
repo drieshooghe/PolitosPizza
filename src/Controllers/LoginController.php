@@ -55,15 +55,14 @@ class LoginController extends BaseController {
 
             if(isset($_SESSION["loginSrc"]) && $_SESSION["loginSrc"] == "orderMenu"){
                 unset($_SESSION["loginSrc"]);
-                return $this->redirect('/checkout');//If the user came from order && pwd == true, take him to checkout
+                $this->redirect('/checkout');//If the user came from order && pwd == true, take him to checkout
             } else {
-                return $this->redirect(''); //If the user came from anywhere but order && pwd == true, take him to index
+                $this->redirect(''); //If the user came from anywhere but order && pwd == true, take him to index
             }
 
         } elseif ($check == false) {
             $_SESSION["wrongPwd"] = true;
-            return $this->redirect('/login'); //Render the login page
-
+            $this->redirect('/login'); //Render the login page
         }
     }
 }

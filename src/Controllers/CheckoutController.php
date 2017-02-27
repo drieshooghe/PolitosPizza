@@ -81,12 +81,12 @@ class CheckoutController extends BaseController {
     public function confirm(){
 
         if(!empty($_SESSION['orderlines']) && isset($_SESSION['custId'])){
-            print('Bedankt voor uw bestelling!');
             $order = new OrderDAO();
             $order->addOrder($_SESSION['discount'], $_SESSION['custId'], $_SESSION['orderlines']);
             unset($_SESSION['discount']);
             unset($_SESSION['orderlines']);
-            return $this->redirect('');
+            $_SESSION['placedorder'] = true;
+            $this->redirect('');
         }
 
     }

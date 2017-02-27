@@ -21,6 +21,7 @@ class ConfirmationController
             unset($_SESSION['discount']);
             unset($_SESSION['custId']);
             unset($_SESSION['orderlines']);
+
         }
 
     }
