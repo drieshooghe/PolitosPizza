@@ -1,10 +1,12 @@
 <?php
 //src/Controllers/loginCheck.php
+//WELLICHT NERGENS GEBRUIKT
 
 $login = new \PolitosPizza\Models\Business\LoginSvc();
 if($login->checkPwd($_POST["email"], $_POST["pwd"]) == true){
-    $_SESSION["customerId"] = $login->getId($_POST["email"]); //Hier slaan we meteen de customerId op in een session om bij de afrekening de klantgegevens te kunnen opvragen.
     $_SESSION["loggedIn"] = true;
+    $test = new \PolitosPizza\Models\Data\LoginDAO();
+    $_SESSION["custId"] = $test->getIdByEmail("dries.hooghe@outlook.com");
     setcookie("custEmail", $_POST["email"], time()+2678400);
     if(isset($_GET["src"]) && $_GET["src"] == "index"){
         header("location: showIndex.php");

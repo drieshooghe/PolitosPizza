@@ -7,19 +7,21 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Polito's</title>
+    <link rel="stylesheet" href="{{ path('/public/css/main.css') }}" type="text/css"/>
 </head>
 <body>
 <header>
-    <a href="{{ home }}"><img src="{{ path("/img/pp_logo_font.png") }}"></a>
+    <a href="{{ home }}"><img id="header_logo" src="{{ path("/img/pp_logo_font.svg") }}"></a>
     <a href="{{ login }}">{{ loginValue }}</a>
+    <div>
+        <h2> Momenteel zijn wij: </h2>
+        <img src="{{ path("/img/" ~ status ~ ".svg") }}" />
+    </div>
 </header>
 <h1>Welkom</h1>
-<div>
-    <h2> Momenteel zijn wij: </h2>
-    <img src="{{ path("/img/" ~ status ~ ".svg") }}" />
-</div>
 <div>
     <h1><a href="{{ menu }}">BESTELLEN</a></h1>
 </div>
 </body>
 </html>
+

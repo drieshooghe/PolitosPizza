@@ -7,11 +7,11 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Polito's</title>
-
+    <link rel="stylesheet" href="{{ path('/public/css/main.css') }}" type="text/css"/>
 </head>
 <body>
 <header>
-    <a href="{{ home }}"><img src="{{ path("/img/pp_logo_font.png") }}"></a>
+    <a href="{{ home }}"><img src="{{ path("/img/pp_logo_font.svg") }}"></a>
 </header>
 <section>
     <h2>UW BESTELLING</h2>
@@ -34,11 +34,46 @@
                 <td>{{ item.Price }}</td>
             </tr>
         {% endfor %}
+        {% if discount > 0 %}
+        <tr>
+            <td colspan="3">Korting: </td>
+            <td>{{ discount }}%</td>
+        </tr>
+        {% endif %}
+        {% if delivery > 0 %}
+            <tr>
+                <td colspan="3">Leverkosten {{ town }}: </td>
+                <td>{{ delivery }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">Enkel afhalen mogelijk</td>
+            </tr>
+        {% endif %}
+
         <tr>
             <td colspan="3">Totaal: </td>
             <td>€{{ totPrice }}</td>
         </tr>
-    </table>
+    </table><br/>
+
+    <table>
+        <tr>
+            <th>Leveringsdetails:</th>
+        </tr>
+        <tr><td>{{ firstName }} {{ famName }}</td></tr>
+        <tr><td>{{ adres }}</td></tr>
+        <tr><td>{{ postCode }} {{ town }}</td></tr>
+
+    </table><br/>
+
+    <form action="{{ menu }}" method="GET">
+        <input type="submit" value="BEWERKEN">
+    </form>
+
+    <form action="{{ confirm }}" method="GET">
+        <input type="submit" value="BESTELLING PLAATSEN">
+    </form>
 
 
 </section>

@@ -38,7 +38,7 @@ class OrderlineSvc
         foreach ($_SESSION['orderlines'] as $item){
             $totPrice += $item->getPrice();
         }
-        return $totPrice;
+        return round($totPrice,2);
     }
 
     public function addOL($nameId, $sizeId, $qty){

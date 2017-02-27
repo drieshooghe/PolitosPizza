@@ -14,7 +14,7 @@ class Food{
     private $price;
 
 
-    public function __construct($gId, $gName, $gSize, $gCat, $gPrice){
+    private function __construct($gId, $gName, $gSize, $gCat, $gPrice){
         $this->id = $gId;
         $this->name = $gName;
         $this->price = $gPrice;

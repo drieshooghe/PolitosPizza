@@ -3,6 +3,7 @@
 namespace PolitosPizza\Models\Data;
 
 use PolitosPizza\Models\Business\PwdSvc;
+use PolitosPizza\Models\Entities\DeliveryLine;
 
 class LoginDAO{
 
@@ -43,14 +44,30 @@ class LoginDAO{
         $stmt = $dbh->prepare($sql);
         $stmt->execute(array(':code' => $gPostCode, ':town' => strtoupper ($gTown)));
         $result = $stmt->fetch();
+        $dbh = null;
         return $result["placeId"];
     }
+
+    public function addPlace($gPostCode, $gTown){
+        $sql = "INSERT INTO places (postCode, town, deliveryNr) 
+                VALUES(:code, :town, :deliverynumber)";
+        $dbh = new \PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PWD);
+
+        $stmt = $dbh->prepare($sql);
+        $stmt->execute(array(':code' => $gPostCode, ':town' => strtoupper ($gTown), ':deliverynumber' => 0));
+        $dbh = null;
+    }
+
 
     public function addUser($gFirstName, $gFamName, $gAdres, $gPostCode, $gTown, $gPhone, $gMobile, $gEmail, $gPwd){
 
         $loginDAO = new LoginDAO();
         $pwdSvc = new PwdSvc();
         $placeId = $loginDAO->getPlaceId($gPostCode, $gTown);
+        if($placeId == null){
+            $loginDAO->addPlace($gPostCode, $gTown);
+            $placeId = $loginDAO->getPlaceId($gPostCode, $gTown);
+        }
         $hashword = $pwdSvc->setHash($gPwd);
 
         $sql = "INSERT INTO logindata (pwd) VALUES(:pwd)";
@@ -73,6 +90,20 @@ class LoginDAO{
                                 ':login' => $loginId));
         $dbh = null;
         return $succes = true;
+    }
+
+    public function getDeliveryInfo($custId){
+        $sql = "SELECT id, firstName, famName, adres, postCode, town, price
+                FROM customers, places, deliveryprices
+                WHERE customers.id = :id AND customers.placeId = places.placeId AND places.deliveryNr = deliveryprices.deliveryNr";
+
+        $dbh = new \PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PWD);
+
+        $stmt = $dbh->prepare($sql);
+        $stmt->execute(array(':id' => $custId));
+        $result = $stmt->fetch(\PDO::FETCH_ASSOC);
+        $row = DeliveryLine::create($custId, $result["firstName"], $result["famName"], $result["adres"], $result["postCode"], $result["town"], $result["price"]);
+        return $row;
     }
 
 }

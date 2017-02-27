@@ -43,6 +43,7 @@ class MenuController extends BaseController {
                     if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true){
                         $this->redirect('/checkout');
                     } else {
+                        $_SESSION["RegSrc"] = "order";
                         $_SESSION["loginSrc"] = "orderMenu";
                         $this->redirect('/login');
                     }

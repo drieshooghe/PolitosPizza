@@ -9,8 +9,6 @@ class LoginController extends BaseController {
 
     public function login(){ //When request method GET is detected
 
-        $_SESSION["RegSrc"] = 'index';
-
         $this->assign('home', getPublicPath("")); //Path to home
         $this->assign('login', getPublicPath("/login"));
         $this->assign('register', getPublicPath("/register"));
@@ -25,6 +23,8 @@ class LoginController extends BaseController {
         /** If users get to this page, even though they're logged in, they want to log out*/
         if (isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true){
             unset($_SESSION["loggedIn"]);
+            unset($_SESSION["custId"]);
+            unset($_SESSION["orderlines"]);
             $this->redirect('');
         }
 
@@ -48,6 +48,8 @@ class LoginController extends BaseController {
         $check = $login->checkPwd($_POST["email"], $_POST["pwd"]);
 
         if($check == true){
+            $login = new LoginSvc();
+            $_SESSION["custId"] = $login->getId($_POST["email"]);
             $_SESSION["loggedIn"] = true;
             setcookie("custEmail", $_POST['email'], time()+2678400);
 

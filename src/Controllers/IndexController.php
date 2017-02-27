@@ -6,10 +6,13 @@ namespace PolitosPizza\Controllers;
 use PolitosPizza\Models\Business\OpeningSvc;
 use PolitosPizza\Models\Data\FoodDAO;
 use PolitosPizza\Models\Data\LoginDAO;
+use PolitosPizza\Models\Entities\DeliveryLine;
 
 class IndexController extends BaseController {
 
     public function index(){
+        $_SESSION["RegSrc"] = "index";
+
         if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true){
                 $this->assign('loginValue', 'Afmelden');
             } else {

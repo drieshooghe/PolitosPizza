@@ -3,7 +3,11 @@
 
 namespace PolitosPizza\Controllers;
 
+use PolitosPizza\Models\Business\DeliveryInfoSvc;
+use PolitosPizza\Models\Business\DiscountSvc;
+use PolitosPizza\Models\Business\LoginSvc;
 use PolitosPizza\Models\Business\OrderlineSvc;
+use PolitosPizza\Models\Data\LoginDAO;
 
 class CheckoutController extends BaseController {
 
@@ -14,10 +18,52 @@ class CheckoutController extends BaseController {
             $OLS = new OrderlineSvc();
             $totPrice = $OLS->calcTotal();
 
-        $this->assign('home', getPublicPath(""));
+        /**
+         * Calculate discount
+         */
+            $discountSvc = new DiscountSvc();
+            $discount = $discountSvc->getDiscounts();
 
-        $this->assign('orderlines', $_SESSION['orderlines']);
+        /**
+         * Get delivery info
+        */
+        $client = new DeliveryInfoSvc();
+        $info = $client->getDeliveryInfo($_SESSION["custId"]);
+        $firstName = $info->getFirstName();
+        $famName = $info->getFamName();
+        $adres = $info->getAdres();
+        $postCode = $info->getPostCode();
+        $town = $info->getTown();
+        $deliveryPrice = $info->getDeliveryPrice();
+
+        /**
+         * Other variables
+         */
+        $orderlines = $_SESSION["orderlines"];
+        $discountPerc = (1-$discount)*100;
+        $totPrice =round(($totPrice*$discount)+$deliveryPrice, 2);
+
+
+        $this->assign('home', getPublicPath(""));
+        $this->assign('menu', getPublicPath("/menu"));
+        $this->assign('confirm', getPublicPath("/confirm"));
+
+        $this->assign('orderlines', $orderlines);
+        $this->assign('discount', $discountPerc);
+        $this->assign('town', $town);
+        $this->assign('delivery', $deliveryPrice);
         $this->assign('totPrice', $totPrice);
+        $this->assign('korting', $discount);
+
+        $this->assign('firstName', $firstName);
+        $this->assign('famName', $famName);
+        $this->assign('adres', $adres);
+        $this->assign('postCode', $postCode);
+        $this->assign('town', $town);
+
+
+        $this->assign('back', getPublicPath("order"));
+        $this->assign('confirm', getPublicPath("confirm"));
 
         return $this->render('checkout');
 

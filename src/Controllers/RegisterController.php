@@ -55,10 +55,12 @@ class RegisterController extends BaseController {
                 $_SESSION["loggedIn"] == true;
                 $registerSvc->stopLoginFormSession();
             }
+            $_SESSION["loggedIn"] = true;
             if(isset($_SESSION["RegSrc"]) && $_SESSION["RegSrc"] == "index") {
                 unset($_SESSION["RegSrc"]);
                 return $this->redirect('');
-            } else {
+            } elseif($_SESSION["RegSrc"] == "order") {
+                unset($_SESSION["RegSrc"]);
                 return $this->redirect('/checkout');
             }
         } else {
