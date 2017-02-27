@@ -5,11 +5,8 @@ namespace PolitosPizza\Controllers;
 
 use PolitosPizza\Models\Business\DeliveryInfoSvc;
 use PolitosPizza\Models\Business\DiscountSvc;
-use PolitosPizza\Models\Business\LoginSvc;
 use PolitosPizza\Models\Business\OrderlineSvc;
-use PolitosPizza\Models\Data\LoginDAO;
 use PolitosPizza\Models\Data\OrderDAO;
-use PolitosPizza\Models\Data\OrderlineDAO;
 
 class CheckoutController extends BaseController {
 

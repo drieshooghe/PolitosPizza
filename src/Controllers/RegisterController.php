@@ -5,7 +5,6 @@ namespace PolitosPizza\Controllers;
 
 use PolitosPizza\Models\Business\RegisterSvc;
 use PolitosPizza\Models\Data\LoginDAO;
-use PolitosPizza\Models\Exceptions\LoginFormExceptions;
 
 class RegisterController extends BaseController {
 

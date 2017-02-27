@@ -115,8 +115,11 @@ class Application{
      * Let us say the path is '/login', then give back the class that is in the LoginController and the functionname to render the page
      * ex. return array(LoginController::class, "login") => gives back the LoginController class and its login() function
      * If the path isn't found, we return the ErrorController class and the function notFound();
+     * @param $path
+     * @param $requestMethod
+     * @return array
      */
-    protected function getRoute($path, $requestMethod) { // TODO: Alle controllers toevoegen
+    protected function getRoute($path, $requestMethod) {
 
         if ($requestMethod ==='GET') {
             if($path === ""){
