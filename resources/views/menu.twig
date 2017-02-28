@@ -9,104 +9,86 @@
     <title>Polito's</title>
     <link rel="stylesheet" href="{{ path('/public/css/main.css') }}" type="text/css"/>
 
-    <style>
-        html{
-            font-family: Arial;
-        }
-        section.menu{
-            width: 60%;
-            float: left;
-        }
-        section.cart{
-            width: 30%;
-            float: right;
-        }
-        h5{
-            margin-top: 5px;
-            margin-bottom: 5px;
-        }
-        p{
-            font-style: italic;
-            font-size: 0.8em;
-        }
-        form{
-            font-size:0.8em;
-        }
-        input[type="number"]{
-            width: 3em;
-        }
-    </style>
 </head>
 <body>
 <header>
     <a href="{{ home }}"><img src="{{ path("/img/pp_logo_font.svg") }}"></a>
 </header>
 <section class="menu">
-    <h1>VOORGERECHTEN</h1>
-    {% for item in entrees %}
-        <h5>{{ item.Name }}</h5>
+    <div class="foodblock">
+        <h1>VOORGERECHTEN</h1>
+        {% for item in entrees %}
+            <h5>{{ item.Name }}</h5>
+                <p>{{ item.Desc }}</p>
+                <p>Prijs: €{{ item.Price }}</p>
+            <form action="{{ menu }}" method="GET">
+                <input type="hidden" name="id" value="{{ item.Id }}">
+                Aantal: <input type="number" name="quantity" value="Aantal" min=0>
+                <input type="submit" value="Toevoegen">
+            </form>
+        {%  endfor %}
+    </div>
+
+    <div class="foodblock">
+        <h1>PIZZA'S</h1>
+        {% for item in pizza %}
+            <h5>{{ item.Name }}</h5>
+                <p>{{ item.Desc }}</p>
+                <p>Prijs: €{{ item.Price }}</p>
+            <form action="{{ menu }}" method="GET">
+                <input type="hidden" name="id" value="{{ item.Id }}">
+                <select name="sizeId">
+                    <option value="2">Small</option>
+                    <option value="3">Medium</option>
+                    <option value="4">Large</option>
+                </select>
+                Aantal: <input type="number" name="quantity" value="Aantal" min=0>
+                <input type="submit" value="Toevoegen">
+            </form>
+        {% endfor %}
+    </div>
+
+    <div class="foodblock">
+        <h1>PASTA'S</h1>
+        {% for item in pasta %}
+            <h5>{{ item.Name }}</h5>
+                <p>{{ item.Desc }}</p>
+                <p>Prijs: €{{ item.Price }}</p>
+            <form action="{{ menu }}" method="GET">
+                <input type="hidden" name="id" value="{{ item.Id }}">
+                Aantal: <input type="number" name="quantity" value="Aantal" min=0>
+                <input type="submit" value="Toevoegen">
+            </form>
+        {% endfor %}
+    </div>
+
+    <div class="foodblock">
+        <h1>DESSERTS</h1>
+        {% for item in dessert %}
+            <h5>{{ item.Name }}</h5>
             <p>{{ item.Desc }}</p>
             <p>Prijs: €{{ item.Price }}</p>
-        <form action="{{ menu }}" method="GET">
-            <input type="hidden" name="id" value="{{ item.Id }}">
+            <form action="{{ menu }}" method="GET">
+                <input type="hidden" name="id" value="{{ item.Id }}">
             Aantal: <input type="number" name="quantity" value="Aantal" min=0>
             <input type="submit" value="Toevoegen">
         </form>
-    {%  endfor %}
+        {% endfor %}
+    </div>
 
-    <h1>PIZZA'S</h1>
-    {% for item in pizza %}
-        <h5>{{ item.Name }}</h5>
+    <div class="foodblock">
+        <h1>DRANKEN</h1>
+        {% for item in drinks %}
+            <h5>{{ item.Name }}</h5>
             <p>{{ item.Desc }}</p>
             <p>Prijs: €{{ item.Price }}</p>
-        <form action="{{ menu }}" method="GET">
-            <input type="hidden" name="id" value="{{ item.Id }}">
-            <select name="sizeId">
-                <option value="2">Small</option>
-                <option value="3">Medium</option>
-                <option value="4">Large</option>
-            </select>
+            <form action="{{ menu }}" method="GET">
+                <input type="hidden" name="id" value="{{ item.Id }}">
             Aantal: <input type="number" name="quantity" value="Aantal" min=0>
             <input type="submit" value="Toevoegen">
         </form>
-    {% endfor %}
-
-    <h1>PASTA'S</h1>
-    {% for item in pasta %}
-        <h5>{{ item.Name }}</h5>
-            <p>{{ item.Desc }}</p>
-            <p>Prijs: €{{ item.Price }}</p>
-        <form action="{{ menu }}" method="GET">
-            <input type="hidden" name="id" value="{{ item.Id }}">
-            Aantal: <input type="number" name="quantity" value="Aantal" min=0>
-            <input type="submit" value="Toevoegen">
-        </form>
-    {% endfor %}
-
-    <h1>DESSERTS</h1>
-    {% for item in dessert %}
-        <h5>{{ item.Name }}</h5>
-        <p>{{ item.Desc }}</p>
-        <p>Prijs: €{{ item.Price }}</p>
-        <form action="{{ menu }}" method="GET">
-            <input type="hidden" name="id" value="{{ item.Id }}">
-        Aantal: <input type="number" name="quantity" value="Aantal" min=0>
-        <input type="submit" value="Toevoegen">
-    </form>
-    {% endfor %}
-
-    <h1>DRANKEN</h1>
-    {% for item in drinks %}
-        <h5>{{ item.Name }}</h5>
-        <p>{{ item.Desc }}</p>
-        <p>Prijs: €{{ item.Price }}</p>
-        <form action="{{ menu }}" method="GET">
-            <input type="hidden" name="id" value="{{ item.Id }}">
-        Aantal: <input type="number" name="quantity" value="Aantal" min=0>
-        <input type="submit" value="Toevoegen">
-    </form>
-    {% endfor %}
-
+        {% endfor %}
+    </div>
 </section>
 
 <section class="cart">

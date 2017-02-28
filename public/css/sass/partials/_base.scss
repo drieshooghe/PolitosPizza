@@ -1,0 +1,22 @@
+/* COLOR VARIABLES */
+$green-light: #73ba3b;
+$green-normal: #639e32;
+$green-dark: #3F6420;
+
+
+/* MIXINS */
+@mixin linear-gradient($col1, $col2){
+  background-image: -webkit-linear-gradient(top, $col1, $col2);
+  background-image: -moz-linear-gradient(top, $col1, $col2);
+  background-image: -ms-linear-gradient(top, $col1, $col2);
+  background-image: -o-linear-gradient(top, $col1, $col2);
+  background-image: linear-gradient(to bottom, $col1, $col2);
+}
+
+@mixin linear-gradient-hover($col2, $col1){
+  background-image: -webkit-linear-gradient(top, $col1, $col2);
+  background-image: -moz-linear-gradient(top, $col1, $col2);
+  background-image: -ms-linear-gradient(top, $col1, $col2);
+  background-image: -o-linear-gradient(top, $col1, $col2);
+  background-image: linear-gradient(to bottom, $col1, $col2);
+}

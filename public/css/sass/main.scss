@@ -1,59 +1,14 @@
-//Imports
-@import url(http://fonts.googleapis.com/css?family=Roboto+Slab|Open+Sans:400italic,700italic,400,700);
+// Modules and Variables
+@import "partials/base";
 
-//Variables
-$RobotoSlab: 'Roboto Slab', serif;
-$OpenSans: 'Open Sans', sans-serif;
+// Normalize browser style
+@import "partials/normalize";
 
-/********************/
-/*  GENERAL MARKUP  */
-/********************/
+// Grid
+@import "partials/grid.scss";
 
+// Partials
+@import "partials/typography";
+@import "partials/buttons";
+@import "partials/figures";
 
-////HTML////
-
-html{
-  padding:0;
-  margin:0;
-  color: black;
-  font-family: $RobotoSlab;
-}
-
-body{
-  padding:0;
-  margin:0;
-}
-
-*:visited, *:link{
-  text-decoration: none;
-  color: black;
-}
-
-table, tr{
-  border: 1 px solid black;
-}
-
-////HEADER////
-
-header{
-  padding:0;
-  margin:0;
-  display: flex;
-  width: 100%;
-  height: 8em;
-  text-align: center;
-  background-color: brown;
-  overflow: visible;
-}
-
-header>a{
-  display: block;
-}
-
-img#header_logo{
-  display: block;
-  padding:1em;
-  height:14em;
-  margin: 0 auto;
-
-}

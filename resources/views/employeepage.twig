@@ -16,7 +16,7 @@
     <h1>Overzicht bestellingen</h1>
     {% for order in orders %}
         <div>
-            <h3>{{ order.id }}: {{ order.time }}</h3>
+            <h3>&#x1F355;{{ order.id }} &#9658; {{ order.time }}</h3>
             <div>
                 <h4>Klantgegevens:</h4>
                 <p>{{ order.customer.firstName }} {{ order.customer.famName }}</p>
