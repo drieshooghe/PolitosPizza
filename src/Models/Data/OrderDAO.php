@@ -39,6 +39,7 @@ class OrderDAO
     public function getOrders(){
         $sql = "SELECT id, time, discount, customerId
                 FROM orders
+                ORDER BY id desc
                 LIMIT 20";
         $dbh = new \PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PWD);
 

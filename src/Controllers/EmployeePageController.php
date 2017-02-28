@@ -17,11 +17,14 @@ class EmployeePageController extends BaseController
 
     public function showOrders(){
 
-        $test = new OrderDAO();
-        $tset = $test->getOrders();
-        foreach ($tset as $item){
-            print($item->getCustomer()->getFirstName());
+        if(!isset($_SESSION['employee'])){
+            $this->redirect('');
         }
+
+        $orderDAO = new OrderDAO();
+        $orders = $orderDAO->getOrders();
+        $this->assign('orders', $orders);
+
 
         $this->assign('home', getPublicPath(''));
         return $this->render('/employeepage');

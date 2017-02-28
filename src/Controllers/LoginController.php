@@ -48,6 +48,10 @@ class LoginController extends BaseController {
         $check = $login->checkPwd($_POST["email"], $_POST["pwd"]);
 
         if($check == true){
+            if($_POST["email"] == "admin"){ //Redirection to employee page
+                $_SESSION['employee'] = true;
+                $this->redirect('/employeepage');
+            }
             $login = new LoginSvc();
             $_SESSION["custId"] = $login->getId($_POST["email"]);
             $_SESSION["loggedIn"] = true;

@@ -9,8 +9,11 @@ use PolitosPizza\Models\Business\OpeningSvc;
 class IndexController extends BaseController {
 
     public function index(){
-        
+
         $_SESSION["RegSrc"] = "index";
+        if(isset($_SESSION['employee'])){
+            unset($_SESSION['employee']);
+        }
 
         if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true){
                 $this->assign('loginValue', 'Afmelden');

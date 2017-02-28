@@ -93,7 +93,7 @@ class LoginDAO{
     }
 
     public function getDeliveryInfo($custId){
-        $sql = "SELECT id, firstName, famName, adres, postCode, town, price
+        $sql = "SELECT id, firstName, famName, adres, postCode, town, phoneNr, mobileNr, price
                 FROM customers, places, deliveryprices
                 WHERE customers.id = :id AND customers.placeId = places.placeId AND places.deliveryNr = deliveryprices.deliveryNr";
 
@@ -102,7 +102,7 @@ class LoginDAO{
         $stmt = $dbh->prepare($sql);
         $stmt->execute(array(':id' => $custId));
         $result = $stmt->fetch(\PDO::FETCH_ASSOC);
-        $row = DeliveryLine::create($custId, $result["firstName"], $result["famName"], $result["adres"], $result["postCode"], $result["town"], $result["price"]);
+        $row = DeliveryLine::create($custId, $result["firstName"], $result["famName"], $result["adres"], $result["postCode"], $result["town"], $result['phoneNr'], $result['mobileNr'], $result["price"]);
         return $row;
     }
 

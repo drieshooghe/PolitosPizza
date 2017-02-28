@@ -15,15 +15,43 @@
 </header>
     <h1>Overzicht bestellingen</h1>
     {% for order in orders %}
-        <h3>{{ order.Id }}:</h3>
-        <h5>{{ order.time }}</h5>
+        <div>
+            <h3>{{ order.id }}: {{ order.time }}</h3>
+            <div>
+                <h4>Klantgegevens:</h4>
+                <p>{{ order.customer.firstName }} {{ order.customer.famName }}</p>
+                <p>{{ order.customer.adres }}</p>
+                <p>{{ order.customer.postcode }} {{ order.customer.town }}</p>
+                {% if order.customer.phoneNr > 0 %}<p>&#128222;{{ order.customer.phoneNr }}</p>{% endif %}
+                {% if order.customer.mobileNr > 0 %}<p>&#x1f4f1;{{ order.customer.mobileNr }}</p>{% endif %}
+            </div>
 
+            <div>
+                <table>
+                    <tr>
+                        <th>Naam</th><th>Maat</th><th>Hoeveelheid</th><th>Prijs</th>
+                    </tr>
+                    {%  set sum = 0 %}
 
+                        {% for orderline in order.Orderlines %}
+                        <tr>
+                            <td>{{ orderline.name }}</td><td>{{ orderline.size }}</td><td>{{ orderline.quantity }}</td><td>{{ orderline.price }}</td>
+                            {% set sum = sum + orderline.price %}
+                        </tr>
+                        {% endfor %}
 
+                    {% set total = sum + order.customer.DeliveryPrice - order.discount %}
+                    {% if order.discount > 0 %}
+                        <tr><td colspan="3">Korting:</td><td>{{ order.discount }}</td></tr>
+                    {% endif %}
+                    {% if order.customer.DeliveryPrice > 0 %}
+                        <tr><td colspan="3">Leveringskosten:</td><td>{{ order.customer.DeliveryPrice }}</td></tr>
+                    {% endif %}
+                    <tr><td colspan="3">Totaal:</td><td>{{ total }}</td></tr>
 
-
-
-
+                </table>
+            </div>
+        </div>
     {% endfor %}
 
 </body>
