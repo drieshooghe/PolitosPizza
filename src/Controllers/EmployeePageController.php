@@ -17,6 +17,12 @@ class EmployeePageController extends BaseController
 
     public function showOrders(){
 
+        $test = new OrderDAO();
+        $tset = $test->getOrders();
+        foreach ($tset as $item){
+            print($item->getCustomer()->getFirstName());
+        }
+
         $this->assign('home', getPublicPath(''));
         return $this->render('/employeepage');
     }

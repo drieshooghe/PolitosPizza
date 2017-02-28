@@ -15,18 +15,19 @@ class Order{
 
     private $line = array();
 
-    private function __construct($gOrderId, $gTime, $gDiscount, $gCustomerId){
+    private function __construct($gOrderId, $gTime, $gDiscount, $gCustomer, $gOrderlines){
         $this->line = array(
             'orderId' => $gOrderId,
             'time' => $gTime,
             'discount' => $gDiscount,
-            'customerId' => $gCustomerId
+            'customer' => $gCustomer,
+            'orderlines' => $gOrderlines
         );
     }
 
-    public static function create($gOrderId, $gTime, $gDiscount, $gCustomerId){
+    public static function create($gOrderId, $gTime, $gDiscount, $gCustomer, $gOrderlines){
         if (!isset(self::$idMap[$gOrderId])){
-            self::$idMap[$gOrderId] = new Order($gOrderId, $gTime, $gDiscount, $gCustomerId);
+            self::$idMap[$gOrderId] = new Order($gOrderId, $gTime, $gDiscount, $gCustomer, $gOrderlines);
         }
         return self::$idMap[$gOrderId];
     }
@@ -37,7 +38,9 @@ class Order{
 
     public function getDiscount(){ return $this->line["discount"]; }
 
-    public function getCustomerId(){ return $this->line["customerId"]; }
+    public function getCustomer(){ return $this->line["customer"]; }
+
+    public function getOrderlines(){ return $this->line["orderlines"]; }
 
 
 }

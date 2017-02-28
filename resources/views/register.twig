@@ -19,7 +19,7 @@
     {% for value in RegError %}
         <p>{{ value }}</p>
     {% endfor %}
-    <form action="{{ register }}" method="POST">
+    <form action="{{ path("/register") }}" method="POST">
         Voornaam: <input type="text" name="firstName" value="{{ firstName }}" required="required"><br/>{{ ErrFirstNameNotAlfa }}
         Familienaam: <input type="text" name="famName" value="{{ famName }}"><br/>{{ ErrFamNameNotAlfa }}
         Straat: <input type="text" name="street" value="{{ street }}" required="required"> Huisnummer: <input type="text" name="number" value="{{ number }}" required="required"><br/>

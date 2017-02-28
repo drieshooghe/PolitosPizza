@@ -36,8 +36,8 @@ class RegisterSvc
 
         if(empty($array["famName"])){
             $exceptions["FamNameEmpty"] = 'Gelieve een familienaam in te vullen';
-        } elseif(!ctype_alpha($array["famName"])){
-            $exceptions["FamNameNotAlfa"] = 'Gelieve een geldige familienaam in te vullen';
+        } elseif(!is_string($array["famName"])){
+            $exceptions["FamNameNotString"] = 'Gelieve een geldige familienaam in te vullen';
         }
 
         if(empty($array["street"])){
@@ -60,8 +60,8 @@ class RegisterSvc
 
         if(empty($array["town"])){
             $exceptions["TownEmpty"] = 'Gelieve een gemeente in te vullen';
-        } elseif(!ctype_alpha($array["town"])){
-            $exceptions["townNotAlfa"] = 'Gelieve een geldige gemeente in te vullen';
+        } elseif(!is_string($array["town"])){
+            $exceptions["townNotString"] = 'Gelieve een geldige gemeente in te vullen';
         }
 
         if(!is_string($array["phoneNr"])){
