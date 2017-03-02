@@ -12,6 +12,7 @@ class LoginController extends BaseController {
         $this->assign('home', getPublicPath("")); //Path to home
         $this->assign('login', getPublicPath("/login"));
         $this->assign('register', getPublicPath("/register"));
+        $this->assign('menu', getPublicPath("/menu"));
 
         /** If a cookie is detected for the customer's email, give it to the view */
         if (isset($_COOKIE["custEmail"])){

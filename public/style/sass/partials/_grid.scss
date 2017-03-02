@@ -37,6 +37,7 @@ header{
   label{
     cursor: pointer;
     display: flex;
+    flex-direction: column;
   }
   #menu-toggle{
     display: none;
@@ -47,6 +48,7 @@ header{
   #menu-toggle:checked + #menu{
   display: flex;
 }
+
   ul{
     margin: 0;
     padding: 0;
@@ -93,25 +95,15 @@ header{
 }
 
 
-/* Custom, iPhone Retina */
-@media only screen and (min-width : 320px) {
+/*==========  Tablets  ==========*/
 
-}
-
-/* Extra Small Devices, Phones */
-@media only screen and (min-width : 480px) {
-
-}
-
-/* Small Devices, Tablets */
 @media only screen and (min-width : 768px) {
   header{
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    ul{
-      height: 6rem;
-      width: 100%;
+    label#navlabel{ display: none; }
+    ul#menu{
       margin:0;
       padding:0;
       display: flex;

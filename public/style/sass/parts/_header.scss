@@ -21,7 +21,8 @@ header{
   li{
     list-style-type: none;
     .active{
-      text-decoration: underline;
+      color: $charcoal;
+      background-color: $dirty-white;
       img{
         z-index: 1;
       }
@@ -30,18 +31,11 @@ header{
 }
 
 
-/* Custom, iPhone Retina */
-@media only screen and (min-width : 320px) {
-
-}
-
-/* Extra Small Devices, Phones */
-@media only screen and (min-width : 480px) {
-
-}
-
 /* Small Devices, Tablets */
 @media only screen and (min-width : 768px) {
+
+
+
 
 }
 

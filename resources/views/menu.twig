@@ -11,8 +11,16 @@
 
 </head>
 <body>
-<header>
-    <a href="{{ home }}"><img src="{{ path("/img/pp_logo_font.svg") }}"></a>
+<header class="container">
+    <label for="menu-toggle" id="navlabel"><img src="{{ path("/img/navbar-toggle-dark.svg") }}" alt=""></label>
+    <input type="checkbox" id="menu-toggle"/>
+    <ul id="menu">
+        <li><a href="{{ home }}">HOME</a></li>
+        <li><a href="{{ login }}">INLOGGEN</a></li>
+        <li class="header_logo"><img src="{{ path("/img/pp_logo_font.svg") }}" alt=""></li>
+        <li class="active"><a class="active" href="{{ menu }}">BESTELLEN</a></li>
+        <li><a href="{{ info }}">WIE ZIJN WIJ</a></li>
+    </ul>
 </header>
 <section class="menu">
     <div class="foodblock">

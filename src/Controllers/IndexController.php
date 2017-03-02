@@ -36,6 +36,7 @@ class IndexController extends BaseController {
         $this->assign('status', $status);
         $this->assign('menu', getPublicPath("/menu"));
         $this->assign('employeepage', getPublicPath("/employeepage"));
+        $this->assign('info', getPublicPath("/info"));
 
         return $this->render('index');
 

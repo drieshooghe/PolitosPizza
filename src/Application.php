@@ -13,6 +13,7 @@ use PolitosPizza\Controllers\ConfirmationController;
 use PolitosPizza\Controllers\EmployeePageController;
 use PolitosPizza\Controllers\ErrorController;
 use PolitosPizza\Controllers\IndexController;
+use PolitosPizza\Controllers\InfoController;
 use PolitosPizza\Controllers\LoginController;
 use PolitosPizza\Controllers\MenuController;
 use PolitosPizza\Controllers\RegisterController;
@@ -135,6 +136,8 @@ class Application{
                 return array(RegisterController::class, "register");
             } elseif ($path === "/employeepage"){
                 return array(EmployeePageController::class, "showOrders");
+            } elseif ($path === "/info"){
+                return array(InfoController::class, "showInfo");
             }
         }
 
