@@ -1,0 +1,9 @@
+footer{
+  background-color: $charcoal;
+  color: $dirty-white;
+  border-top: 0.5rem solid $red-light;
+  #{a-links}{
+    list-style-type: none;
+  }
+}
+

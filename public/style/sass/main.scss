@@ -7,6 +7,11 @@
 // Grid
 @import "partials/grid.scss";
 
+// Parts
+@import "parts/header";
+@import "parts/footer";
+@import "parts/content";
+
 // Partials
 @import "partials/typography";
 @import "partials/buttons";

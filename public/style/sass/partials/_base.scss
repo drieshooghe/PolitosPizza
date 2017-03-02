@@ -2,6 +2,17 @@
 $green-light: #73ba3b;
 $green-normal: #639e32;
 $green-dark: #3F6420;
+$charcoal: #2F3131;
+$dark: #363635;
+$red-light: #F15D58;
+$dirty-white: #DCDDCD;
+$ivory: #F8F1E5;
+$greenish: #83BF17;
+
+
+/* ELEMENT VARIABLES */
+$a-links: 'a, a:active, a:visited';
+$a-links-hover: 'a:active, a:hover';
 
 
 /* MIXINS */
@@ -19,4 +30,28 @@ $green-dark: #3F6420;
   background-image: -ms-linear-gradient(top, $col1, $col2);
   background-image: -o-linear-gradient(top, $col1, $col2);
   background-image: linear-gradient(to bottom, $col1, $col2);
+}
+
+/* EXTENDS */
+//boxes
+%flexbox{
+  display: -webkit-flexbox;
+  display: -moz-flexbox;
+  display: -ms-flexbox;
+  display: flexbox;
+}
+//fonts
+//Fonts
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400,600,700');
+%prim-font-light{
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 400;
+}
+%prim-font{
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 600;
+}
+%prim-font-bold{
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 700;
 }
