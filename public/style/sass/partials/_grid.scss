@@ -30,7 +30,7 @@ body{
   padding: 0;
 }
 
-header{
+nav{
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -48,6 +48,8 @@ header{
   #menu-toggle:checked + #menu{
   display: flex;
 }
+
+
 
   ul{
     margin: 0;
@@ -73,6 +75,9 @@ header{
   }
 }
 
+section.subheader{
+  display: none;
+}
 
 .content{
   -webkit-box-sizing: border-box;
@@ -98,10 +103,12 @@ header{
 /*==========  Tablets  ==========*/
 
 @media only screen and (min-width : 768px) {
-  header{
+
+  nav{
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    height: 5rem;
     label#navlabel{ display: none; }
     ul#menu{
       margin:0;
@@ -109,7 +116,6 @@ header{
       display: flex;
       flex-direction:row;
       li{
-        width: auto;
         margin:0;
         padding:0;
         flex: 1;
@@ -120,8 +126,21 @@ header{
           align-items: center;
           justify-content: center;
         }
+        img{
+          padding: 0.5rem;
+          margin: 0 auto;
+          display: block;
+          align-self: center;
+          position: relative;
+        }
       }
     }
+  }
+
+  section.subheader{
+    display: flex;
+    vertical-align: bottom;
+    height: 12rem;
   }
 
 }

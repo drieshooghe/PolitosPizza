@@ -4,15 +4,20 @@
 namespace PolitosPizza\Controllers;
 
 use PolitosPizza\Models\Business\LoginSvc;
+use PolitosPizza\Models\Business\OpeningSvc;
 
 class LoginController extends BaseController {
 
     public function login(){ //When request method GET is detected
 
-        $this->assign('home', getPublicPath("")); //Path to home
+        $hours = new OpeningSvc();
+        $status = $hours->getStatus();
+
+        $this->assign('home', getPublicPath(""));
         $this->assign('login', getPublicPath("/login"));
-        $this->assign('register', getPublicPath("/register"));
+        $this->assign('status', $status);
         $this->assign('menu', getPublicPath("/menu"));
+        $this->assign('info', getPublicPath("/info"));
 
         /** If a cookie is detected for the customer's email, give it to the view */
         if (isset($_COOKIE["custEmail"])){

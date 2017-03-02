@@ -4,6 +4,7 @@
 namespace PolitosPizza\Controllers;
 
 use PolitosPizza\Models\Business\FoodListSvc;
+use PolitosPizza\Models\Business\OpeningSvc;
 use PolitosPizza\Models\Business\OrderlineSvc;
 use PolitosPizza\Models\Data\FoodDAO;
 use PolitosPizza\Models\Entities\Orderline;
@@ -80,9 +81,20 @@ class MenuController extends BaseController {
             $totPrice = $OLS->calcTotal();
 
 
+            $hours = new OpeningSvc();
+            $status = $hours->getStatus();
 
             $this->assign('home', getPublicPath(""));
+            $this->assign('login', getPublicPath("/login"));
+            $this->assign('status', $status);
             $this->assign('menu', getPublicPath("/menu"));
+            $this->assign('info', getPublicPath("/info"));
+            if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true){
+                $this->assign('loginValue', 'Afmelden');
+            } else {
+                $this->assign('loginValue', 'Aanmelden');
+            }
+
 
             $FoodDAO = new FoodListSvc();
             $entrees = $FoodDAO->getFoodByCatId(1);

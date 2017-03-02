@@ -8,6 +8,7 @@ $red-light: #F15D58;
 $dirty-white: #DCDDCD;
 $ivory: #F8F1E5;
 $greenish: #83BF17;
+$greenisher: #75ab14;
 
 
 /* ELEMENT VARIABLES */
@@ -32,6 +33,11 @@ $a-links-hover: 'a:active, a:hover';
   background-image: linear-gradient(to bottom, $col1, $col2);
 }
 
+@mixin border-radius($radius){
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
 /* EXTENDS */
 //boxes
 %flexbox{
