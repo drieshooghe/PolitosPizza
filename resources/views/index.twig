@@ -24,8 +24,8 @@
             </nav>
             <section class="subheader">
                 <div><h4><a href="{{ login }}">{{  loginValue }}</a></h4></div>
-                <div></div>
-                <div><img src="{{ path("/img/" ~ status ~ ".svg") }}" /></div>
+                <div><img id="logo" src="{{ path("/img/pp_logo_font_original.svg") }}" alt=""></div>
+                <div><img id="status" src="{{ path("/img/" ~ status ~ ".svg") }}" /></div>
             </section>
         </header>
 
@@ -34,8 +34,6 @@
         {%  endif %}
 
         <section class="container-sm content">
-
-            <h3><a href="{{ login }}">{{  loginValue }}</a></h3>
 
             <h1>Welkom</h1>
 

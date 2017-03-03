@@ -1,22 +1,74 @@
-/* COLOR VARIABLES */
+
+/* ========== COLOR SCHEMES ========== */
+
+/* ---------- GREENS ------------ */
 $green-light: #73ba3b;
 $green-normal: #639e32;
 $green-dark: #3F6420;
-$charcoal: #2F3131;
-$dark: #363635;
-$red-light: #F15D58;
-$dirty-white: #DCDDCD;
-$ivory: #F8F1E5;
+
+/* ---------- GREENISH ---------- */
 $greenish: #83BF17;
+$greenish-op2: rgba(131,191,23,0.2);
+$greenish-op4: rgba(131,191,23,0.4);
+$greenish-op6: rgba(131,191,23,0.6);
+$greenish-op8: rgba(131,191,23,0.8);
+
+/* ---------- GREENISHER ---------- */
 $greenisher: #75ab14;
+$greenisher-op2: rgba(117, 171, 20,0.2);
+$greenisher-op4: rgba(117, 171, 20,0.4);
+$greenisher-op6: rgba(117, 171, 20,0.6);
+$greenisher-op8: rgba(117, 171, 20,0.8);
+
+/* ---------- CHARCOAL ---------- */
+$charcoal: #2F3131;
+$charcoal-op2: rgba(47, 49, 49,0.2);
+$charcoal-op4: rgba(47, 49, 49,0.4);
+$charcoal-op6: rgba(47, 49, 49,0.6);
+$charcoal-op8: rgba(47, 49, 49,0.8);
 
 
-/* ELEMENT VARIABLES */
+/* ---------- DARK ---------- */
+$dark: #363635;
+$dark-op2: rgba(54, 54, 53,0.2);
+$dark-op4: rgba(54, 54, 53,0.4);
+$dark-op6: rgba(54, 54, 53,0.6);
+$dark-op8: rgba(54, 54, 53,0.8);
+
+/* ---------- RED-LIGHT ---------- */
+$red-light: #F15D58;
+$red-light-op2: rgba(241, 93, 88,0.2);
+$red-light-op4: rgba(241, 93, 88,0.4);
+$red-light-op6: rgba(241, 93, 88,0.6);
+$red-light-op8: rgba(241, 93, 88,0.8);
+
+/* ---------- DIRTY-WHITE ---------- */
+$dirty-white: #DCDDCD;
+$dirty-white-op2: rgba(220, 221, 205,0.2);
+$dirty-white-op4: rgba(220, 221, 205,0.4);
+$dirty-white-op6: rgba(220, 221, 205,0.6);
+$dirty-white-op8: rgba(220, 221, 205,0.8);
+
+/* ---------- IVORY ---------- */
+$ivory: #F8F1E5;
+$ivory-op2: rgba(248, 241, 229,0.2);
+$ivory-op4: rgba(248, 241, 229,0.4);
+$ivory-op6: rgba(248, 241, 229,0.6);
+$ivory-op8: rgba(248, 241, 229,0.8);
+
+
+
+
+/* ========== ELEMENT VARIABLES ========== */
+
 $a-links: 'a, a:active, a:visited';
 $a-links-hover: 'a:active, a:hover';
 
 
-/* MIXINS */
+/* ========== MIXINS ========== */
+
+/* ---------- GRADIENT ---------- */
+
 @mixin linear-gradient($col1, $col2){
   background-image: -webkit-linear-gradient(top, $col1, $col2);
   background-image: -moz-linear-gradient(top, $col1, $col2);
@@ -33,21 +85,39 @@ $a-links-hover: 'a:active, a:hover';
   background-image: linear-gradient(to bottom, $col1, $col2);
 }
 
+/* ---------- RADIUS ---------- */
+
 @mixin border-radius($radius){
   -webkit-border-radius: $radius;
   -moz-border-radius: $radius;
   border-radius: $radius;
 }
-/* EXTENDS */
-//boxes
+
+@mixin border-radius-four($corn1, $corn2, $corn3, $corn4){
+  -webkit-border-radius: $corn1 $corn2 $corn3 $corn4;
+  -moz-border-radius: $corn1 $corn2 $corn3 $corn4;
+  border-radius: $corn1 $corn2 $corn3 $corn4;
+}
+
+/* ========== EXTENDS ========== */
+
+/* ---------- BOXES ---------- */
+
 %flexbox{
   display: -webkit-flexbox;
   display: -moz-flexbox;
   display: -ms-flexbox;
-  display: flexbox;
+  display: flex;
 }
-//fonts
-//Fonts
+
+%borderbox{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* ---------- FONTS ---------- */
+
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400,600,700');
 %prim-font-light{
   font-family: 'Josefin Sans', sans-serif;

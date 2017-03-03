@@ -1,73 +1,175 @@
+/*===========================================*/
 /*==========  Mobile First Method  ==========*/
+/*===========================================*/
 
+/* ---------- STRUCTURE ---------- */
 nav{
-  border-bottom: 0.5rem solid $greenish;
-    #menu-toggle{
-      display: none;
-    }
-    #menu{
-      display: none;
-    }
-    #menu-toggle:checked + #menu{
-      display: flex;
-    }
-    background-color: $charcoal;
-    color: $dirty-white;
-    #{$a-links}{
-      text-decoration: none;
-      color: $dirty-white;
-    }
+  @extend%borderbox;
+  label{
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+  }
+  #menu-toggle{
+    display: none;
+  }
+  #menu{
+    display: none;
+  }
+  #menu-toggle:checked + #menu{
+    @extend%flexbox;
+  }
+
+  ul{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction:column;
     li{
-      list-style-type: none;
-      .active{
-        color: $charcoal;
-        background-color: $dirty-white;
+      width: auto;
+      margin:0;
+      padding:0;
+      flex: 1;
+      justify-content: space-around;
+      img{
+        display: none;
+      }
+      a{
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
     }
   }
+}
+
+section.subheader{
+  @extend%borderbox;
+  @extend%flexbox;
+  flex-direction: row;
+  justify-content: space-around;
+  vertical-align: bottom;
+  height: 8rem;
+  div{
+    width: 33%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    h4{
+      display: inline-flex;
+      margin: 0;
+    }
+    img{
+      display: inline-flex;
+      resize: both;
+      &#logo{
+        z-index: 1;
+        width: 60%;
+      }
+    }
+    #{$a-links}{
+      padding: 0.5rem 1rem;
+    }
+  }
+
+}
 
 
+/* ---------- STYLING ---------- */
+
+nav{
+  background-color: $charcoal;
+  color: $dirty-white;
+  #{$a-links}{
+    text-decoration: none;
+    color: $dirty-white;
+  }
+  li{
+    list-style-type: none;
+    a.active{
+      color: $charcoal;
+      background-color: $dirty-white-op8;
+    }
+    &:hover{
+      a{
+        background-color: $dirty-white-op2;
+      }
+    }
+  }
+}
+
+section.subheader{
+  background-color: $greenish-op8;
+  border-bottom: 1rem solid $charcoal;
+  div{
+    margin: 0;
+    padding:0;
+    #{$a-links}{
+      font-size: 1.5rem;
+      background-color: $charcoal;
+      @include border-radius(5px);
+      text-decoration: none;
+      color: $dirty-white;
+    }
+  }
+}
 
 
-/* Small Devices, Tablets */
+/*==============================================*/
+/*==========  Small devices, tablets  ==========*/
+/*==============================================*/
+
+
 @media only screen and (min-width : 768px) {
 
+  /* ---------- STRUCTURE ---------- */
+
   nav{
-    border-bottom: none;
+    height: 5rem;
+    label#navlabel{ display: none; }
     #menu-toggle{
       display: none;
     }
     #menu{
       display: none;
     }
-    #menu-toggle:checked + #menu{
+    ul#menu{
+      margin:0;
+      padding:0;
       display: flex;
-    }
-    background-color: $greenish;
-    color: $charcoal;
-    #{$a-links}{
-      text-decoration: none;
-      color: $charcoal;
-    }
-    li{
-      list-style-type: none;
-      .active{
-        color: $dirty-white;
-        background-color: $charcoal;
+      flex-direction:row;
+      li{
+        margin:0;
+        padding:0;
+        flex: 1;
+        justify-content: space-around;
+        a{
+          padding: 1rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          &.active{
+            margin: 0.5rem;
+          }
+        }
+        img{
+          padding: 0.5rem;
+          margin: 0 auto;
+          display: block;
+          align-self: center;
+          position: relative;
+        }
       }
     }
   }
 
   section.subheader{
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    color: $greenish;
-    background-color: $charcoal;
-    border-bottom: 0.5rem solid $greenish;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    vertical-align: bottom;
+    height: 12rem;
     div{
       display: flex;
       align-items: center;
@@ -79,21 +181,62 @@ nav{
       img{
         padding: 1rem;
         display: inline-flex;
+        &#logo{
+          display: none;
+        }
       }
       #{$a-links}{
         padding: 0.5rem 1rem;
+      }
+    }
+
+  }
+
+
+
+  /* ---------- STYLING ---------- */
+
+  nav{
+    border-bottom: none;
+    background-color: $greenish;
+    color: $charcoal;
+    #{$a-links}{
+      text-decoration: none;
+      color: $charcoal;
+    }
+    li{
+      list-style-type: none;
+      a.active{
+        @include border-radius-four(10px, 10px, 0, 0);
+        color: $dirty-white;
+        background-color: $charcoal;
+      }
+    }
+  }
+
+  section.subheader{
+    color: $greenish;
+    background-color: $charcoal;
+    border-bottom: 1rem solid $greenish;
+    div{
+      #{$a-links}{
+        font-size: 2.5rem;
         background-color: $greenisher;
-        @include border-radius(10px);
+        @include border-radius(5px);
         text-decoration: none;
-        color: $charcoal;
+        color: $dirty-white;
       }
     }
   }
 
 
+
 }
 
-/* Medium Devices, Desktops */
+/*===========================================*/
+/*============Medium ============*/
+/*===========================================*/
+
 @media only screen and (min-width : 992px) {
 
 }

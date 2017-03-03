@@ -16,9 +16,9 @@ class IndexController extends BaseController {
         }
 
         if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true){
-                $this->assign('loginValue', 'Afmelden');
+                $this->assign('loginValue', 'afmelden');
             } else {
-                $this->assign('loginValue', 'Aanmelden');
+                $this->assign('loginValue', 'aanmelden');
             }
 
         if(isset($_SESSION['placedorder'])){
