@@ -51,6 +51,7 @@ section.subheader{
   justify-content: space-around;
   vertical-align: bottom;
   height: 8rem;
+  margin-bottom: 1rem;
   div{
     width: 33%;
     display: flex;
@@ -108,7 +109,7 @@ section.subheader{
     #{$a-links}{
       font-size: 1.5rem;
       background-color: $charcoal;
-      @include border-radius(5px);
+      @include border-radius(0.5rem);
       text-decoration: none;
       color: $dirty-white;
     }
@@ -207,7 +208,7 @@ section.subheader{
     li{
       list-style-type: none;
       a.active{
-        @include border-radius-four(10px, 10px, 0, 0);
+        @include border-radius-four(1rem, 1rem, 0, 0);
         color: $dirty-white;
         background-color: $charcoal;
       }

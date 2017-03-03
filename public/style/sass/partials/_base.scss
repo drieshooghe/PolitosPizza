@@ -42,6 +42,13 @@ $red-light-op4: rgba(241, 93, 88,0.4);
 $red-light-op6: rgba(241, 93, 88,0.6);
 $red-light-op8: rgba(241, 93, 88,0.8);
 
+/* ---------- RED-LIGHT ---------- */
+$red-dark: #b20000;
+$red-light-op2: rgba(178, 0, 0, 0.2);
+$red-light-op4: rgba(178, 0, 0, 0.4);
+$red-light-op6: rgba(178, 0, 0, 0.6);
+$red-light-op8: rgba(178, 0, 0, 0.8);
+
 /* ---------- DIRTY-WHITE ---------- */
 $dirty-white: #DCDDCD;
 $dirty-white-op2: rgba(220, 221, 205,0.2);
@@ -130,4 +137,9 @@ $a-links-hover: 'a:active, a:hover';
 %prim-font-bold{
   font-family: 'Josefin Sans', sans-serif;
   font-weight: 700;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Bungee');
+%sec-font{
+  font-family: 'Bungee', sans-serif;
 }

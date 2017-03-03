@@ -11,41 +11,45 @@
 
 </head>
 <body>
-<header class="container">
-    <nav>
-        <label for="menu-toggle" id="navlabel"><img src="{{ path("/img/navbar-toggle-dark.svg") }}" alt=""></label>
-        <input type="checkbox" id="menu-toggle"/>
-        <ul id="menu">
-            <li><a href="{{ home }}">HOME</a></li>
-            <li class="active"><a class="active" href="{{ login }}">INLOGGEN</a></li>
-            <li class="header_logo"><img src="{{ path("/img/pp_logo_font.svg") }}" alt=""></li>
-            <li><a href="{{ menu }}">BESTELLEN</a></li>
-            <li><a href="{{ info }}">INFO</a></li>
-        </ul>
-    </nav>
-    <section class="subheader">
-        <div></div>
-        <div></div>
-        <div><img src="{{ path("/img/" ~ status ~ ".svg") }}" /></div>
-    </section>
-</header>
+    <header class="container">
+        <nav>
+            <label for="menu-toggle" id="navlabel"><img src="{{ path("/img/navbar-toggle-dark.svg") }}" alt=""></label>
+            <input type="checkbox" id="menu-toggle"/>
+            <ul id="menu">
+                <li><a href="{{ home }}">HOME</a></li>
+                <li class="active"><a class="active" href="{{ login }}">INLOGGEN</a></li>
+                <li class="header_logo"><img src="{{ path("/img/pp_logo_font.svg") }}" alt=""></li>
+                <li><a href="{{ menu }}">BESTELLEN</a></li>
+                <li><a href="{{ info }}">INFO</a></li>
+            </ul>
+        </nav>
+        <section class="subheader">
+            <div></div>
+            <div></div>
+            <div><img src="{{ path("/img/" ~ status ~ ".svg") }}" /></div>
+        </section>
+    </header>
 
-<div>
-    <h3>Ik heb een account:</h3>
-    {% if wrongPwd is not empty and wrongPwd %}
-        <p>U gaf een verkeerde gebruikersnaam of wachtwoord, probeer opnieuw</p>
-    {% endif %}
-    <form action="{{ login }}" method="POST">
-        Email: <input type="text" name="email" value="{{ custEmail }}" required="required"><br/><br/>
-        Password: <input type="password" name="pwd" required="required"><br/><br/>
-        <input type="submit" value="Login">
-    </form>
-</div>
-<div>
-    <h3>Ik heb geen account:</h3>
-    <form action="{{ register }}" method="GET">
-        <input type="submit" value="Registreer">
-    </form>
-</div>
+    <section class="container-sm content">
+        <div class="column col6">
+            <h3>Ik heb een account:</h3>
+            {% if wrongPwd is not empty and wrongPwd %}
+                <p>U gaf een verkeerde gebruikersnaam of wachtwoord, probeer opnieuw</p>
+            {% endif %}
+            <form action="{{ login }}" method="POST">
+                Email: <input type="text" name="email" value="{{ custEmail }}" required="required"><br/><br/>
+                Password: <input type="password" name="pwd" required="required"><br/><br/>
+                <input type="submit" value="Login">
+            </form>
+        </div>
+
+        <div class="column offset1 col5">
+            <h3>Ik heb geen account:</h3>
+            <form action="{{ register }}" method="GET">
+                <input type="submit" value="Registreer">
+            </form>
+        </div>
+    </section>
+
 </body>
 </html>

@@ -1,3 +1,4 @@
+
 /* ========== GRID ========== */
 
 /*===========================================*/
@@ -34,14 +35,23 @@ body{
   padding: 0;
 }
 
+.column {
+  margin-bottom: 2rem;
+  width: 100%;
+  min-width: 8em;
+  float: left;
+  box-sizing: border-box;
+  padding: 2rem;
+  clear: both;
+}
+
 .content{
   @extend%borderbox;
-  padding-bottom: 4rem;
-  margin-top: 3rem;
 }
 
 .footer{
   @extend%borderbox;
+  margin-top: 2rem;
   width: 100%;
   height: 4rem;
   bottom: 0;
@@ -50,9 +60,69 @@ body{
   padding-left: 1rem;
 }
 
+/* CLEARFIX */
+.container:after,.container-sm:after,
+.row:after,
+.u-cf {
+  content: "";
+  display: table;
+  clear: both; }
+
 
 /*==============================================*/
 /*==========  Small devices, tablets  ==========*/
+/*==============================================*/
+
+@media (min-width: 550px) {
+  .container {
+    width: 100%; }
+  .column{
+    min-width: 3.6em;
+  }
+  .col {
+    margin-left: 4%; }
+  .col:first-child{
+    margin-left: 0; }
+
+  .col1                           { width: 4.66666666667%; }
+  .col2                           { width: 13.3333333333%; }
+  .col3                           { width: 22%;            }
+  .col4                           { width: 30.6666666667%; }
+  .col5                           { width: 39.3333333333%; }
+  .col6                           { width: 48%;            }
+  .col7                           { width: 56.6666666667%; }
+  .col8                           { width: 65.3333333333%; }
+  .col9                           { width: 74.0%;          }
+  .col10                          { width: 82.6666666667%; }
+  .col11                          { width: 91.3333333333%; }
+  .col12                          { width: 100%; margin-left: 0; }
+
+  .col1-3                         { width: 30.6666666667%; }
+  .col2-3                         { width: 65.3333333333%; }
+  .col1-2                         { width: 48%; }
+
+  /* OFFSETS */
+  .offset1                        { margin-left: 8.66666666667%; }
+  .offset2                        { margin-left: 17.3333333333%; }
+  .offset3                        { margin-left: 26%;            }
+  .offset4                        { margin-left: 34.6666666667%; }
+  .offset5                        { margin-left: 43.3333333333%; }
+  .offset6                        { margin-left: 52%;            }
+  .offset7                        { margin-left: 60.6666666667%; }
+  .offset8                        { margin-left: 69.3333333333%; }
+  .offset9                        { margin-left: 78.0%;          }
+  .offset10                       { margin-left: 86.6666666667%; }
+  .offset11                       { margin-left: 95.3333333333%; }
+
+  .offset1-3                      { margin-left: 34.6666666667%; }
+  .offset2-3                      { margin-left: 69.3333333333%; }
+  .offset1-2                      { margin-left: 52%; }
+
+}
+
+
+/*==============================================*/
+/*========  Semi-Small devices, tablets  =======*/
 /*==============================================*/
 
 @media only screen and (min-width : 768px) {
@@ -61,7 +131,6 @@ body{
     position: relative;
     width: 85%;
     height: auto;
-    margin: 2rem auto;
     padding: 0;
   }
 

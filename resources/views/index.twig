@@ -7,6 +7,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Polito's</title>
+    <link rel="icon" type="image/svg" href="{{ path("/img/favicon.svg") }}" >
     <link rel="stylesheet" href="{{ path('/public/style/css/main.css') }}" type="text/css"/>
 </head>
     <body>
@@ -33,16 +34,33 @@
             <div id="thanks"><h3>{{ placedorder }}</h3></div>
         {%  endif %}
 
-        <section class="container-sm content">
-
-            <h1>Welkom</h1>
-
-            <div>
-                <h1><a href="{{ menu }}">BESTELLEN</a></h1>
+        <section id="promo" class="container content">
+            <div class="column">
+                <img src="{{ path("/img/promo-sm.png") }}">
             </div>
         </section>
 
-        <section class="container footer">
+        <section id="welcome" class="container-sm content">
+            <article class="column">
+                <h1>WELKOM</h1>
+                <p>Pepe's Plain Pizza is een bezorgrestaurant voor Italiaanse gerechten, gelegen in Deerlijk.</p>
+                <p>Wij bieden een zeer grote keuze aan pasta's en pizza's die met de grootste zorg en dagvers bereid worden.<br>
+                    Daarnaast hebben we ook een aantal verschillende aardappel- en visspecialiteiten (scampi's) en vleesgerechten met friet.<br>
+                    Het spreekt voor zich dat ook vegetariërs aan hun trekken komen bij Pepe's!<br>
+                    Indien gewenst kunt uw bestelling opeten bij ons of laten leveren aan huis.</p>
+                <p>Aarzel niet om uw bestelling telefonisch door te geven op het nummer (056)45.99.XX,<br>
+                    binnen de 15 minuten maken wij uw bestelling klaar.</p>
+
+                <div id="order">
+                    <a href="{{ menu }}">BESTELLEN</a>
+                </div>
+            </article>
+        </section><br/>
+
+
+
+
+        <section id="order" class="container footer">
                 <footer class="footer">
                     <p>&#169; Dries Hooghe</p>
                 </footer>
