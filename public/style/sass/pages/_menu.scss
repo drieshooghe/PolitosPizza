@@ -92,14 +92,17 @@ section#menu{
   span#dishes{
     order: 3;
     width: 100%;
-    background-color: $dirty-white-op8;
+    margin-right: 1rem;
     label{
       display: block;
+      padding: 1rem;
       text-align: center;
       background-color: $charcoal;
       color: $dirty-white;
+      margin-top: 1rem;
     }
     div.foodblock{
+      background-color: $dirty-white-op8;
       @extend %borderbox;
       @include columns(1);
       @include columngap(2rem);
@@ -179,11 +182,6 @@ span#order {
         }
       }
     }
-    form {
-      input[type=submit] {
-
-      }
-    }
   }
 }
 
@@ -194,17 +192,51 @@ span#order {
 @media only screen and (min-width : 780px) {
 
   section#menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     span#dishes {
-      div.foodblock {
-        h1{
-          font-size: 4vw;
+      display: block;
+      width: 70%;
+      order: 1;
+      label{
+        display: block;
+        height: 6rem;
+        vertical-align: middle;
+        padding-top: 2rem;
+        &:first-child{
+          margin-top: 0;
         }
+      }
+      div.foodblock {
         column-count: 2;
         -moz-column-count:2;
         -webkit-column-count: 2;
         -webkit-column-break-before: avoid;
         break-before: avoid;
         vertical-align: middle;
+        div.dish{
+          table{
+            tr{
+              td{
+                font-size: 1vw;
+                form input[type=number], input[type=submit]{
+                    text-align: center;
+                    width: 15%;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    span#order{
+      order: 2;
+      width: 30%;
+      table{
+        margin: 0 auto;
+        width: 100%;
+        font-size: 1vw;
       }
     }
   }
