@@ -1,15 +1,6 @@
-input[type=submit]{
-  @extend%prim-font-light;
-  @include linear-gradient($green-light, $green-dark);
-  border-color: transparent;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  text-shadow: 1px 1px 3px #666666;
-  color: #ffffff;
-  font-size: 1.2em;
-  padding: 0.2em 0.4em;
-  &:hover{
-    @include linear-gradient-hover($green-light, $green-normal);
-  }
+%submit{
+  background-color: $greenisher;
+  @include border-radius(1rem);
+  color: $dirty-white;
+  padding: 0.5rem 1rem;
 }

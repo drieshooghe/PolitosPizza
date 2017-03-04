@@ -64,6 +64,7 @@ section.subheader{
     img{
       display: inline-flex;
       resize: both;
+      width: 60%;
       &#logo{
         z-index: 1;
         width: 60%;
@@ -182,6 +183,8 @@ section.subheader{
       img{
         padding: 1rem;
         display: inline-flex;
+        min-width: 15rem;
+        width: 20%;
         &#logo{
           display: none;
         }

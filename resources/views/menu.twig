@@ -25,116 +25,175 @@
     </nav>
     <section class="subheader">
         <div><h4><a href="{{ login }}">{{  loginValue }}</a></h4></div>
+        <div><img id="logo" src="{{ path("/img/pp_logo_font_original.svg") }}" alt=""></div>
         <div></div>
-        <div><img src="{{ path("/img/" ~ status ~ ".svg") }}" /></div>
     </section>
 </header>
 
-<section id="menu" class="container-sm content">
-    <div id="dishes" class="column col7">
+<section id="menu">
 
-        <table class="foodblock">
-            <tr><h1>VOORGERECHTEN</h1></tr>
+    <span id="dishes">
+
+        <label for="entrees-toggle" id="entreeslabel">VOORGERECHTEN</label>
+        <input type="checkbox" id="entrees-toggle"/>
+        <div id="entrees" class="foodblock">
             {% for item in entrees %}
-                <tr class="dish">
-                    <td class="name">{{ item.Name }}</td>
-                </tr>
-                <tr class="dish">
-                    <td>{{ item.Desc }}</td>
-                    <td rowspan="2">
-                        <form action="{{ menu }}" method="GET">
-                            <input type="hidden" name="id" value="{{ item.Id }}">
-                            Aantal: <input type="number" name="quantity" value="Aantal" min=0>
-                            <input type="submit" value="+">
-                        </form>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Prijs: €{{ item.Price }}</td>
-                </tr>
+                    <div class="dish">
+                        <table>
+                            <tr>
+                                <th colspan="2">{{ item.Name }}</th>
+                            </tr>
+                            <tr>
+                                <td class="small">{{ item.Desc }}</td>
+                                <td rowspan="2">
+                                    <form action="{{ menu }}" method="GET">
+                                        <input type="hidden" name="id" value="{{ item.Id }}">
+                                        Aantal: <br/><input class="amount" type="number" name="quantity" value="Aantal" min=0>
+                                        <input type="submit" value="+">
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td  class="small">Prijs: €{{ item.Price }}</td>
+                            </tr>
 
-                </tr>
-            {%  endfor %}
-        </table>
+                            </tr>
+                        </table>
+                    </div>
+                {%  endfor %}
+        </div>
 
-        <div class="foodblock">
-            <h1>PIZZA'S</h1>
+        <label for="pizza-toggle" id="pizzalabel">PIZZA'S</label>
+        <input type="checkbox" id="pizza-toggle"/>
+        <div id="pizza" class="foodblock">
             {% for item in pizza %}
                 <div class="dish">
-                    <h5>{{ item.Name }}</h5>
-                        <p>{{ item.Desc }}</p>
-                        <p>Prijs: €{{ item.Price }}</p>
-                    <form action="{{ menu }}" method="GET">
-                        <input type="hidden" name="id" value="{{ item.Id }}">
-                        <select name="sizeId">
-                            <option value="2">Small</option>
-                            <option value="3">Medium</option>
-                            <option value="4">Large</option>
-                        </select>
-                        Aantal: <input type="number" name="quantity" value="Aantal" min=0>
-                        <input type="submit" value="Toevoegen">
-                    </form>
-                </div>
-            {% endfor %}
+                        <table>
+                            <tr>
+                                <th colspan="2">{{ item.Name }}</th>
+                            </tr>
+                            <tr>
+                                <td>{{ item.Desc }}</td>
+                                <td rowspan="2">
+                                    <form action="{{ menu }}" method="GET">
+                                        <input type="hidden" name="id" value="{{ item.Id }}">
+                                        <select name="sizeId">
+                                            <option value="2">Small</option>
+                                            <option value="3">Medium</option>
+                                            <option value="4">Large</option>
+                                        </select><br/><br/>
+
+                                        Aantal: <br/><input class="amount" type="number" name="quantity" value="Aantal" min=0>
+                                        <input type="submit" value="+">
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Prijs:<br/> €{{ item.Price }}</td>
+                            </tr>
+
+                            </tr>
+                        </table>
+                    </div>
+            {%  endfor %}
         </div>
 
-        <div class="foodblock">
-            <h1>PASTA'S</h1>
+        <label for="pasta-toggle" id="pastalabel">PASTA'S</label>
+        <input type="checkbox" id="pasta-toggle"/>
+        <div id="pasta" class="foodblock">
             {% for item in pasta %}
                 <div class="dish">
-                    <h5>{{ item.Name }}</h5>
-                        <p>{{ item.Desc }}</p>
-                        <p>Prijs: €{{ item.Price }}</p>
-                    <form action="{{ menu }}" method="GET">
-                        <input type="hidden" name="id" value="{{ item.Id }}">
-                        Aantal: <input type="number" name="quantity" value="Aantal" min=0>
-                        <input type="submit" value="Toevoegen">
-                    </form>
-                </div>
-            {% endfor %}
+                        <table>
+                            <tr>
+                                <th colspan="2">{{ item.Name }}</th>
+                            </tr>
+                            <tr>
+                                <td class="small">{{ item.Desc }}</td>
+                                <td rowspan="2">
+                                    <form action="{{ menu }}" method="GET">
+                                        <input type="hidden" name="id" value="{{ item.Id }}">
+                                        Aantal: <br/><input class="amount" type="number" name="quantity" value="Aantal" min=0>
+                                        <input type="submit" value="+">
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr class="small">
+                                <td>Prijs: €{{ item.Price }}</td>
+                            </tr>
+
+                            </tr>
+                        </table>
+                    </div>
+            {%  endfor %}
         </div>
 
-        <div class="foodblock">
-            <h1>DESSERTS</h1>
+        <label for="dessert-toggle" id="dessertlabel">DESSERTS</label>
+        <input type="checkbox" id="dessert-toggle"/>
+        <div id="dessert" class="foodblock">
             {% for item in dessert %}
                 <div class="dish">
-                    <h5>{{ item.Name }}</h5>
-                        <p>{{ item.Desc }}</p>
-                        <p>Prijs: €{{ item.Price }}</p>
-                        <form action="{{ menu }}" method="GET">
-                            <input type="hidden" name="id" value="{{ item.Id }}">
-                        Aantal: <input type="number" name="quantity" value="Aantal" min=0>
-                        <input type="submit" value="Toevoegen">
-                    </form>
-                </div>
-            {% endfor %}
+                        <table>
+                            <tr>
+                                <th colspan="2">{{ item.Name }}</th>
+                            </tr>
+                            <tr>
+                                <td>{{ item.Desc }}</td>
+                                <td rowspan="2">
+                                    <form action="{{ menu }}" method="GET">
+                                        <input type="hidden" name="id" value="{{ item.Id }}">
+                                        Aantal: <br/><input class="amount" type="number" name="quantity" value="Aantal" min=0>
+                                        <input type="submit" value="+">
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Prijs: €{{ item.Price }}</td>
+                            </tr>
+
+                            </tr>
+                        </table>
+                    </div>
+            {%  endfor %}
         </div>
 
-        <div class="foodblock">
-            <h1>DRANKEN</h1>
+        <label for="drinks-toggle" id="drinkslabel">DRANKEN</label>
+        <input type="checkbox" id="drinks-toggle"/>
+        <div id="drinks" class="foodblock">
             {% for item in drinks %}
-            <div class="dish">
-                <h5>{{ item.Name }}</h5>
-                    <p>{{ item.Desc }}</p>
-                    <p>Prijs: €{{ item.Price }}</p>
-                    <form action="{{ menu }}" method="GET">
-                        <input type="hidden" name="id" value="{{ item.Id }}">
-                    Aantal: <input type="number" name="quantity" value="Aantal" min=0>
-                    <input type="submit" value="Toevoegen">
-                </form>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
+                <div class="dish">
+                        <table>
+                            <tr>
+                                <th colspan="2">{{ item.Name }}</th>
+                            </tr>
+                            <tr>
+                                <td>{{ item.Desc }}</td>
+                                <td rowspan="2">
+                                    <form action="{{ menu }}" method="GET">
+                                        <input type="hidden" name="id" value="{{ item.Id }}">
+                                        Aantal: <br/><input class="amount" type="number" name="quantity" value="Aantal" min=0>
+                                        <input type="submit" value="+">
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Prijs: €{{ item.Price }}</td>
+                            </tr>
 
-    <div class="column offset1 col4">
+                            </tr>
+                        </table>
+                    </div><br/>
+            {%  endfor %}
+        </div>
+    </span>
+
+    <span id="order">
             <h2>UW BESTELLING</h2>
             <table>
                 <tr>
-                    <th>Naam</th>
-                    <th>Maat</th>
-                    <th>Hoeveelheid</th>
-                    <th>Prijs</th>
+                    <th id="name">Naam</th>
+                    <th id="size">Maat</th>
+                    <th id="qty">Hoeveelheid</th>
+                    <th id="price">Prijs</th>
                     <th></th>
                 </tr>
                 {%  for key, item in orderlines %}
@@ -147,20 +206,19 @@
                             {% endif %}</td>
                         <td>{{ item.Quantity }}</td>
                         <td>{{ item.Price }}</td>
-                        <td><a href="{{ menu }}?action=del&item={{ key }}">DELETE</a></td>
+                        <td id="delete"><a href="{{ menu }}?action=del&item={{ key }}"><img src="{{ path("/img/minus.png") }}"/> </a></td>
                     </tr>
                 {% endfor %}
                 <tr>
                     <td colspan="3">Totaal: </td>
-                    <td>€{{ totPrice }}</td>
+                    <td>€{{ totPrice }}</td><td></td>
                 </tr>
             </table>
             <form action="{{ menu }}" method="GET">
                 <input type="submit" name="action" value="RESET">
                 <input type="submit" name="action" value="BESTELLEN">
             </form>
-            <form></form>
-    </div>
+    </span>
 </section>
 
 

@@ -106,6 +106,25 @@ $a-links-hover: 'a:active, a:hover';
   border-radius: $corn1 $corn2 $corn3 $corn4;
 }
 
+/* ---------- COLUMNS ---------- */
+@mixin columns($amount){
+  column-count:$amount;
+  -moz-column-count:$amount;
+  -webkit-column-count:$amount;
+}
+
+@mixin columngap($count){
+  -webkit-column-gap: $count; /* Chrome, Safari, Opera */
+  -moz-column-gap: $count; /* Firefox */
+  column-gap: $count;
+}
+
+@mixin columnspan($rows){
+  -webkit-column-span: $rows;
+  column-span: $rows;
+}
+
+
 /* ========== EXTENDS ========== */
 
 /* ---------- BOXES ---------- */
@@ -121,6 +140,19 @@ $a-links-hover: 'a:active, a:hover';
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+%spinbox{
+  input[type=number]{
+    width: 4.5rem;
+  }
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+  }
 }
 
 /* ---------- FONTS ---------- */

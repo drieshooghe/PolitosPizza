@@ -5,18 +5,206 @@
 /* ---------- STYLING ---------- */
 
 section#menu{
-  div#dishes{
-    table.foodblock{
-      display: table;
-      columns: 2;
-      tr.dish{
-        td.name{
-          font-size: 2.5rem;
+  width: 90%;
+  margin: auto;
+  @extend %flexbox;
+  flex-direction: column;
+  text-align: center;
+
+  /*************************************/
+  input[type=submit]{
+    @extend %submit;
+  }
+
+  /*************************************/
+
+  #entreeslabel{
+    cursor: pointer;
+    display: flex;
+  }
+  #entrees-toggle{
+    display: none;
+  }
+  #entrees{
+    display: none;
+  }
+  #entrees-toggle:checked + #entrees {
+      display: inherit;
+  }
+
+  #pizzalabel{
+    cursor: pointer;
+    display: flex;
+  }
+  #pizza-toggle{
+    display: none;
+  }
+  #pizza{
+    display: none;
+  }
+  #pizza-toggle:checked + #pizza {
+    display: inherit;
+  }
+
+  #pastalabel{
+    cursor: pointer;
+    display: flex;
+  }
+  #pasta-toggle{
+    display: none;
+  }
+  #pasta{
+    display: none;
+  }
+  #pasta-toggle:checked + #pasta {
+    display: inherit;
+  }
+
+  #dessertlabel{
+    cursor: pointer;
+    display: flex;
+  }
+  #dessert-toggle{
+    display: none;
+  }
+  #dessert{
+    display: none;
+  }
+  #dessert-toggle:checked + #dessert {
+    display: inherit;
+  }
+
+  #drinkslabel{
+    cursor: pointer;
+    display: flex;
+  }
+  #drinks-toggle{
+    display: none;
+  }
+  #drinks{
+    display: none;
+  }
+  #drinks-toggle:checked + #drinks {
+    display: inherit;
+  }
+
+  /*************************************/
+  span#dishes{
+    order: 3;
+    width: 100%;
+    background-color: $dirty-white-op8;
+    label{
+      display: block;
+      text-align: center;
+      background-color: $charcoal;
+      color: $dirty-white;
+    }
+    div.foodblock{
+      @extend %borderbox;
+      @include columns(1);
+      @include columngap(2rem);
+      padding: 2rem;
+      margin: 0;
+      overflow: hidden;
+      h1{
+        @include columnspan(all);
+        font-size: 8vw;
+      }
+      div.dish{
+        width: 100%;
+        display: inline-block;
+        table{
+          background-color: $dirty-white-op6;
+          width: 100%;
+          tr{
+            th{
+              background-color: $charcoal-op6;
+              color: $dirty-white;
+            }
+            td{
+                font-size: 4vw;
+                vertical-align: middle;
+              width: 50%;
+              word-wrap: break-word;
+              white-space: normal;
+            }
+            form {
+              background-color: $dirty-white-op8;
+              @extend %spinbox;
+              input {
+                width: 30%;
+                &.amount {
+                  width: 50%;
+                }
+                select {
+                  width: 80%;
+                }
+              }
+            }
+          }
         }
-        width: 50%;
-        input[type=number]{
-          width: 4rem;
+      }
+    }
+  }
+}
+
+span#order {
+  order: 1;
+  background-color: $dirty-white;
+  padding: 2rem;
+  table {
+    text-align: center;
+    width: 100%;
+    font-size: 3vw;
+    margin-bottom: 1rem;
+    tr {
+      &:last-child{
+        background-color: $charcoal-op8;
+        color: $dirty-white;
+      }
+      th{
+        overflow: hidden;
+        background-color: $charcoal-op8;
+        color: $dirty-white;
+      }
+      td {
+        &:nth-child(odd){
+          background-color: $charcoal-op4;
         }
+        &:nth-child(even){
+          background-color: $charcoal-op2;
+        }
+        &#name{
+          width: 50%;
+        }
+      }
+    }
+    form {
+      input[type=submit] {
+
+      }
+    }
+  }
+}
+
+/*==============================================*/
+/*========  Semi-Small devices, tablets  =======*/
+/*==============================================*/
+
+@media only screen and (min-width : 780px) {
+
+  section#menu {
+    span#dishes {
+      div.foodblock {
+        h1{
+          font-size: 4vw;
+        }
+        column-count: 2;
+        -moz-column-count:2;
+        -webkit-column-count: 2;
+        -webkit-column-break-before: avoid;
+        break-before: avoid;
+        vertical-align: middle;
       }
     }
   }
