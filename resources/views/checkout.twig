@@ -55,11 +55,18 @@
             <td>{{ discount }}%</td>
         </tr>
         {% endif %}
-        {% if delivery > 0 %}
-            <tr>
-                <td colspan="3">Leverkosten {{ town }}: </td>
-                <td>{{ delivery }}</td>
-            </tr>
+        {% if deliverable %}
+            {% if delivery == 0 %}
+                <tr>
+                    <td colspan="3">Leverkosten {{ town }}: </td>
+                    <td>Gratis levering</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3">Leverkosten {{ town }}: </td>
+                    <td>€ {{ delivery }}</td>
+                </tr>
+            {% endif %}
         {% else %}
             <tr>
                 <td colspan="3">Enkel afhalen mogelijk</td>

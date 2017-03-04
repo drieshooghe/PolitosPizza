@@ -41,6 +41,7 @@ class CheckoutController extends BaseController {
         $postCode = $info->getPostCode();
         $town = $info->getTown();
         $deliveryPrice = $info->getDeliveryPrice();
+        $deliverable = $info->getDeliverable();
 
         /**
          * Other variables
@@ -56,6 +57,7 @@ class CheckoutController extends BaseController {
         $this->assign('orderlines', $orderlines);
         $this->assign('discount', $discountPerc);
         $this->assign('town', $town);
+        $this->assign('deliverable', $deliverable);
         $this->assign('delivery', $deliveryPrice);
         $this->assign('totPrice', $totPrice);
         $this->assign('korting', $discount);

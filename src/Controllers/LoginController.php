@@ -28,14 +28,14 @@ class LoginController extends BaseController {
         }
 
         /** If users get to this page, even though they're logged in, they want to log out*/
-        if (isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true){
+        if (isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] === true){
             unset($_SESSION["loggedIn"]);
             unset($_SESSION["custId"]);
             unset($_SESSION["orderlines"]);
             $this->redirect('');
         }
 
-        if(isset($_SESSION["wrongPwd"]) && $_SESSION["wrongPwd"] == true){
+        if(isset($_SESSION["wrongPwd"]) && $_SESSION["wrongPwd"] === true){
             $this->assign('wrongPwd', true);
         } else {
             $this->assign('wrongPwd', false);

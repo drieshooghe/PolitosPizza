@@ -21,9 +21,10 @@ class DeliveryLine
     private $town;
     private $phoneNr;
     private $mobileNr;
+    private $deliveryNr;
     public $deliveryPrice;
 
-    private function __construct($gId, $gFirstName, $gFamName, $gAdres, $gPostCode, $gTown, $gPhoneNr, $gMobileNr, $gDeliveryPrice){
+    private function __construct($gId, $gFirstName, $gFamName, $gAdres, $gPostCode, $gTown, $gPhoneNr, $gMobileNr, $deliveryNr, $gDeliveryPrice){
     $this->id = $gId;
     $this->firstName = $gFirstName;
     $this->famName = $gFamName;
@@ -32,12 +33,13 @@ class DeliveryLine
     $this->town = $gTown;
     $this->phoneNr = $gPhoneNr;
     $this->mobileNr = $gMobileNr;
+    $this->deliveryNr = $deliveryNr;
     $this->deliveryPrice = $gDeliveryPrice;
 }
 
-    public static function create($gId, $gFirstName, $gFamName, $gAdres, $gPostCode, $gTown, $gPhoneNr, $gMobileNr,$gDeliveryPrice){
+    public static function create($gId, $gFirstName, $gFamName, $gAdres, $gPostCode, $gTown, $gPhoneNr, $gMobileNr,$deliveryNr, $gDeliveryPrice){
     if (!isset(self::$idMap[$gId])){
-        self::$idMap[$gId] = new DeliveryLine($gId, $gFirstName, $gFamName, $gAdres, $gPostCode, $gTown, $gPhoneNr, $gMobileNr, $gDeliveryPrice);
+        self::$idMap[$gId] = new DeliveryLine($gId, $gFirstName, $gFamName, $gAdres, $gPostCode, $gTown, $gPhoneNr, $gMobileNr, $deliveryNr, $gDeliveryPrice);
     }
     return self::$idMap[$gId];
 }
@@ -58,6 +60,10 @@ class DeliveryLine
 
     public function getMobileNr(){ return $this->mobileNr;}
 
+    public function getDeliveryNr(){ return $this->deliveryNr; }
+
     public function getDeliveryPrice(){ return $this->deliveryPrice; }
+
+    public function getDeliverable(){ return $this->deliveryNr !== 0; }
 
 }
