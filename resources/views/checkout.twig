@@ -1,5 +1,5 @@
 <!doctype html>
-<!--resources/views/cart.twig-->
+<!--resources/views/checkout.twig-->
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
@@ -18,17 +18,18 @@
             <li><a href="{{ home }}">HOME</a></li>
             <li><a href="{{ login }}">INLOGGEN</a></li>
             <li class="header_logo"><img src="{{ path("/img/pp_logo_font.svg") }}" alt=""></li>
-            <li class="active"><a class="active" href="{{ menu }}">BESTELLEN</a></li>
+            <li><a href="{{ menu }}">BESTELLEN</a></li>
             <li><a href="{{ info }}">INFO</a></li>
         </ul>
     </nav>
     <section class="subheader">
-        <div><h4><a href="{{ login }}">{{  loginValue }}</a></h4></div>
+        <div></div>
         <div><img id="logo" src="{{ path("/img/pp_logo_font_original.svg") }}" alt=""></div>
         <div></div>
     </section>
 </header>
-<section>
+<section id="checkout" class="container-sm content">
+    <div class="column offset2 col8">
     <h2>UW BESTELLING</h2>
     <table>
         <tr>
@@ -50,30 +51,30 @@
             </tr>
         {% endfor %}
         {% if discount > 0 %}
-        <tr>
+        <tr class="discount">
             <td colspan="3">Korting: </td>
             <td>{{ discount }}%</td>
         </tr>
         {% endif %}
         {% if deliverable %}
             {% if delivery == 0 %}
-                <tr>
+                <tr class="delivery">
                     <td colspan="3">Leverkosten {{ town }}: </td>
                     <td>Gratis levering</td>
                 </tr>
             {% else %}
-                <tr>
+                <tr class="delivery">
                     <td colspan="3">Leverkosten {{ town }}: </td>
                     <td>€ {{ delivery }}</td>
                 </tr>
             {% endif %}
         {% else %}
-            <tr>
-                <td colspan="3">Enkel afhalen mogelijk</td>
+            <tr class="delivery">
+                <td class="delivery" colspan="4">Enkel afhalen mogelijk</td>
             </tr>
         {% endif %}
 
-        <tr>
+        <tr class="total">
             <td colspan="3">Totaal: </td>
             <td>€{{ totPrice }}</td>
         </tr>

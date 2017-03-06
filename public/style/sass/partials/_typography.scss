@@ -5,11 +5,12 @@ are based on 10px sizing. So basically 1.5rem = 15px */
 html {
   font-size: 62.5%; }
 body {
-  @extend%prim-font;
+  @extend %prim-font;
   font-size: 2em;
   line-height: 1.6; }
 
 h1, h2, h3, h4, h5, h6 {
+  @extend %sec-font;
   margin-top: 0;
   margin-bottom: 2rem;
   font-weight: 300; }

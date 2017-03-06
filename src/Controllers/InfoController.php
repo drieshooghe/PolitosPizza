@@ -10,19 +10,22 @@ class InfoController extends BaseController {
     public function showInfo(){
 
         $hours = new OpeningSvc();
+        $status = $hours->getStatus();
         if(date('N') == 1){
-            $status = 'vandaag gesloten';
+            $status2 = 'vandaag gesloten';
         } else {
             if($hours->getStatus() == "momenteel open"){
-                $status = 'open';
+                $status2 = 'open';
             } else {
-                $status = ' momenteel gesloten';
+                $status2 = ' momenteel gesloten';
             }
         }
+
 
         $this->assign('home', getPublicPath(""));
         $this->assign('login', getPublicPath("/login"));
         $this->assign('status', $status);
+        $this->assign('status2', $status2);
         $this->assign('menu', getPublicPath("/menu"));
         $this->assign('info', getPublicPath("/info"));
         if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true){

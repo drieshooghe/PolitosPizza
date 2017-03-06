@@ -1,5 +1,6 @@
 // Modules and Variables
 @import "partials/base";
+@import "partials/animations";
 
 // Normalize browser style
 @import "partials/normalize";
@@ -18,6 +19,7 @@
 @import "pages/register";
 @import "pages/login";
 @import "pages/employeepage";
+@import "pages/checkout";
 
 // Partials
 @import "partials/typography";

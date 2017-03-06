@@ -1,3 +1,5 @@
+/* ========== EXTENDS ========== */
+
 %submit{
   font-size: 2.5rem;
   font-weight: 400;
@@ -6,4 +8,15 @@
   @include border-radius(5px);
   text-decoration: none;
   color: $ivory;
+}
+
+%login-btn{
+  @extend %sec-font;
+  display: table-cell;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  @include border-radius(0.5rem);
+  text-shadow: none;
 }

@@ -26,7 +26,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="7.919596"
-     inkscape:cx="87.317905"
+     inkscape:cx="68.566949"
      inkscape:cy="13.32197"
      inkscape:document-units="px"
      inkscape:current-layer="g4170"
@@ -71,19 +71,10 @@
            x="111.1168"
            y="373.53967"
            rx="5"
-           ry="5" />
-        <text
-           sodipodi:linespacing="125%"
-           id="text4146"
-           y="450.93045"
-           x="133.25557"
-           style="font-style:normal;font-weight:normal;font-size:31.04932594px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#2f3131;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-           xml:space="preserve"><tspan
-             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:62.09865189px;font-family:bungee;-inkscape-font-specification:bungee;fill:#2f3131;fill-opacity:1"
-             y="450.93045"
-             x="133.25557"
-             id="tspan4148"
-             sodipodi:role="line">GESLOTEN</tspan></text>
+           ry="5"
+           inkscape:export-filename="/var/www/html/PolitosPizza/public/img/status/closed.png"
+           inkscape:export-xdpi="90"
+           inkscape:export-ydpi="90" />
         <text
            xml:space="preserve"
            style="font-style:normal;font-weight:normal;font-size:31.04932594px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#f8f1e5;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"

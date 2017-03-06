@@ -24,18 +24,9 @@ section#welcome{
     margin: 0;
     text-shadow: 0.6rem 0.6rem $charcoal-op4;
   }
-
-  div#order{
-    margin: 1rem auto;
-    a{
-      background-color: $red-dark;
-      padding:2rem;
-      font-size: 2rem;
-      color: $ivory;
-      @include border-radius(0.5rem);
-    }
-  }
 }
+
+
 
 
 

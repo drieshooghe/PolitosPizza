@@ -3,6 +3,9 @@
 /*===========================================*/
 
 /* ---------- STRUCTURE ---------- */
+header{
+  position: relative;
+}
 nav{
   @extend%borderbox;
   label{
@@ -33,6 +36,7 @@ nav{
       justify-content: space-around;
       img{
         display: none;
+        z-index: 1;
       }
       a{
         padding: 1rem;
@@ -47,12 +51,15 @@ nav{
 section.subheader{
   @extend%borderbox;
   @extend%flexbox;
+  z-index: 2;
+  position: relative;
   flex-direction: row;
   justify-content: space-around;
   vertical-align: bottom;
   height: 8rem;
   margin-bottom: 1rem;
   div{
+    z-index: 2;
     width: 33%;
     display: flex;
     align-items: center;
@@ -65,6 +72,7 @@ section.subheader{
       display: inline-flex;
       resize: both;
       width: 60%;
+      z-index: 1;
       &#logo{
         z-index: 1;
         width: 60%;
@@ -74,10 +82,29 @@ section.subheader{
       }
     }
     #{$a-links}{
-      padding: 0.5rem 1rem;
+      @extend %login-btn;
     }
   }
+}
 
+div#thanks{
+  width: 60vw;
+  height: 2.5rem;
+  z-index: 1;
+  position: absolute;
+  bottom: 1rem;
+  left: 20vw;
+  background-color: $greenisher;
+  @include border-radius-four(0, 0, 2rem, 2rem);
+  -webkit-animation-duration: 4s;
+  -webkit-animation-name: dropdown-mobile;
+  p{
+    padding-top: 0.5rem;
+    font-size: 3vw;
+    color: $ivory;
+    text-align: center;
+    margin: 0 auto;
+  }
 }
 
 
@@ -105,18 +132,14 @@ nav{
 }
 
 section.subheader{
-  background-color: $greenish-op8;
   border-bottom: 1rem solid $charcoal;
+  background-color: $greenisher;
   div{
-    margin: 0;
-    padding:0;
+    background-color: $greenisher;
     #{$a-links}{
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       background-color: $charcoal;
-      @include border-radius(0.5rem);
-      text-decoration: none;
       color: $dirty-white;
-      
     }
   }
 }
@@ -160,6 +183,7 @@ section.subheader{
           }
         }
         img{
+          z-index: 3;
           padding: 0.5rem;
           margin: 0 auto;
           display: block;
@@ -193,12 +217,23 @@ section.subheader{
           display: none;
         }
       }
-      #{$a-links}{
-        padding: 0.5rem 1rem;
-      }
     }
-
   }
+  div#thanks{
+    z-index: 1;
+    width: 60vw;
+    height: 5rem;
+    bottom: 1rem;
+    -webkit-animation-duration: 4s;
+    -webkit-animation-name: dropdown;
+    p{
+      padding-top: 0.5rem;
+      font-size: 1.5vw;
+      text-align: center;
+      margin: 0 auto;
+    }
+  }
+
 
 
 
@@ -227,21 +262,21 @@ section.subheader{
     background-color: $charcoal;
     border-bottom: 1rem solid $greenish;
     div{
+      height: 90%;
+      background-color: $charcoal;
       #{$a-links}{
-        text-align: center;
-        width: 12rem;
-        height: 3rem;
-        font-size: 2.5rem;
+        font-size: 2rem;
         background-color: $greenisher;
-        @include border-radius(5px);
-        text-decoration: none;
         color: $dirty-white;
       }
     }
   }
-
-
-
+  div#thanks{
+    background-color: $dark;
+    p{
+      color: $greenish;
+    }
+  }
 }
 
 /*===========================================*/

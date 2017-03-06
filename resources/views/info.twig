@@ -24,26 +24,29 @@
         </nav>
         <section class="subheader">
             <div><h4><a href="{{ login }}">{{  loginValue }}</a></h4></div>
-            <div></div>
-            <div></div>
+            <div><img id="logo" src="{{ path("/img/pp_logo_font_original.svg") }}" alt=""></div>
+            <div><img id="status" src="{{ path("/img/status/" ~ status ~ ".svg") }}" /></div>
         </section>
     </header>
 
     <section class="container-sm content">
         <article class="column col6">
-            <h3>WIE ZIJN WIJ:</h3>
-            <p>Pepe's Plain Pizza is een bezorgrestaurant voor Italiaanse gerechten, gelegen in Deerlijk.</p>
-            <p>Wij bieden een zeer grote keuze aan pasta's en pizza's die met de grootste zorg en dagvers bereid worden.<br>
-                Daarnaast hebben we ook een aantal verschillende aardappel- en visspecialiteiten (scampi's) en vleesgerechten met friet.<br>
-                Het spreekt voor zich dat ook vegetariërs aan hun trekken komen bij Pepe's!<br>
-                Indien gewenst kunt uw bestelling opeten bij ons of laten leveren aan huis.</p>
-            <p>Aarzel niet om uw bestelling telefonisch door te geven op het nummer (056)45.99.XX,<br>
-                binnen de 15 minuten maken wij uw bestelling klaar.</p>
+            <h4>WIE ZIJN WIJ:</h4>
+            <p>Polito's Pizza is een bezorgrestaurant voor Italiaanse gerechten, gelegen in Deerlijk.</p>
+            <p>Wij bieden een zeer uitgebreide keuze aan pasta's en pizza's die met de grootste zorg en dagvers bereid worden.<br>
+                Het spreekt voor zich dat ook vegetariërs aan hun trekken komen bij Polito's!<br>
+                Indien gewenst kunt u uw bestelling afhalen of laten leveren aan huis.</p>
+
+            <p>Op maandag, dinsdag en vrijdag biedt Polito's u de meest waanzinnige promoties!<br/>
+                Maar ook op andere dagen kan u genieten van kwaliteitsvolle gerechten aan bijzonder democratische prijzen.</p>
+
+            <p>Aarzel niet om online uw bestelling te plaatsen of deze telefonisch door te geven op het nummer (056)45.99.XX.<br>
+                Binnen de 20 minuten maken wij uw bestelling klaar.</p>
         </article>
 
         <article class="column offset1 col5">
-            <h3>OPENINGSUREN:</h3>
-            <p>We zijn {{ status }}</p>
+            <h4>OPENINGSUREN:</h4>
+            <p>We zijn {{ status2 }}</p>
             <ul>
                 <li>MA gesloten</li>
                 <li>DIN &#x1F550; 17:00-23:00</li>

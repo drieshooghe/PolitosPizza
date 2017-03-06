@@ -23,7 +23,7 @@ class IndexController extends BaseController {
             }
 
         if(isset($_SESSION['placedorder'])){
-            $this->assign('placedorder', 'Bedankt voor uw bestelling!');
+            $this->assign('placedorder', true);
             unset($_SESSION['placedorder']);
         } else {
             $this->assign('placedorder', '');

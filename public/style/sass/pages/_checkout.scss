@@ -1,0 +1,75 @@
+/*===========================================*/
+/*==========  Mobile First Method  ==========*/
+/*===========================================*/
+
+/* ---------- STYLING ---------- */
+
+
+section#checkout{
+  h2{
+    font-size: 8vw;
+  }
+  table {
+    text-align: center;
+    width: 100%;
+    font-size: 3vw;
+    margin-bottom: 1rem;
+    tr {
+      &.discount{
+        background-color: $charcoal-op6;
+        color: $dirty-white;
+
+      }
+      &.delivery{
+        background-color: $charcoal-op8;
+        color: $dirty-white;
+      }
+      &.total{
+        background-color: $dark;
+        color: $dirty-white;
+      }
+      th{
+        background-color: $dark;
+        color: $dirty-white;
+      }
+      td {
+        &:nth-child(odd){
+          background-color: $charcoal-op4;
+        }
+        &:nth-child(even){
+          background-color: $charcoal-op2;
+        }
+        &#name{
+          width: 50%;
+        }
+      }
+    }
+  }
+
+}
+
+/*==============================================*/
+/*========  Semi-Small devices, tablets  =======*/
+/*==============================================*/
+
+@media only screen and (min-width : 780px) {
+  section#checkout {
+    h2 {
+      font-size: 3vw;
+    }
+    table {
+      tr {
+        td {
+          font-size: 1vw;
+          form input[type=number], input[type=submit] {
+            text-align: center;
+            width: 15%;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+

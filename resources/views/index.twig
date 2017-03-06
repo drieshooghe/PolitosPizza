@@ -26,13 +26,14 @@
             <section class="subheader">
                 <div><h4><a href="{{ login }}">{{  loginValue }}</a></h4></div>
                 <div><img id="logo" src="{{ path("/img/pp_logo_font_original.svg") }}" alt=""></div>
-                <div><img id="status" src="{{ path("/img/status/" ~ status ~ ".png") }}" /></div>
+                <div><img id="status" src="{{ path("/img/status/" ~ status ~ ".svg") }}" /></div>
             </section>
+            {% if placedorder %}
+                <div id="thanks">Bedankt voor uw bestelling!</div>
+            {%  endif %}
         </header>
 
-        {% if placedorder %}
-            <div id="thanks"><h3>{{ placedorder }}</h3></div>
-        {%  endif %}
+
 
         <section id="promo" class="container content">
             <div class="column">

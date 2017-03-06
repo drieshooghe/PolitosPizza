@@ -15,6 +15,9 @@ section {
       @extend %borderbox;
       input{
         width: 100%;
+        &[type=submit]{
+          @extend %submit;
+        }
       &.short1{
         width: 20%;
       }
