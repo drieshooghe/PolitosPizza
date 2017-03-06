@@ -36,11 +36,11 @@ class MenuController extends BaseController {
                     $OLS = new OrderlineSvc();
                     $OLS->delOL($_GET["item"]);
                 }
-                if($_GET["action"] == "RESET"){
+                if($_GET["action"] == "reset"){
                     $OLS = new OrderlineSvc();
                     $OLS->resetOLSession();
                 }
-                if($_GET["action"] == "BESTELLEN"){
+                if($_GET["action"] == "bestellen"){
                     if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true){
                         $this->redirect('/checkout');
                     } else {
@@ -58,9 +58,11 @@ class MenuController extends BaseController {
              * when checking out, this session is sent to the database
              */
             if(isset($_GET["id"]) && isset($_GET["quantity"])){
-                if(isset($_GET["sizeId"])){ $sizeId = $_GET["sizeId"]; } else { $sizeId = "1";}
-                $OLS = new OrderlineSvc();
-                $OLS->addOL($_GET["id"], $sizeId, $_GET["quantity"]);
+                if($_GET["quantity"] > 0){
+                    if(isset($_GET["sizeId"])){ $sizeId = $_GET["sizeId"]; } else { $sizeId = "1";}
+                    $OLS = new OrderlineSvc();
+                    $OLS->addOL($_GET["id"], $sizeId, $_GET["quantity"]);
+                }
             }
 
 

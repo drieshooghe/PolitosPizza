@@ -29,13 +29,15 @@
         </section>
     </header>
 
-    <section class="container-sm content">
-        <span class="column col12">
-            <h1>Overzicht bestellingen</h1>
+    <section id="orders" class="container-sm content">
+        <div id="orderheader" class="column col12">
+            <h1 >Overzicht bestellingen</h1>
+        </div>
                 {% for order in orders %}
-                    <div>
+                <span class="column">
+                    <div class="order col12">
                         <h3>&#x1F355;{{ order.id }} &#9658; {{ order.time }}</h3>
-                        <div>
+                        <div id="client" class="column col4">
                             <h4>Klantgegevens:</h4>
                             <p>{{ order.customer.firstName }} {{ order.customer.famName }}</p>
                             <p>{{ order.customer.adres }}</p>
@@ -44,7 +46,8 @@
                             {% if order.customer.mobileNr > 0 %}<p>&#x1f4f1;{{ order.customer.mobileNr }}</p>{% endif %}
                         </div>
 
-                        <div>
+                        <div class="column offset1 col7">
+                            <h4>Bestelling::</h4>
                             <table>
                                 <tr>
                                     <th>Naam</th><th>Maat</th><th>Hoeveelheid</th><th>Prijs</th>
@@ -70,9 +73,16 @@
                             </table>
                         </div>
                     </div>
+                </span>
                 {% endfor %}
-        </span>
     </section>
+
+    <section class="container footer">
+        <footer class="footer">
+            <p>&#169; Dries Hooghe</p>
+        </footer>
+    </section>
+
 </body>
 </html>
 

@@ -15,7 +15,7 @@ class DiscountSvc
     public function getDiscounts(){
          switch (date('N')){
 
-             case 1:    $discount = 0.9;
+             case 1:    $discount = 0.7;
                         break;
              case 2:    $discount = 0.85;
                         break;
@@ -23,7 +23,7 @@ class DiscountSvc
                         break;
              case 4:    $discount = 1;
                         break;
-             case 5:    $discount = 1;
+             case 5:    $discount = 0.8;
                         break;
              case 6:    $discount = 1;
                         break;

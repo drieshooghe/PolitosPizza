@@ -1,0 +1,48 @@
+/*===========================================*/
+/*==========  Mobile First Method  ==========*/
+/*===========================================*/
+
+/* ---------- STRUCTURE ---------- */
+
+
+section.login{
+  div#account{
+    @extend %borderbox;
+    input[type=text], input[type=password]{
+      width: 90%;
+    }
+    input[type=submit]{
+      @extend %submit;
+    }
+  }
+  div#noaccount{
+    @extend %borderbox;
+    input[type=submit]{
+      @extend %submit;
+    }
+  }
+}
+
+
+
+/*==============================================*/
+/*========  Semi-Small devices, tablets  =======*/
+/*==============================================*/
+
+@media only screen and (min-width : 550px) {
+
+  section.login{
+    div#account{
+      min-width: 30%;
+      padding-left: 5rem;
+      input[type=text], input[type=password]{
+        width: 70%;
+      }
+    }
+    div#noaccount{
+      padding-left: 5rem;
+    }
+  }
+
+
+}

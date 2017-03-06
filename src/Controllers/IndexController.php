@@ -32,8 +32,16 @@ class IndexController extends BaseController {
         $hours = new OpeningSvc();
         $status = $hours->getStatus();
 
-        $promoSvc = new PromoSvc();
-        $promo = $promoSvc->getPromo("promo1", "promo2", "promo3");
+        switch(date('N')) {
+            case 1: $promo = 'promo'.date('N');
+                break;
+            case 2: $promo = 'promo'.date('N');
+                break;
+            case 5: $promo = 'promo'.date('N');
+                break;
+            default: $promoSvc = new PromoSvc();
+                $promo = $promoSvc->getPromo("promo1", "promo2", "promo3");
+        }
 
         $this->assign('promo', $promo);
         $this->assign('home', getPublicPath(""));

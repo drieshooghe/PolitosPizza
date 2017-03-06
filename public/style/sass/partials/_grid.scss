@@ -38,7 +38,7 @@ body{
 .column {
   margin-bottom: 2rem;
   width: 100%;
-  min-width: 8em;
+  min-width: 100%;
   float: left;
   box-sizing: border-box;
   padding: 2rem;
@@ -46,6 +46,7 @@ body{
 
 .content{
   @extend%borderbox;
+  margin-bottom: 3rem;
 }
 
 .footer{
@@ -72,7 +73,7 @@ body{
 /*==========  Small devices, tablets  ==========*/
 /*==============================================*/
 
-@media (min-width: 550px) {
+@media (min-width: 768px) {
   .container {
     width: 100%; }
   .column{

@@ -38,11 +38,11 @@
             <p>{{ value }}</p>
         {% endfor %}
         <form action="{{ path("/register") }}" method="POST">
-            Voornaam: <br/><input type="text" name="firstName" value="{{ firstName }}" required="required"><br/>{{ ErrFirstNameNotAlfa }}
-            Familienaam: <br/><input type="text" name="famName" value="{{ famName }}"><br/>{{ ErrFamNameNotAlfa }}
+            Voornaam: <br/><input type="text" name="firstName" value="{{ firstName }}" required="required"><br/>
+            Familienaam: <br/><input type="text" name="famName" value="{{ famName }}"><br/>
             Straat: <br/><input class="adresStreet" type="text" name="street" value="{{ street }}" required="required"><br/>
-            Huisnummer: <br/><input class="adresNr" type="text" name="number" value="{{ number }}" required="required"><br/>
-            Postcode: <br/><input type="text" name="postCode" value="{{ postCode }}" required="required"><br/>
+            Huisnummer: <br/><input class="short1" type="text" name="number" value="{{ number }}" required="required"><br/>
+            Postcode: <br/><input class="short2" type="text" name="postCode" value="{{ postCode }}" required="required"><br/>
             Gemeente: <br/><input type="text" name="town" value="{{ town }}" required="required"><br/>
             Telefoonnummer: <br/><input type="text" name="phoneNr" value="{{ phoneNr }}"><br/>
             GSM Nummer: <br/><input type="text" name="mobileNr" value="{{ mobileNr }}"><br/>
@@ -52,7 +52,7 @@
             {% endfor %}
             E-mail: <br/><input type="text" name="email"><br/>
             Wachtwoord: <br/><input type="password" name="pwd"><br/>
-            Herhaal wachtwoord: <br/><input type="password" name="pwd2"><br/>
+            Herhaal wachtwoord: <br/><input type="password" name="pwd2"><br/><br/>
             <input type="submit" value="Bevestigen"><br/>
         </form>
     </div>

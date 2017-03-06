@@ -9,9 +9,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="33.866669mm"
-   height="16.933334mm"
-   viewBox="0 0 120.00001 60.000004"
+   width="39.511112mm"
+   height="11.288889mm"
+   viewBox="0 0 140.00001 40"
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
@@ -26,10 +26,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="3.959798"
-     inkscape:cx="99.721249"
-     inkscape:cy="9.2056696"
+     inkscape:cx="109.72125"
+     inkscape:cy="-0.79433545"
      inkscape:document-units="px"
-     inkscape:current-layer="g4142"
+     inkscape:current-layer="g4170"
      showgrid="false"
      fit-margin-top="0"
      fit-margin-left="0"
@@ -37,9 +37,9 @@
      fit-margin-bottom="0"
      showborder="false"
      inkscape:window-width="1920"
-     inkscape:window-height="1047"
+     inkscape:window-height="1017"
      inkscape:window-x="0"
-     inkscape:window-y="0"
+     inkscape:window-y="30"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata7">
@@ -57,43 +57,33 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-138.3909,-449.91028)">
+     transform="translate(-128.3909,-459.91028)">
     <g
        id="g4142"
        transform="matrix(0.36664796,0,0,0.36664796,87.650159,322.95272)">
       <g
          id="g4170">
         <rect
-           style="opacity:1;fill:#800000;fill-opacity:1;stroke:none;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           style="opacity:1;fill:#b20000;fill-opacity:1;stroke:none;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
            id="rect4136"
-           width="327.28943"
-           height="163.64471"
-           x="138.3909"
-           y="346.26556" />
+           width="381.83768"
+           height="109.09647"
+           x="111.1168"
+           y="373.53967"
+           rx="5"
+           ry="5" />
         <text
            xml:space="preserve"
-           style="font-style:normal;font-weight:normal;font-size:33.8044281px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-           x="173.28828"
-           y="438.44675"
+           style="font-style:normal;font-weight:normal;font-size:31.04932594px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#f8f1e5;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+           x="131.51274"
+           y="450.44342"
            id="text4138"
            sodipodi:linespacing="125%"><tspan
              sodipodi:role="line"
              id="tspan4140"
-             x="173.28828"
-             y="438.44675"
-             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:67.6088562px;font-family:Impact;-inkscape-font-specification:'Impact Condensed';fill:#ffffff">GESLOTEN</tspan></text>
-        <text
-           sodipodi:linespacing="125%"
-           id="text4166"
-           y="486.64551"
-           x="249.05511"
-           style="font-style:normal;font-weight:normal;font-size:39.14993668px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-           xml:space="preserve"><tspan
-             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-family:Impact;-inkscape-font-specification:'Impact Condensed';fill:#ffffff"
-             y="486.64551"
-             x="249.05511"
-             id="tspan4168"
-             sodipodi:role="line">sorry...</tspan></text>
+             x="131.51274"
+             y="450.44342"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:62.09865189px;font-family:bungee;-inkscape-font-specification:bungee;fill:#f8f1e5;fill-opacity:1;">GESLOTEN</tspan></text>
       </g>
     </g>
   </g>

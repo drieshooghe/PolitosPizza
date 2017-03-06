@@ -1,0 +1,59 @@
+/*===========================================*/
+/*==========  Mobile First Method  ==========*/
+/*===========================================*/
+
+/* ---------- STYLING ---------- */
+
+
+section#orders{
+  div#orderheader{
+    h1{
+      margin: auto;
+    }
+  }
+  div.order{
+    @extend %borderbox;
+    h3{
+      margin-top: 0;
+      padding: 1rem 3rem;
+      background-color: $charcoal;
+      color: $ivory;
+    }
+    p{
+      font-size: 80%;
+    }
+    table{
+      @extend %borderbox;
+      background-color: $dirty-white-op6;
+      width: 100%;
+      font-size: 80%;
+      text-align: center;
+      tr{
+        th{
+          background-color: $charcoal;
+          color: $dirty-white;
+        }
+        td{
+          vertical-align: middle;
+        }
+        &:last-child{
+          background-color: $charcoal;
+          color: $dirty-white;
+        }
+      }
+    }
+
+  }
+}
+
+
+
+
+/*==============================================*/
+/*========  Semi-Small devices, tablets  =======*/
+/*==============================================*/
+
+@media only screen and (min-width : 768px) {
+
+
+}

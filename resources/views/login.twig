@@ -30,26 +30,33 @@
         </section>
     </header>
 
-    <section class="container-sm content">
-        <div class="column col6">
+    <section class="container-sm content login">
+        <div id="account" class="column col6">
             <h3>Ik heb een account:</h3>
             {% if wrongPwd is not empty and wrongPwd %}
                 <p>U gaf een verkeerde gebruikersnaam of wachtwoord, probeer opnieuw</p>
             {% endif %}
             <form action="{{ login }}" method="POST">
-                Email: <input type="text" name="email" value="{{ custEmail }}" required="required"><br/><br/>
-                Password: <input type="password" name="pwd" required="required"><br/><br/>
+                Email: <br/><input type="text" name="email" value="{{ custEmail }}" required="required"><br/><br/>
+                Password: <br/><input type="password" name="pwd" required="required"><br/><br/>
                 <input type="submit" value="Login">
             </form>
         </div>
 
-        <div class="column offset1 col5">
+        <div id="noaccount" class="column offset1 col5">
             <h3>Ik heb geen account:</h3>
             <form action="{{ register }}" method="GET">
                 <input type="submit" value="Registreer">
             </form>
         </div>
     </section>
+
+    <section class="container footer">
+        <footer class="footer">
+            <p>&#169; Dries Hooghe</p>
+        </footer>
+    </section>
+
 
 </body>
 </html>
