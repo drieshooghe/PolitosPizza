@@ -1,0 +1,57 @@
+/*===========================================*/
+/*==========  Mobile First Method  ==========*/
+/*===========================================*/
+
+/* ---------- STRUCTURE ---------- */
+
+section {
+  div#register {
+    @extend %borderbox;
+    h1 {
+      text-align: center;
+    }
+    form{
+      @extend %borderbox;
+      input{
+        width: 100%;
+      }
+    }
+  }
+}
+
+
+
+
+
+/*==============================================*/
+/*========  Semi-Small devices, tablets  =======*/
+/*==============================================*/
+
+@media only screen and (min-width : 550px) {
+
+  section {
+    div#register {
+      width: 50%;
+      margin: auto 25%;
+      h1 {
+        text-align: center;
+      }
+      form {
+        margin: auto;
+        width: 100%;
+        margin: 0 20%;
+        input {
+          display: block;
+          width: 60%;
+          &.adresStreet{
+            width: 40%;
+          }
+          &.adresNr{
+            width: 10%;
+          }
+
+        }
+      }
+    }
+  }
+}

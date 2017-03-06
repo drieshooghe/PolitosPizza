@@ -31,30 +31,38 @@
 </header>
 
 
-<div>
-    <h1>Bestellen</h1>
-    {% for value in RegError %}
-        <p>{{ value }}</p>
-    {% endfor %}
-    <form action="{{ path("/register") }}" method="POST">
-        Voornaam: <input type="text" name="firstName" value="{{ firstName }}" required="required"><br/>{{ ErrFirstNameNotAlfa }}
-        Familienaam: <input type="text" name="famName" value="{{ famName }}"><br/>{{ ErrFamNameNotAlfa }}
-        Straat: <input type="text" name="street" value="{{ street }}" required="required"> Huisnummer: <input type="text" name="number" value="{{ number }}" required="required"><br/>
-        Postcode: <input type="text" name="postCode" value="{{ postCode }}" required="required"><br/>
-        Gemeente: <input type="text" name="town" value="{{ town }}" required="required"><br/>
-        Telefoonnummer: <input type="text" name="phoneNr" value="{{ phoneNr }}"><br/>
-        GSM Nummer: <input type="text" name="mobileNr" value="{{ mobileNr }}"><br/>
-        <br/>
-        {% for value in LoginErr %}
+<section id="register" class="container-sm content">
+    <div id="register" class="column">
+        <h1>Registreren</h1>
+        {% for value in RegError %}
             <p>{{ value }}</p>
         {% endfor %}
-        E-mail: <input type="text" name="email"><br/>
-        Wachtwoord: <input type="password" name="pwd"><br/>
-        Herhaal wachtwoord: <input type="password" name="pwd2"><br/>
-        <input type="submit" value="Bevestigen">
-    </form>
+        <form action="{{ path("/register") }}" method="POST">
+            Voornaam: <br/><input type="text" name="firstName" value="{{ firstName }}" required="required"><br/>{{ ErrFirstNameNotAlfa }}
+            Familienaam: <br/><input type="text" name="famName" value="{{ famName }}"><br/>{{ ErrFamNameNotAlfa }}
+            Straat: <br/><input class="adresStreet" type="text" name="street" value="{{ street }}" required="required"><br/>
+            Huisnummer: <br/><input class="adresNr" type="text" name="number" value="{{ number }}" required="required"><br/>
+            Postcode: <br/><input type="text" name="postCode" value="{{ postCode }}" required="required"><br/>
+            Gemeente: <br/><input type="text" name="town" value="{{ town }}" required="required"><br/>
+            Telefoonnummer: <br/><input type="text" name="phoneNr" value="{{ phoneNr }}"><br/>
+            GSM Nummer: <br/><input type="text" name="mobileNr" value="{{ mobileNr }}"><br/>
+            <br/>
+            {% for value in LoginErr %}
+                <p>{{ value }}</p>
+            {% endfor %}
+            E-mail: <br/><input type="text" name="email"><br/>
+            Wachtwoord: <br/><input type="password" name="pwd"><br/>
+            Herhaal wachtwoord: <br/><input type="password" name="pwd2"><br/>
+            <input type="submit" value="Bevestigen"><br/>
+        </form>
+    </div>
+</section>
 
+<section id="order" class="container footer">
+    <footer class="footer">
+        <p>&#169; Dries Hooghe</p>
+    </footer>
+</section>
 
-</div>
 </body>
 </html>

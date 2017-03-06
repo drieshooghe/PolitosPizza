@@ -4,6 +4,7 @@
 namespace PolitosPizza\Controllers;
 
 use PolitosPizza\Models\Business\OpeningSvc;
+use PolitosPizza\Models\Business\PromoSvc;
 
 
 class IndexController extends BaseController {
@@ -31,6 +32,10 @@ class IndexController extends BaseController {
         $hours = new OpeningSvc();
         $status = $hours->getStatus();
 
+        $promoSvc = new PromoSvc();
+        $promo = $promoSvc->getPromo("promo1", "promo2", "promo3");
+
+        $this->assign('promo', $promo);
         $this->assign('home', getPublicPath(""));
         $this->assign('login', getPublicPath("/login"));
         $this->assign('status', $status);

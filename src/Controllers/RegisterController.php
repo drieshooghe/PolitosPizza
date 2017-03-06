@@ -16,6 +16,11 @@ class RegisterController extends BaseController {
         $this->assign('town', "");
         $this->assign('phoneNr', "");
         $this->assign('mobileNr', "");
+        $this->assign('home', getPublicPath(""));
+        $this->assign('login', getPublicPath("/login"));
+        $this->assign('menu', getPublicPath("/menu"));
+        $this->assign('info', getPublicPath("/info"));
+
         return $this->render("register");
     }
     public function registerCheck(){//When request method POST is detected
