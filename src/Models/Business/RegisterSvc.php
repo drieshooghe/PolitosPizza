@@ -30,7 +30,7 @@ class RegisterSvc
 
         if(empty($array["firstName"])){
             $exceptions["FirstNameEmpty"] = 'Gelieve een voornaam in te vullen';
-        } elseif(!ctype_alpha($array["firstName"])){
+        } elseif(!is_string($array["firstName"])){
             $exceptions["FirstNameNotAlfa"] = 'Gelieve een geldige voornaam in te vullen';
         }
 

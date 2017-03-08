@@ -40,7 +40,7 @@ class IndexController extends BaseController {
             case 5: $promo = 'promo'.date('N');
                 break;
             default: $promoSvc = new PromoSvc();
-                $promo = $promoSvc->getPromo("promo1", "promo2", "promo3");
+                $promo = $promoSvc->getPromo("promo1", "promo2", "promo5");
         }
 
         $this->assign('promo', $promo);

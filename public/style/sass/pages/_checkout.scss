@@ -45,7 +45,16 @@ section#checkout{
       }
     }
   }
-
+  div#buttons{
+    width: 100%;
+    form{
+      display: block;
+      margin: 0 auto;
+      input[type=submit]{
+        @extend %submit;
+      }
+    }
+  }
 }
 
 /*==============================================*/
@@ -58,6 +67,7 @@ section#checkout{
       font-size: 3vw;
     }
     table {
+      font-size: 1.5vw;
       tr {
         td {
           font-size: 1vw;

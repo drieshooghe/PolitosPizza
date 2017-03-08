@@ -24,6 +24,11 @@ section#welcome{
     margin: 0;
     text-shadow: 0.6rem 0.6rem $charcoal-op4;
   }
+  div#order{
+    a{
+      @extend %submit;
+    }
+  }
 }
 
 

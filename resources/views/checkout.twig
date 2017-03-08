@@ -90,13 +90,15 @@
 
     </table><br/>
 
-    <form action="{{ menu }}" method="GET">
-        <input type="submit" value="BEWERKEN">
-    </form>
+        <div id="buttons">
+            <form action="{{ menu }}" method="GET">
+                <input type="submit" value="BEWERKEN">
+            </form><br/>
 
-    <form action="{{ checkout }}" method="POST">
-        <input type="submit" value="BESTELLING PLAATSEN">
-    </form>
+            <form action="{{ checkout }}" method="POST">
+                <input type="submit" value="BESTELLING PLAATSEN">
+            </form>
+        </div>
 
 
 </section>
