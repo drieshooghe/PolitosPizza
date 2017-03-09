@@ -17,6 +17,8 @@ $GLOBALS['path_subdomain'] = '/PolitosPizza';
 
 session_start();
 
+date_default_timezone_set('Europe/Brussels');
+
 $app = new PolitosPizza\Application();
 return $app;
 
