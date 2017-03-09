@@ -24,7 +24,7 @@ class LoginController extends BaseController {
         if (isset($_COOKIE["custEmail"])){
             $this->assign('custEmail', $_COOKIE['custEmail']);
         } else {
-            $this->assign('custEmail', "Vul hier uw emailadres in");
+            $this->assign('custEmail', "");
         }
 
         /** If users get to this page, even though they're logged in, they want to log out*/

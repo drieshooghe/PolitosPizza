@@ -37,8 +37,8 @@
                 <p>U gaf een verkeerde gebruikersnaam of wachtwoord, probeer opnieuw</p>
             {% endif %}
             <form action="{{ login }}" method="POST">
-                Email: <br/><input type="text" name="email" value="{{ custEmail }}" required="required"><br/><br/>
-                Password: <br/><input type="password" name="pwd" required="required"><br/><br/>
+                Email: <br/><input type="text" name="email" value="{{ custEmail }}" placeholder="Vul hier uw emailadres in" required="required"><br/><br/>
+                Password: <br/><input type="password" name="pwd" placeholder="********" required="required"><br/><br/>
                 <input type="submit" value="Login">
             </form>
         </div>
