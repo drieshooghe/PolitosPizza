@@ -32,27 +32,27 @@
 
 
 <section id="register" class="container-sm content">
-    <div id="register" class="column">
+    <div id="register" class="column offset2 col8">
         <h1>Registreren</h1>
         {% for value in RegError %}
             <p>{{ value }}</p>
         {% endfor %}
         <form action="{{ path("/register") }}" method="POST">
-            Voornaam: <br/><input type="text" name="firstName" value="{{ firstName }}" required="required"><br/>
-            Familienaam: <br/><input type="text" name="famName" value="{{ famName }}"><br/>
-            Straat: <br/><input class="adresStreet" type="text" name="street" value="{{ street }}" required="required"><br/>
-            Huisnummer: <br/><input class="short1" type="text" name="number" value="{{ number }}" required="required"><br/>
-            Postcode: <br/><input class="short2" type="text" name="postCode" value="{{ postCode }}" required="required"><br/>
-            Gemeente: <br/><input type="text" name="town" value="{{ town }}" required="required"><br/>
-            Telefoonnummer: <br/><input type="text" name="phoneNr" value="{{ phoneNr }}"><br/>
-            GSM Nummer: <br/><input type="text" name="mobileNr" value="{{ mobileNr }}"><br/>
+            Voornaam: <br/><input type="text" name="firstName" value="{{ firstName }}" placeholder="Uw voornaam" required="required"><br/>
+            Familienaam: <br/><input type="text" name="famName" value="{{ famName }}" placeholder="Uw familienaam"><br/>
+            Straat: <br/><input class="adresStreet" type="text" name="street" value="{{ street }}" placeholder="Uw straat" required="required"><br/>
+            Huisnummer: <br/><input class="short1" type="text" name="number" value="{{ number }}" placeholder="Huisnr" required="required"><br/>
+            Postcode: <br/><input class="short2" type="text" name="postCode" value="{{ postCode }}" placeholder="Uw postcode" required="required"><br/>
+            Gemeente: <br/><input type="text" name="town" value="{{ town }}" placeholder="Uw gemeente" required="required"><br/>
+            Telefoonnummer: <br/><input type="text" name="phoneNr" placeholder="Uw telefoonnummer" value="{{ phoneNr }}"><br/>
+            GSM Nummer: <br/><input type="text" name="mobileNr" placeholder="Uw mobiel nummer" value="{{ mobileNr }}"><br/>
             <br/>
             {% for value in LoginErr %}
                 <p>{{ value }}</p>
             {% endfor %}
-            E-mail: <br/><input type="text" name="email"><br/>
-            Wachtwoord: <br/><input type="password" name="pwd"><br/>
-            Herhaal wachtwoord: <br/><input type="password" name="pwd2"><br/><br/>
+            E-mail: <br/><input type="text" name="email" placeholder="bv. pierre@politospizza.be"><br/>
+            Wachtwoord: <br/><input type="password" name="pwd" placeholder="***********"><br/>
+            Herhaal wachtwoord: <br/><input type="password" name="pwd2" placeholder="***********"><br/><br/>
             <input type="submit" value="Bevestigen"><br/>
         </form>
     </div>

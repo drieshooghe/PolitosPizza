@@ -4,25 +4,35 @@
 
 /* ---------- STRUCTURE ---------- */
 
+
 section {
   div#register {
-    margin: 10% auto;
     @extend %borderbox;
+    @extend %flexbox;
+    flex-direction: column;
+    -webkit-align-items: center;
     h1 {
       text-align: center;
+      display: block;
     }
     form{
       @extend %borderbox;
+      @extend %flexbox;
+      display: block;
+      width: 100%;
+      padding-left: 10%;
       input{
-        width: 100%;
+        width: 80%;
         &[type=submit]{
           @extend %submit;
         }
-      &.short1{
-        width: 20%;
-      }
+        &.short1{
+          width: 10%;
+          min-width: 6rem;
+        }
         &.short2{
-          width: 30%;
+          width: 20%;
+          min-width: 10rem;
         }
       }
     }
@@ -30,34 +40,12 @@ section {
 }
 
 
-
-
-
 /*==============================================*/
 /*========  Semi-Small devices, tablets  =======*/
 /*==============================================*/
 
-@media only screen and (min-width : 550px) {
-
-  section {
-    div#register {
-      width: 50%;
-      margin: 10% 25%;
-      h1 {
-        text-align: center;
-      }
-      form {
-        margin: auto;
-        width: 100%;
-        margin: 0 20%;
-        input {
-          display: block;
-          width: 60%;
-          &.short{
-            width: 20%;
-          }
-        }
-      }
-    }
+@media only screen and (min-width : 780px) {
+  section div#register form{
+    width: 70%;
   }
 }
