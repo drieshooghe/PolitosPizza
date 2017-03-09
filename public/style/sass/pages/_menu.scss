@@ -8,7 +8,7 @@ section#menu{
   width: 90%;
   margin: auto;
   @extend %flexbox;
-  flex-direction: column;
+  @extend %flexcol;
   text-align: center;
 
   /*************************************/
@@ -20,7 +20,7 @@ section#menu{
 
   #entreeslabel{
     cursor: pointer;
-    display: flex;
+    @extend %flexbox;
   }
   #entrees-toggle{
     display: none;
@@ -34,7 +34,7 @@ section#menu{
 
   #pizzalabel{
     cursor: pointer;
-    display: flex;
+    @extend %flexbox;
   }
   #pizza-toggle{
     display: none;
@@ -48,7 +48,7 @@ section#menu{
 
   #pastalabel{
     cursor: pointer;
-    display: flex;
+    @extend %flexbox;
   }
   #pasta-toggle{
     display: none;
@@ -62,7 +62,7 @@ section#menu{
 
   #dessertlabel{
     cursor: pointer;
-    display: flex;
+    @extend %flexbox;
   }
   #dessert-toggle{
     display: none;
@@ -76,7 +76,7 @@ section#menu{
 
   #drinkslabel{
     cursor: pointer;
-    display: flex;
+    @extend %flexbox;
   }
   #drinks-toggle{
     display: none;
@@ -156,6 +156,7 @@ span#order {
   order: 1;
   background-color: $dirty-white;
   padding: 2rem;
+  overflow: visible;
   table {
     text-align: center;
     width: 100%;
@@ -192,7 +193,6 @@ span#order {
 @media only screen and (min-width : 1024px) {
 
   section#menu {
-    display: flex;
     flex-direction: row;
     justify-content: space-between;
     span#dishes {
@@ -233,6 +233,8 @@ span#order {
     span#order{
       order: 2;
       width: 30%;
+      overflow: visible;
+      margin-bottom: 10rem;
       table{
         margin: 0 auto;
         width: 100%;
