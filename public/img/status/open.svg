@@ -29,7 +29,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="11.2"
-     inkscape:cx="70.584259"
+     inkscape:cx="57.32533"
      inkscape:cy="11.562178"
      inkscape:document-units="px"
      inkscape:current-layer="g4170"
@@ -40,9 +40,9 @@
      fit-margin-bottom="0"
      showborder="false"
      inkscape:window-width="1920"
-     inkscape:window-height="1047"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
+     inkscape:window-height="1017"
+     inkscape:window-x="1920"
+     inkscape:window-y="33"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata7">
@@ -67,7 +67,7 @@
       <g
          id="g4170">
         <path
-           style="opacity:1;fill:#75ab14;fill-opacity:1;stroke:none;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           style="opacity:1;fill:#3f6420;fill-opacity:1;stroke:none;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
            d="m 116.1168,373.53967 371.83768,0 c 2.77,0 5,2.23 5,5 l 0,99.09648 c 0,2.77 -2.23,5 -5,5 l -371.83768,0 c -2.77,0 -5,-2.23 -5,-5 l 0,-99.09648 c 0,-2.77 2.23,-5 5,-5 z"
            id="rect4136" />
         <g
