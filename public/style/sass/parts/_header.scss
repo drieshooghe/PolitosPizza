@@ -10,8 +10,8 @@ nav{
   @extend%borderbox;
   label{
     cursor: pointer;
-    display: flex;
-    flex-direction: column;
+    @extend %flexbox;
+    @extend %flexcol;
   }
   #menu-toggle{
     display: none;
@@ -26,23 +26,24 @@ nav{
   ul{
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction:column;
+    @extend %flexbox;
+    @extend %flexcol;
     li{
       width: auto;
       margin:0;
       padding:0;
+      -webkit-flex: 1;
       flex: 1;
-      justify-content: space-around;
+      @extend %jstcnt-space-around;
       img{
         display: none;
         z-index: 1;
       }
       a{
         padding: 1rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        @extend %flexbox;
+        @extend %align-items-center;
+        @extend %jstcnt-center;
       }
     }
   }
@@ -53,17 +54,17 @@ section.subheader{
   @extend%flexbox;
   z-index: 2;
   position: relative;
-  flex-direction: row;
-  justify-content: space-around;
+  @extend %flexrow;
+  @extend %jstcnt-space-around;
   vertical-align: bottom;
   height: 8rem;
   margin-bottom: 1rem;
   div{
     z-index: 2;
     width: 33%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+    @extend %flexbox;
+    @extend %align-items-center;
+    @extend %jstcnt-space-around;
     h4{
       display: inline-flex;
       margin: 0;
@@ -96,8 +97,7 @@ div#thanks{
   left: 20vw;
   background-color: $greenisher;
   @include border-radius-four(0, 0, 2rem, 2rem);
-  -webkit-animation-duration: 4s;
-  -webkit-animation-name: dropdown-mobile;
+  @include animation(dropdown-mobile, 4s);
   p{
     padding-top: 0;
     font-size: 4vw;
@@ -224,8 +224,7 @@ section.subheader{
     width: 60vw;
     height: 5rem;
     bottom: 1rem;
-    -webkit-animation-duration: 4s;
-    -webkit-animation-name: dropdown;
+    @include animation(dropdown, 4s);
     p{
       padding-top: 0.5rem;
       font-size: 1.5vw;
@@ -279,46 +278,5 @@ section.subheader{
   }
 }
 
-/*===========================================*/
-/*============Medium ============*/
-/*===========================================*/
-
-@media only screen and (min-width : 992px) {
-
-}
-
-/* Large Devices, Wide Screens */
-@media only screen and (min-width : 1200px) {
-
-}
-
-
-
-/*==========  Non-Mobile First Method  ==========*/
-
-/* Large Devices, Wide Screens */
-@media only screen and (max-width : 1200px) {
-
-}
-
-/* Medium Devices, Desktops */
-@media only screen and (max-width : 992px) {
-
-}
-
-/* Small Devices, Tablets */
-@media only screen and (max-width : 768px) {
-
-}
-
-/* Extra Small Devices, Phones */
-@media only screen and (max-width : 480px) {
-
-}
-
-/* Custom, iPhone Retina */
-@media only screen and (max-width : 320px) {
-
-}
 
 

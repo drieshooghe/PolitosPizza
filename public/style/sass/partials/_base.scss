@@ -124,6 +124,12 @@ $a-links-hover: 'a:active, a:hover';
   column-span: $rows;
 }
 
+@mixin animation($name, $duration){
+  -webkit-animation: $name $duration;
+  -moz-animation: $name, $duration;
+  -o-animation: $name $duration;
+  animation: $name $duration;
+}
 
 
 
@@ -133,9 +139,36 @@ $a-links-hover: 'a:active, a:hover';
 
 %flexbox{
   display: -webkit-flexbox;
+  display: -webkit-box;
   display: -moz-flexbox;
   display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
+}
+
+%flexcol{
+  -webkit-flex-direction: column;
+  flex-direction:column;
+}
+
+%flexrow{
+  -webkit-flex-direction: row;
+  flex-direction:row;
+}
+
+%align-items-center{
+ -webkit-align-items: center;
+  align-items: center;
+}
+
+%jstcnt-space-around{
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+}
+
+%jstcnt-center{
+  -webkit-justify-content: center;
+  justify-content: center;
 }
 
 %borderbox{
