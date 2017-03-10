@@ -14,8 +14,8 @@ class InfoController extends BaseController {
         if(date('N') == 1){
             $status2 = 'vandaag gesloten';
         } else {
-            if($hours->getStatus() == "momenteel open"){
-                $status2 = 'open';
+            if($hours->getStatus() == "open"){
+                $status2 = 'momenteel open';
             } else {
                 $status2 = ' momenteel gesloten';
             }
