@@ -22,7 +22,7 @@ class OpeningHours{
                 "starthour" => "closed",
                 "endhour" => "closed"),
             2 => array(
-                "id" => 1,
+                "id" => 2,
                 "day" => "dinsdag",
                 "starthour" => "17:00:00",
                 "endhour" => "23:00:00"),

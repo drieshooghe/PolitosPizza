@@ -50,9 +50,9 @@
             {% for value in LoginErr %}
                 <p>{{ value }}</p>
             {% endfor %}
-            E-mail: <br/><input type="text" name="email" placeholder="bv. pierre@politospizza.be"><br/>
-            Wachtwoord: <br/><input type="password" name="pwd" placeholder="***********"><br/>
-            Herhaal wachtwoord: <br/><input type="password" name="pwd2" placeholder="***********"><br/><br/>
+            E-mail: <br/><input type="text" name="email" placeholder="bv. pierre@politospizza.be" required="required"><br/>
+            Wachtwoord: <br/><input type="password" name="pwd" placeholder="***********" required="required"><br/>
+            Herhaal wachtwoord: <br/><input type="password" name="pwd2" placeholder="***********" required="required"><br/><br/>
             <input type="submit" value="Bevestigen"><br/>
         </form>
     </div>
