@@ -86,7 +86,7 @@ class MenuController extends BaseController {
             $hours = new OpeningSvc();
             $status = $hours->getStatus();
 
-            $this->assign('home', getPublicPath(""));
+            $this->assign('home', getPublicPath("/"));
             $this->assign('login', getPublicPath("/login"));
             $this->assign('status', $status);
             $this->assign('menu', getPublicPath("/menu"));

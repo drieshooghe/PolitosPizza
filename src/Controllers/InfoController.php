@@ -22,7 +22,7 @@ class InfoController extends BaseController {
         }
 
 
-        $this->assign('home', getPublicPath(""));
+        $this->assign('home', getPublicPath("/"));
         $this->assign('login', getPublicPath("/login"));
         $this->assign('status', $status);
         $this->assign('status2', $status2);

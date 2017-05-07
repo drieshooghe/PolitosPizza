@@ -50,7 +50,7 @@ class CheckoutController extends BaseController {
         $discountPerc = (1-$discount)*100;
         $totPrice =round(($totPrice*$discount)+$deliveryPrice, 2);
 
-        $this->assign('home', getPublicPath(""));
+        $this->assign('home', getPublicPath("/"));
         $this->assign('menu', getPublicPath("/menu"));
         $this->assign('confirm', getPublicPath("/confirm"));
 
@@ -85,7 +85,7 @@ class CheckoutController extends BaseController {
             unset($_SESSION['discount']);
             unset($_SESSION['orderlines']);
             $_SESSION['placedorder'] = true;
-            $this->redirect('');
+            $this->redirect('/');
         }
 
     }

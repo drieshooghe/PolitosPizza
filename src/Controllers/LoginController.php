@@ -13,7 +13,7 @@ class LoginController extends BaseController {
         $hours = new OpeningSvc();
         $status = $hours->getStatus();
 
-        $this->assign('home', getPublicPath(""));
+        $this->assign('home', getPublicPath("/"));
         $this->assign('login', getPublicPath("/login"));
         $this->assign('status', $status);
         $this->assign('menu', getPublicPath("/menu"));
@@ -32,7 +32,7 @@ class LoginController extends BaseController {
             unset($_SESSION["loggedIn"]);
             unset($_SESSION["custId"]);
             unset($_SESSION["orderlines"]);
-            $this->redirect('');
+            $this->redirect('/');
         }
 
         if(isset($_SESSION["wrongPwd"]) && $_SESSION["wrongPwd"] === true){
@@ -49,7 +49,7 @@ class LoginController extends BaseController {
     public function loginCheck() { //When request method POST is detected
         // TODO: encrypt Pwd
 
-        $this->assign('home', getPublicPath(""));
+        $this->assign('home', getPublicPath("/"));
 
         $login = new LoginSvc();
         $check = $login->checkPwd($_POST["email"], $_POST["pwd"]);
@@ -68,7 +68,7 @@ class LoginController extends BaseController {
                 unset($_SESSION["loginSrc"]);
                 $this->redirect('/checkout');//If the user came from order && pwd == true, take him to checkout
             } else {
-                $this->redirect(''); //If the user came from anywhere but order && pwd == true, take him to index
+                $this->redirect('/'); //If the user came from anywhere but order && pwd == true, take him to index
             }
 
         } elseif ($check == false) {

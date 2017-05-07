@@ -7,7 +7,7 @@ use PolitosPizza\Models\Data\LoginDAO;
 class RegisterController extends BaseController {
 
     public function register(){ //When request method GET is detected
-        $this->assign('home', getPublicPath("")); //Path to home
+        $this->assign('home', getPublicPath("/")); //Path to home
         $this->assign('firstName', "");
         $this->assign('famName', "");
         $this->assign('street', "");
@@ -16,7 +16,6 @@ class RegisterController extends BaseController {
         $this->assign('town', "");
         $this->assign('phoneNr', "");
         $this->assign('mobileNr', "");
-        $this->assign('home', getPublicPath(""));
         $this->assign('login', getPublicPath("/login"));
         $this->assign('menu', getPublicPath("/menu"));
         $this->assign('info', getPublicPath("/info"));
@@ -51,7 +50,7 @@ class RegisterController extends BaseController {
             $_SESSION["loggedIn"] = true;
             if(isset($_SESSION["RegSrc"]) && $_SESSION["RegSrc"] == "index") {
                 unset($_SESSION["RegSrc"]);
-                $this->redirect('');
+                $this->redirect('/');
             } elseif($_SESSION["RegSrc"] == "order") {
                 unset($_SESSION["RegSrc"]);
                 $this->redirect('/checkout');

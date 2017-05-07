@@ -18,7 +18,7 @@ class EmployeePageController extends BaseController
     public function showOrders(){
 
         if(!isset($_SESSION['employee'])){
-            $this->redirect('');
+            $this->redirect('/');
         }
 
         $orderDAO = new OrderDAO();
@@ -26,7 +26,7 @@ class EmployeePageController extends BaseController
         $this->assign('orders', $orders);
 
 
-        $this->assign('home', getPublicPath(''));
+        $this->assign('home', getPublicPath('/'));
         return $this->render('/employeepage');
     }
 
