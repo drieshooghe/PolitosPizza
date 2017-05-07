@@ -11,6 +11,6 @@ A summary of the orders can be shown when logging in with the following credenti
 username: admin
 password: admin
 
-The given delivery information is merely fictional.
+The given delivery and customer information is merely fictional.
 
 **DEMO:** visit <http://politos.drieshooghe.com>
